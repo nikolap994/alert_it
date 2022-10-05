@@ -42,6 +42,10 @@ export default async function handler(req, res) {
       }
     case "DELETE":
       try {
+        const monitorId = req.body.id;
+        await Monitor.findOneAndDelete({ _id: monitorId });
+        res.status(201).json({ success: true });
+        return;
       } catch (error) {
         res.status(400).json({ success: false });
       }

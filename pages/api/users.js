@@ -40,6 +40,8 @@ export default async function handler(req, res) {
       try {
         const userId = req.body.id;
         await User.findOneAndDelete({ _id: userId });
+        res.status(201).json({ success: true });
+        return;
       } catch (error) {
         res.status(400).json({ success: false });
       }
