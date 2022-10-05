@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       try {
         const userId = req.query.userId;
         if (userId) {
-          const monitors = await Monitor.find({ownder: userId});
+          const monitors = await Monitor.find({ ownder: userId });
           res.status(200).json({ success: true, data: monitors });
         } else {
           res.status(400).json({ success: false });
@@ -30,6 +30,13 @@ export default async function handler(req, res) {
       break;
     case "PUT":
       try {
+        const update = req.body.update;
+        const monitorId = req.body.id;
+
+        await Monitor.findOneAndUpdate({ _id: monitorId }, update);
+
+        const updatedMonitor = await Monitor.find({ _id: monitorId });
+        res.status(201).json({ success: true, data: updatedMonitor });
       } catch (error) {
         res.status(400).json({ success: false });
       }
