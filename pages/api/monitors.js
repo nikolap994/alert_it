@@ -22,6 +22,8 @@ export default async function handler(req, res) {
       break;
     case "POST":
       try {
+        const monitor = await Monitor.create(req.body);
+        res.status(201).json({ success: true, data: monitor });
       } catch (error) {
         res.status(400).json({ success: false });
       }
