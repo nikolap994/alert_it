@@ -1,26 +1,27 @@
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/dist/client/router";
+
 export default function Login() {
-  const onSubmit = event => {
-    event.preventDefault();
+  const { data: session } = useSession();
+  const router = useRouter();
 
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-
-    console.log(email, password);
-  };
+  console.log("session", session);
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email"></input>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password"></input>
-        </div>
-        <button type="submit">Sign in</button>
-      </form>
+      <main>
+        {session ? (
+          <button onClick={() => signOut()}>Log out</button>
+        ) : (
+          <button
+            onClick={() => {
+              router.push("/api/auth/signin");
+            }}
+          >
+            Sign in
+          </button>
+        )}
+      </main>
     </div>
   );
 }
