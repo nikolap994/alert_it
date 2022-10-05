@@ -2,13 +2,6 @@ import mongoose from "mongoose";
 
 const MonitorSchema = new mongoose.Schema(
   {
-    /**
-     * monitorType: HTTP(s),  TCP Port, Ping
-     * url: Website url
-     * heartbeat: how often we check
-     * retries: how many times we recheck after failure
-     * acceptedStatusCodes: allowed status codes, for example 200-299
-     */
     name: String,
     url: String,
     heartbeat: Number,
