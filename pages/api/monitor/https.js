@@ -9,9 +9,9 @@ export default async function handler(req, res) {
         const url = req.query.url;
         request(url, function (error, response) {
           if (!error) {
-            res.status(200).json({ url: url, status: response.statusCode });
+            res.status(200).json({ status: response.statusCode });
           } else {
-            res.status(200).json({ url: url, error: error });
+            res.status(200).json({ error: error });
           }
         });
       } catch (error) {
