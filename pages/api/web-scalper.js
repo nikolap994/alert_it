@@ -1,4 +1,4 @@
-import WebScalper from "../../../src/services/web-scalper";
+import WebScalper from "../../src/services/web-scalper";
 
 export default async function handler(req, res) {
   const { method } = req;
