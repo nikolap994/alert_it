@@ -45,7 +45,7 @@ class WebScalper {
         }
       }
 
-      const path = `./public/webscalper/${Date.now()}.png`;
+      const path = `./public/web-scalper/${Date.now()}.png`;
       await page.screenshot({ path: path, fullPage: false });
 
       await browser.close();
