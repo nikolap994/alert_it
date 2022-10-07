@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
 
-// require("./lib/cron"); //Temproray disabled until more of the frontned is done.
+/**
+ * On server startup run cronjob scheduler.
+ */
+require("./src/services/schedule/cron");
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
