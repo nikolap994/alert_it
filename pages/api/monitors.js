@@ -1,5 +1,5 @@
 import database from "../../src/helper/database";
-import Monitor from "../../src/models/Monitor";
+import Monitor from "../../src/models/monitor";
 
 export default async function handler(req, res) {
   const { method } = req;

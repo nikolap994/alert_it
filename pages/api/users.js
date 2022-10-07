@@ -1,5 +1,5 @@
 import database from "../../src/helper/database";
-import User from "../../src/models/User";
+import User from "../../src/models/user";
 
 export default async function handler(req, res) {
   const { method } = req;
