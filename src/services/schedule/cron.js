@@ -1,6 +1,6 @@
 const cron = require("node-cron");
 const database = require("../../helper/database");
-const Monitor = require("../../models/monitor");
+const Job = require("../../models/Job");
 
 // Execute every 1 minute
 // Execute every 5 minutes
@@ -10,6 +10,6 @@ const Monitor = require("../../models/monitor");
 
 cron.schedule("* * * * *", async () => {
   await database();
-  const monitors = await Monitor.find();
-  console.log(monitors);
+  const job = await Job.find();
+  console.log(job);
 });
