@@ -1,10 +1,10 @@
-import dbConnect from "../../lib/dbConnect";
-import User from "../../models/User";
+import database from "../../src/helper/database";
+import User from "../../src/models/User";
 
 export default async function handler(req, res) {
   const { method } = req;
 
-  await dbConnect();
+  await database();
 
   switch (method) {
     case "GET":

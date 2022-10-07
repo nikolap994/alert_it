@@ -1,10 +1,10 @@
-import dbConnect from "../../lib/dbConnect";
-import Monitor from "../../models/Monitor";
+import database from "../../src/helper/database";
+import Monitor from "../../src/models/Monitor";
 
 export default async function handler(req, res) {
   const { method } = req;
 
-  await dbConnect();
+  await database();
 
   switch (method) {
     case "GET":
