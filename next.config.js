@@ -3,7 +3,8 @@
 /**
  * On server startup run cronjob scheduler.
  */
-require("./src/services/schedule/cron");
+const Cron = require("./src/services/schedule/cron");
+new Cron();
 
 const nextConfig = {
   reactStrictMode: true,
