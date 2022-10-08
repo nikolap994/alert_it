@@ -18,3 +18,6 @@ All notable changes to this project will be documented in this file.
 - Catamaran font family
 - Navigation component
 - Header component
+- Cron scheduler
+- Jobs model
+- Jobs API endpoints
