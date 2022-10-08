@@ -4,12 +4,11 @@ const JobSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
     description: String,
-    status: String,
-    dateAdded: { type: Date, default: Date.now },
-    lastRun: Date,
-    nextRun: Date,
+    commands: String,
     cron: String,
     enabled: Number,
+    url: String,
+    port: Number,
   },
   { timestamps: true }
 );

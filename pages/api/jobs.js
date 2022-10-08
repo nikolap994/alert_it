@@ -33,6 +33,7 @@ export default async function handler(req, res) {
 
         const updatedJob = await Job.find({ _id: jobId });
         res.status(201).json({ success: true, data: updatedJob });
+        return;
       } catch (error) {
         res.status(400).json({ success: false });
       }
