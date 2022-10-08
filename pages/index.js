@@ -3,11 +3,11 @@ function HomePage() {
     <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
       <h1 className="text-6xl font-bold">
         Welcome to {' '}
-        <a className="text-blue-600" href="https://nextjs.org">
+        <span className="text-blue-600">
           Uptime Monitor
-        </a>
+        </span>
       </h1>
-    </main>
+    </main >
   )
 }
 

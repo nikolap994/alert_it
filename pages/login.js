@@ -9,7 +9,7 @@ export default function Login() {
 
   return (
     <div>
-      <main>
+      <main className="bg-slate-200">
         {session ? (
           <button onClick={() => signOut()}>Log out</button>
         ) : (
