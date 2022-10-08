@@ -16,3 +16,4 @@ All notable changes to this project will be documented in this file.
 - web-scalper
 - web-scalper api endpoints
 - Catamaran font family
+- Navigation component
