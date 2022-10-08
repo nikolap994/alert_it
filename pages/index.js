@@ -1,4 +1,4 @@
-export default function Home() {
+function HomePage() {
   return (
     <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
       <h1 className="text-6xl font-bold">
@@ -10,3 +10,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default HomePage
