@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./typography.css";
+
+@layer base {
+	body {
+		font-family: "Catamaran-Regular";
+	}
+
+	h1,
+	h2 {
+		font-family: "Catamaran-Bold";
+	}
+
+	h3,
+	h4 {
+		font-family: "Catamaran-Regular";
+	}
+}
