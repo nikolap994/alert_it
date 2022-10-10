@@ -41,6 +41,7 @@ class Communication {
       console.log(e);
     }
   }
+  
   sendSms() {}
   sendTwitter() {}
 
