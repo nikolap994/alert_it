@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+const nodeMailer = require("nodemailer");
 const slackNotify = require("slack-notify");
 
 class Communication {
@@ -10,7 +10,7 @@ class Communication {
    * @param {String} html - Email body html.
    */
   sendMail(from, to, subject, html) {
-    let transporter = nodemailer.createTransport({
+    let transporter = nodeMailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
       secure: false,
@@ -41,7 +41,7 @@ class Communication {
       console.log(e);
     }
   }
-  
+
   sendSms() {}
   sendTwitter() {}
 
