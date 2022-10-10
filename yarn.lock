@@ -2354,6 +2354,11 @@
   "resolved" "https://registry.npmjs.org/sift/-/sift-16.0.0.tgz"
   "version" "16.0.0"
 
+"slack-notify@^2.0.3":
+  "integrity" "sha512-kRbXhgVnUoI93nIMaXprZyBixH3FfsMkybxppPU0r9yQm4RIoAw2E1QG3l15KRAce7S0mGPYYTIZ7rf6IbBAIQ=="
+  "resolved" "https://registry.npmjs.org/slack-notify/-/slack-notify-2.0.3.tgz"
+  "version" "2.0.3"
+
 "slash@^3.0.0":
   "integrity" "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="
   "resolved" "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
