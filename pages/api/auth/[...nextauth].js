@@ -30,6 +30,9 @@ export default NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/signin"
+  },
   callbacks: {
     jwt: ({ token, user }) => {
       // first time jwt callback is run, user object is available

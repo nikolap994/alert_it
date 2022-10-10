@@ -21,3 +21,4 @@ All notable changes to this project will be documented in this file.
 - Cron scheduler
 - Jobs model
 - Jobs API endpoints
+- Custom Sign In page

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import Navigation from "./nav"
 
@@ -9,12 +10,18 @@ function Header() {
     return (
         <header className="bg-slate-800">
             <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-                <Image
-                    src={logoImg}
-                    alt="Logo image"
-                    width={100}
-                    height={75}
-                />
+                <Link href="/">
+                    <a className="flex">
+                        <Image
+                            className="h-full"
+                            src={logoImg}
+                            alt="Logo image"
+                            width={100}
+                            height={75}
+                        />
+                    </a>
+                </Link>
+
                 <Navigation />
             </div>
         </header>
