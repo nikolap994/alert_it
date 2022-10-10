@@ -1,5 +1,5 @@
 export default function Register() {
-	const onSubmit = (event) => {
+	const onSubmit = event => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
