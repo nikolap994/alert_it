@@ -1,16 +1,16 @@
-import "../styles/globals.css"
+import "../styles/globals.css";
 
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
 
-import Header from '../components/header';
+import Header from "../components/header";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <SessionProvider>
-      <Header />
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
+	return (
+		<SessionProvider>
+			<Header />
+			<Component {...pageProps} />
+		</SessionProvider>
+	);
 }
 
 export default MyApp;

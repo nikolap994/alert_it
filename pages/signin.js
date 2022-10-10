@@ -2,7 +2,7 @@ import { getCsrfToken, getProviders } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import loginBg from "../src/images/login-bg.jpg";
+import loginBg from "../public/images/login-bg.jpg";
 
 export default function SignIn({ csrfToken }) {
 	return (
@@ -82,7 +82,7 @@ export default function SignIn({ csrfToken }) {
 							</button>
 
 							<p className="mt-6 text-sm text-center text-gray-400">
-								Don't have an account yet?{" "}
+								Don&#39;t have an account yet?{" "}
 								<Link
 									href="/register"
 									className="text-blue-400 focus:outline-none focus:underline hover:underline"
