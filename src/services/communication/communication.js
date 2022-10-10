@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const slackNotify = require("slack-notify");
 
 class Communication {
   /**
@@ -42,7 +43,25 @@ class Communication {
   }
   sendSms() {}
   sendTwitter() {}
-  sendSlack() {}
+
+  /**
+   *
+   * @param {String} slack_webhook_url - webhook from the app that will forward message.
+   * @param {String} message - Message to send to slack server.
+   */
+  sendSlack(slack_webhook_url, message) {
+    const slack = slackNotify(slack_webhook_url);
+
+    slack
+      .send(message)
+      .then(() => {
+        console.log("done!");
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
   sendDiscord() {}
   sendTelegram() {}
   sendMattermost() {}
