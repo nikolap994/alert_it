@@ -64,7 +64,6 @@ class Communication {
   }
 
   sendDiscord() {}
-  sendTelegram() {}
   sendMattermost() {}
 }
 
