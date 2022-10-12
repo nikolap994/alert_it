@@ -61,8 +61,6 @@ class Communication {
 			});
 	}
 
-	sendDiscord() {}
-
 	/**
 	 *
 	 * @param {String} mattermost_webhook_url - mattermost hook.
