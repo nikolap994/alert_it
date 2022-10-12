@@ -1,5 +1,6 @@
 const nodeMailer = require("nodemailer");
 const slackNotify = require("slack-notify");
+var Mattermost = require("node-mattermost");
 
 class Communication {
 	/**
@@ -42,9 +43,6 @@ class Communication {
 		}
 	}
 
-	sendSms() {}
-	sendTwitter() {}
-
 	/**
 	 *
 	 * @param {String} slack_webhook_url - webhook from the app that will forward message.
@@ -64,7 +62,15 @@ class Communication {
 	}
 
 	sendDiscord() {}
-	sendMattermost() {}
+
+	sendMattermost(mattermost_webhook_url, message, channel, username) {
+		const mattermost = new Mattermost(mattermost_webhook_url);
+		mattermost.send({
+			text: message,
+			channel: channel,
+			username: username,
+		});
+	}
 }
 
 module.exports = Communication;
