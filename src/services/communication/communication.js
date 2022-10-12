@@ -63,6 +63,13 @@ class Communication {
 
 	sendDiscord() {}
 
+	/**
+	 *
+	 * @param {String} mattermost_webhook_url - mattermost hook.
+	 * @param {String} message - message content.
+	 * @param {String} channel - channel to which we are sending the message.
+	 * @param {String} username - message sender username.
+	 */
 	sendMattermost(mattermost_webhook_url, message, channel, username) {
 		const mattermost = new Mattermost(mattermost_webhook_url);
 		mattermost.send({
