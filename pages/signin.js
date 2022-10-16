@@ -1,14 +1,19 @@
 import { getCsrfToken, getProviders } from "next-auth/react";
+import { useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import loginBg from "../public/images/login-bg.jpg";
 
 export default function SignIn({ csrfToken }) {
+	const [value, setValue] = useState("");
+	const [buttonClass, setButtonClass] = useState(0);
+
 	return (
 		<section className="bg-white dark:bg-gray-900">
 			<div className="flex justify-center h-screen">
-				<div className="relative bg-slate-400 bg-cover lg:block lg:w-2/3">
+				<div className="hidden lg:block relative bg-slate-400 bg-cover lg:block lg:w-2/3">
 					<Image
 						className="mix-blend-multiply"
 						src={loginBg}
@@ -29,7 +34,6 @@ export default function SignIn({ csrfToken }) {
 						</div>
 					</div>
 				</div>
-
 				<div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
 					<div className="flex-1">
 						<div className="text-center">
@@ -51,20 +55,44 @@ export default function SignIn({ csrfToken }) {
 							<label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
 								Username
 								<input
-									className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									placeholder="Enter your username"
+									className="usernameInput block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="username"
 									name="username"
 									type="text"
+									onChange={(e) => {
+										setValue(e.currentTarget.value);
+										const userName = JSON.stringify(e.currentTarget.value);
+
+										userName.length - 2 >= 4
+											? setButtonClass(
+													"bg-gradient-to-r from-indigo-600 via-indigo-100 to-white"
+											  )
+											: "";
+
+										userName.length <= 2 ? setButtonClass("bg-white") : "";
+									}}
 								/>
 							</label>
 
 							<label className="flex flex-col block mt-8 mb-4 text-sm text-gray-600 dark:text-gray-200">
 								Password
 								<input
+									placeholder="Enter your password"
 									className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="current-password"
 									name="password"
 									type="password"
+									onChange={(e) => {
+										setValue(e.currentTarget.value);
+										const passwordInput = JSON.stringify(e.currentTarget.value);
+
+										passwordInput.length - 2 >= 4
+											? setButtonClass("bg-indigo-400 text-white")
+											: "";
+
+										passwordInput.length <= 2 ? setButtonClass("bg-white") : "";
+									}}
 								/>
 							</label>
 							<a
@@ -75,19 +103,19 @@ export default function SignIn({ csrfToken }) {
 							</a>
 
 							<button
-								className="mt-8 py-2 px-8 mx-auto rounded-md bg-white fade-out hover:bg-slate-600 hover:text-white"
+								className={`mt-8 py-2 px-8 mx-auto border rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
 								type="submit"
 							>
 								Sign in
 							</button>
 
 							<p className="mt-6 text-sm text-center text-gray-400">
-								Don&#39;t have an account yet?{" "}
-								<Link
-									href="/register"
-									className="text-blue-400 focus:outline-none focus:underline hover:underline"
-								>
-									<a> Sign up. </a>
+								Don&#39;t have an account yet?
+								<Link href="/register">
+									<a className="text-blue-400 focus:outline-none focus:underline hover:underline">
+										{" "}
+										Sign up.
+									</a>
 								</Link>
 							</p>
 						</form>

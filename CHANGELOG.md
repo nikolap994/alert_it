@@ -22,3 +22,4 @@ All notable changes to this project will be documented in this file.
 - Jobs model
 - Jobs API endpoints
 - Custom Sign In page
+- Sign In button animation
