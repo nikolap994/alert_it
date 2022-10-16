@@ -5,10 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import loginBg from "../public/images/login-bg.jpg";
+import eyeIcon from "../public/images/icons/eye.png";
+import eyeHideIcon from "../public/images/icons/n-eye-hide.png";
 
 export default function SignIn({ csrfToken }) {
 	const [value, setValue] = useState("");
 	const [buttonClass, setButtonClass] = useState(0);
+	const [showPassword, setShowPassword] = useState(0);
+	const [isEyeOpen, toggleEye] = useState(0);
 
 	return (
 		<section className="bg-white dark:bg-gray-900">
@@ -75,14 +79,14 @@ export default function SignIn({ csrfToken }) {
 								/>
 							</label>
 
-							<label className="flex flex-col block mt-8 mb-4 text-sm text-gray-600 dark:text-gray-200">
+							<label className="relative flex flex-col block mt-8 mb-4 text-sm text-gray-600 dark:text-gray-200">
 								Password
 								<input
 									placeholder="Enter your password"
 									className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="current-password"
 									name="password"
-									type="password"
+									type={showPassword ? "text" : "password"}
 									onChange={(e) => {
 										setValue(e.currentTarget.value);
 										const passwordInput = JSON.stringify(e.currentTarget.value);
@@ -94,6 +98,20 @@ export default function SignIn({ csrfToken }) {
 										passwordInput.length <= 2 ? setButtonClass("bg-white") : "";
 									}}
 								/>
+								<button
+									className="absolute -bottom-2 right-4"
+									type="button"
+									onClick={() => setShowPassword(!showPassword)}
+								>
+									<Image
+										className="h-auto w-auto"
+										src={isEyeOpen ? eyeIcon : eyeHideIcon}
+										alt="Eye icon"
+										width={35}
+										height={35}
+										onClick={() => toggleEye(!isEyeOpen)}
+									/>
+								</button>
 							</label>
 							<a
 								href="/forgotten-password"
