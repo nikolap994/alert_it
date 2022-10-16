@@ -17,7 +17,7 @@ export default function SignIn({ csrfToken }) {
 	return (
 		<section className="bg-white dark:bg-gray-900">
 			<div className="flex justify-center h-screen">
-				<div className="hidden lg:block relative bg-slate-400 bg-cover lg:block lg:w-2/3">
+				<div className="hidden lg:block relative bg-slate-400 bg-cover lg:block xl:w-2/3">
 					<Image
 						className="mix-blend-multiply"
 						src={loginBg}
@@ -38,7 +38,7 @@ export default function SignIn({ csrfToken }) {
 						</div>
 					</div>
 				</div>
-				<div className="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
+				<div className="flex items-center w-full max-w-md px-6 mx-auto xl:w-2/6">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">
@@ -51,16 +51,16 @@ export default function SignIn({ csrfToken }) {
 						</div>
 
 						<form
-							className="flex flex-col mt-8"
 							method="post"
 							action="/api/auth/callback/credentials"
+							className="flex flex-col mt-8"
 						>
 							<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 							<label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
 								Username
 								<input
 									placeholder="Enter your username"
-									className="usernameInput block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="usernameInput dark:bg-gray-200 dark:text-black block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="username"
 									name="username"
 									type="text"
@@ -75,6 +75,9 @@ export default function SignIn({ csrfToken }) {
 											: "";
 
 										userName.length <= 2 ? setButtonClass("bg-white") : "";
+
+										let usernameRegex = /^[a-zA-Z0-9]+$/;
+										return usernameRegex.test(userName);
 									}}
 								/>
 							</label>
@@ -83,7 +86,7 @@ export default function SignIn({ csrfToken }) {
 								Password
 								<input
 									placeholder="Enter your password"
-									className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full dark:bg-gray-200 dark:text-black px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="current-password"
 									name="password"
 									type={showPassword ? "text" : "password"}
@@ -121,7 +124,7 @@ export default function SignIn({ csrfToken }) {
 							</a>
 
 							<button
-								className={`mt-8 py-2 px-8 mx-auto border rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
+								className={`mt-8 py-2 px-8 mx-auto border border-transparent	rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
 								type="submit"
 							>
 								Sign in
