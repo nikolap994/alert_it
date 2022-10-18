@@ -1,56 +1,61 @@
 import NextAuth from "next-auth";
-import CredentialProvider from "next-auth/providers/credentials";
-
+import CredentialsProvider from "next-auth/providers/credentials";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import clientPromise from "../../../src/helper/mongodb";
+import dbConnect from "../../../src/helper/dbConnect";
+import User from "../../../src/models/user";
+import { compare } from "bcrypt";
 export default NextAuth({
 	providers: [
-		CredentialProvider({
-			name: "credentials",
+		CredentialsProvider({
+			id: "credentials",
+			name: "Credentials",
 			credentials: {
-				username: {
+				email: {
 					label: "Email",
 					type: "text",
-					placeholder: "johndoe@test.com",
 				},
-				password: { label: "Password", type: "password" },
+				password: {
+					label: "Password",
+					type: "password",
+				},
 			},
-			authorize: credentials => {
-				// database look up
-				if (
-					credentials.username === "john" &&
-					credentials.password === "test"
-				) {
-					return {
-						id: 2,
-						name: "John",
-						email: "johndoe@test.com",
-					};
+			async authorize(credentials) {
+				await dbConnect();
+				const user = await User.findOne({
+					email:
+						credentials === null || credentials === void 0
+							? void 0
+							: credentials.email,
+				});
+
+				if (!user) {
+					throw new Error("Email is not registered");
 				}
-				// login failed
-				return null;
+
+				const isPasswordCorrect = await compare(
+					credentials.password,
+					user.hashedPassword
+				);
+
+				if (!isPasswordCorrect) {
+					throw new Error("Password is incorrect");
+				}
+
+				return user;
 			},
 		}),
 	],
 	pages: {
 		signIn: "/signin",
 	},
-	callbacks: {
-		jwt: ({ token, user }) => {
-			// first time jwt callback is run, user object is available
-			if (user) {
-				token.id = user.id;
-			}
-			return token;
-		},
-		session: ({ session, token }) => {
-			if (token) {
-				session.id = token.id;
-			}
-			return session;
-		},
+	debug: process.env.NODE_ENV === "development",
+	adapter: MongoDBAdapter(clientPromise),
+	session: {
+		strategy: "jwt",
 	},
-	secret: "test",
 	jwt: {
-		secret: "test",
-		encryption: true,
+		secret: process.env.NEXTAUTH_JWT_SECRET,
 	},
+	secret: process.env.NEXTAUTH_SECRET,
 });
