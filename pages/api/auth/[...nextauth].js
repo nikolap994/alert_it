@@ -5,6 +5,7 @@ import clientPromise from "../../../src/helper/mongodb";
 import dbConnect from "../../../src/helper/dbConnect";
 import User from "../../../src/models/user";
 import { compare } from "bcrypt";
+
 export default NextAuth({
 	providers: [
 		CredentialsProvider({
@@ -35,7 +36,7 @@ export default NextAuth({
 
 				const isPasswordCorrect = await compare(
 					credentials.password,
-					user.hashedPassword
+					user.password
 				);
 
 				if (!isPasswordCorrect) {
