@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema(
 			required: [true, "can't be blank"],
 			match: [/\S+@\S+\.\S+/, "is invalid"],
 			index: { unique: true },
+			unique: true
 		},
 		firstName: String,
 		lastName: String,

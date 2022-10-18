@@ -10,7 +10,7 @@ import eyeHideIcon from "../public/images/icons/n-eye-hide.png";
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
 
-	const onSubmit = (event) => {
+	const onSubmit = event => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -19,7 +19,27 @@ export default function Register() {
 		const password = event.target.password.value;
 		const repeatPassword = event.target.repeatpassword.value;
 
-		console.log(firstName, lastName, email, password, repeatPassword);
+		const myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			email: email,
+			firstName: firstName,
+			lastName: lastName,
+			password: password,
+		});
+
+		var requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow",
+		};
+
+		fetch(`/api/users`, requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
 	};
 
 	return (
