@@ -26,4 +26,5 @@ All notable changes to this project will be documented in this file.
 - Toggle password visibility functionallity
 
 ### Changed
+- Add Sign In Form component
 - Add Sign In CTA component
