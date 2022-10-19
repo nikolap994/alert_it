@@ -23,7 +23,7 @@ function Navigation() {
 				</li>
 				<li className="">
 					{" "}
-					<Link href="#">
+					<Link href="/signin">
 						{session ? (
 							<button onClick={() => signOut()}>Log out</button>
 						) : (
