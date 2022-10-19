@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import loginBg from "../public/images/login-bg.jpg";
-import eyeIcon from "../public/images/icons/eye.png";
-import eyeHideIcon from "../public/images/icons/n-eye-hide.png";
+import eyeIcon from "../public/images/icons/eye-open.png";
+import eyeHideIcon from "../public/images/icons/eye-close.png";
 
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
 
-	const onSubmit = event => {
+	const onSubmit = (event) => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -37,9 +37,9 @@ export default function Register() {
 		};
 
 		fetch(`/api/users`, requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log("error", error));
+			.then((response) => response.text())
+			.then((result) => console.log(result))
+			.catch((error) => console.log("error", error));
 	};
 
 	return (
