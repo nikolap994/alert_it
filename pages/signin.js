@@ -1,5 +1,5 @@
 import SignInCTA from "../src/components/signin-cta";
-import SignInForm from "./signin-form";
+import SignInForm from "../src/components/sign-in-form";
 
 export default function SignIn() {
 	return (

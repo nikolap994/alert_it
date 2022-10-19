@@ -4,8 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import eyeIcon from "../public/images/icons/eye-open.png";
-import eyeHideIcon from "../public/images/icons/eye-close.png";
+import eyeIcon from "../../public/images/icons/eye-open.png";
+import eyeHideIcon from "../../public/images/icons/eye-close.png";
 
 export default function SignInForm({ csrfToken }) {
 	const [value, setValue] = useState("");
