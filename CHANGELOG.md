@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Custom Sign In page
 - Sign In button animation
 - Toggle password visibility functionallity
+- 404 page
 
 ### Changed
 - Add Sign In Form component
