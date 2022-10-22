@@ -13,6 +13,31 @@ export default function SignInForm({ csrfToken }) {
 	const [showPassword, setShowPassword] = useState(0);
 	const [isEyeOpen, toggleEye] = useState(0);
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		const data = {
+			first: event.target.username.value,
+			last: event.target.password.value,
+		};
+
+		const JSONdata = JSON.stringify(data);
+
+		const endpoint = "/api/form";
+
+		const options = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSONdata,
+		};
+
+		const response = await fetch(endpoint, options);
+
+		const result = await response.json();
+		console.log(`Credentials: ${result.data}`);
+	};
 	return (
 		<div className="flex items-center w-full max-w-md px-6 mx-auto xl:w-2/6">
 			<div className="flex-1">
@@ -22,11 +47,11 @@ export default function SignInForm({ csrfToken }) {
 					</h2>
 
 					<p className="mt-3 text-gray-500 dark:text-gray-300">
-						Sign in to access your account
+						Log in to access your account
 					</p>
 				</div>
-
 				<form
+					onSubmit={handleSubmit}
 					method="post"
 					action="/api/auth/callback/credentials"
 					className="flex flex-col mt-8"
@@ -36,10 +61,13 @@ export default function SignInForm({ csrfToken }) {
 						Username
 						<input
 							placeholder="Enter your username"
-							className="usernameInput dark:bg-gray-200 dark:text-black block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="usernameInput dark:bg-gray-200 dark:text-white block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 							autoComplete="username"
 							name="username"
+							title="Username can only contain letters (a to z) and digits (0 to 9)."
 							type="text"
+							required
+							minLength="4"
 							onChange={(e) => {
 								setValue(e.currentTarget.value);
 								const userName = JSON.stringify(e.currentTarget.value);
@@ -62,10 +90,12 @@ export default function SignInForm({ csrfToken }) {
 						Password
 						<input
 							placeholder="Enter your password"
-							className="block w-full dark:bg-gray-200 dark:text-black px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="block w-full dark:bg-gray-200 dark:text-white px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 							autoComplete="current-password"
 							name="password"
 							type={showPassword ? "text" : "password"}
+							required
+							minLength="4"
 							onChange={(e) => {
 								setValue(e.currentTarget.value);
 								const passwordInput = JSON.stringify(e.currentTarget.value);
@@ -102,6 +132,7 @@ export default function SignInForm({ csrfToken }) {
 					<button
 						className={`mt-8 py-2 px-8 mx-auto border-none rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
 						type="submit"
+						href="/"
 					>
 						Sign in
 					</button>
