@@ -17,7 +17,7 @@ export default function SignInForm({ csrfToken }) {
 		event.preventDefault();
 
 		const data = {
-			first: event.target.username.value,
+			first: event.target.email.value,
 			last: event.target.password.value,
 		};
 
@@ -58,30 +58,30 @@ export default function SignInForm({ csrfToken }) {
 				>
 					<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 					<label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-						Username
+						Email
 						<input
-							placeholder="Enter your username"
-							className="usernameInput dark:bg-gray-200 dark:text-white block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-							autoComplete="username"
-							name="username"
-							title="Username can only contain letters (a to z) and digits (0 to 9)."
-							type="text"
+							placeholder="Enter your email"
+							className="emailInput dark:bg-gray-200 block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+							autoComplete="email"
+							name="email"
+							title="Must be a registered email address."
+							type="email"
 							required
 							minLength="4"
 							onChange={(e) => {
 								setValue(e.currentTarget.value);
-								const userName = JSON.stringify(e.currentTarget.value);
+								const userEmail = JSON.stringify(e.currentTarget.value);
 
-								userName.length - 2 >= 4
+								userEmail.length - 2 >= 4
 									? setButtonClass(
 											"bg-gradient-to-r from-indigo-600 via-indigo-100 to-white"
 									  )
 									: "";
 
-								userName.length <= 2 ? setButtonClass("bg-white") : "";
+								userEmail.length <= 2 ? setButtonClass("bg-white") : "";
 
 								let usernameRegex = /^[a-zA-Z0-9]+$/;
-								return usernameRegex.test(userName);
+								return usernameRegex.test(userEmail);
 							}}
 						/>
 					</label>
@@ -90,7 +90,7 @@ export default function SignInForm({ csrfToken }) {
 						Password
 						<input
 							placeholder="Enter your password"
-							className="block w-full dark:bg-gray-200 dark:text-white px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="block w-full dark:bg-gray-200 px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 							autoComplete="current-password"
 							name="password"
 							type={showPassword ? "text" : "password"}
