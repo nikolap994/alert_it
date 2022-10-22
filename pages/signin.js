@@ -108,13 +108,13 @@ export default function SignIn({ csrfToken }) {
 								Forgot password?
 							</a>
 							<div className="flex relative">
-								<div className="absolute left-1/2">
+								<div className="absolute left-[59%] top-1/4">
 									<Image
 										className="h-auto w-auto"
 										src={funEyeIcon}
 										alt="Eye icon"
-										width={25}
-										height={25}
+										width={30}
+										height={30}
 									/>
 								</div>
 								<button
