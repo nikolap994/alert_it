@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "Catamaran-Light";
 	src: local("Catamaran Light"),
-		url("../pages/fonts/catamaran/catamaran-v17-latin-100.ttf")
+		url("../public/fonts/catamaran/catamaran-v17-latin-100.ttf")
 			format("truetype");
 	font-weight: 200;
 	font-style: light;
@@ -11,7 +11,7 @@
 @font-face {
 	font-family: "Catamaran-Regular";
 	src: local("Catamaran Regular"),
-		url("../pages/fonts/catamaran/catamaran-v17-latin-regular.ttf")
+		url("../public/fonts/catamaran/catamaran-v17-latin-regular.ttf")
 			format("truetype");
 	font-weight: 400;
 	font-style: normal;
@@ -21,7 +21,7 @@
 @font-face {
 	font-family: "Catamaran-Medium";
 	src: local("Catamaran Medium"),
-		url("../pages/fonts/catamaran/catamaran-v17-latin-500.ttf")
+		url("../public/fonts/catamaran/catamaran-v17-latin-500.ttf")
 			format("truetype");
 	font-weight: 400;
 	font-style: normal;
@@ -31,7 +31,7 @@
 @font-face {
 	font-family: "Catamaran-Bold";
 	src: local("Catamaran Bold"),
-		url("../pages/fonts/catamaran/catamaran-v17-latin-800.ttf")
+		url("../public/fonts/catamaran/catamaran-v17-latin-800.ttf")
 			format("truetype");
 	font-weight: 800;
 	font-style: bold;
