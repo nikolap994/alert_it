@@ -10,19 +10,15 @@ function Navigation() {
 		<nav>
 			<ul className="flex gap-4 text-white">
 				<li className="">
-					{" "}
-					<Link href="/"> Home </Link>{" "}
+					<Link href="/"> Home </Link>
 				</li>
 				<li className="">
-					{" "}
-					<Link href="/pricing"> Pricing </Link>{" "}
+					<Link href="/pricing"> Pricing </Link>
 				</li>
 				<li className="">
-					{" "}
-					<Link href="/contact"> Contact </Link>{" "}
+					<Link href="/contact"> Contact </Link>
 				</li>
 				<li className="">
-					{" "}
 					<Link href="/signin">
 						{session ? (
 							<button onClick={() => signOut()}>Log out</button>

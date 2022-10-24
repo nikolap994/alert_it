@@ -189,7 +189,6 @@ export default function Register() {
 								Already have an account?
 								<Link href="/signin">
 									<a className="text-blue-400 focus:outline-none focus:underline hover:underline">
-										{" "}
 										Sign in.
 									</a>
 								</Link>

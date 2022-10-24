@@ -1,4 +1,6 @@
-function HomePage() {
+import { getSession } from "next-auth/react";
+
+export default function HomePage() {
 	return (
 		<main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
 			<h1 className="text-6xl font-bold">
@@ -8,4 +10,17 @@ function HomePage() {
 	);
 }
 
-export default HomePage;
+export async function getServerSideProps(context) {
+	const { req } = context;
+	const session = await getSession({ req });
+
+	if (session) {
+		return {
+			redirect: { destination: "/dashboard" },
+		};
+	}
+
+	return {
+		props: {},
+	};
+}

@@ -85,7 +85,7 @@ export default function SignIn({ csrfToken }) {
 
 										passwordInput.length <= 2 ? setButtonClass("bg-white") : "";
 									}}
-								/>{" "}
+								/>
 								<button
 									className="absolute bottom-0 right-4"
 									type="button"
@@ -129,7 +129,6 @@ export default function SignIn({ csrfToken }) {
 								Don&#39;t have an account yet?
 								<Link href="/register">
 									<a className="text-blue-400 focus:outline-none focus:underline hover:underline">
-										{" "}
 										Sign up.
 									</a>
 								</Link>
@@ -148,7 +147,7 @@ export async function getServerSideProps(context) {
 
 	if (session) {
 		return {
-			redirect: { destination: "/" },
+			redirect: { destination: "/dashboard" },
 		};
 	}
 
