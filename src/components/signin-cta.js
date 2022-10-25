@@ -4,13 +4,12 @@ import loginBg from "../../public/images/login-bg.jpg";
 
 function SignInCTA() {
 	return (
-		<div className="w-2/3 hidden lg:block relative bg-slate-400 bg-cover lg:block">
+		<div className="w-1/2 hidden lg:block relative bg-slate-400 bg-cover lg:block">
 			<Image
 				className="mix-blend-multiply"
 				src={loginBg}
 				alt="Log in image"
 				layout="fill"
-				objectfit="cover"
 				priority={true}
 				quality={100}
 			/>
