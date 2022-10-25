@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getCsrfToken, getSession } from "next-auth/react";
 import SignInCTA from "../src/components/signin-cta";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 
 import eyeIcon from "../public/images/icons/eye-open.png";
@@ -16,7 +16,7 @@ export default function SignIn({ csrfToken }) {
 	const [isEyeOpen, toggleEye] = useState(0);
 
 	return (
-		<section className="bg-white dark:bg-gray-900">
+        <section className="bg-white dark:bg-gray-900">
 			<div className="flex justify-center h-screen">
 				<SignInCTA />
 				<div className="flex items-center w-full max-w-md px-6 mx-auto xl:w-2/6">
@@ -139,7 +139,7 @@ export default function SignIn({ csrfToken }) {
 				</div>
 			</div>
 		</section>
-	);
+    );
 }
 
 export async function getServerSideProps(context) {
