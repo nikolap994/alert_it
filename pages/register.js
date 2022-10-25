@@ -10,7 +10,7 @@ import eyeHideIcon from "../public/images/icons/eye-close.png";
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
 
-	const onSubmit = (event) => {
+	const onSubmit = event => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -37,9 +37,9 @@ export default function Register() {
 		};
 
 		fetch(`/api/users`, requestOptions)
-			.then((response) => response.text())
-			.then((result) => console.log(result))
-			.catch((error) => console.log("error", error));
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
 	};
 
 	return (
@@ -51,7 +51,7 @@ export default function Register() {
 						src={loginBg}
 						alt="Log in image"
 						layout="fill"
-						objectFit="cover"
+						objectfit="cover"
 						priority={true}
 						quality={100}
 					/>
@@ -187,10 +187,11 @@ export default function Register() {
 
 							<p className="text-sm text-center text-gray-400">
 								Already have an account?
-								<Link href="/signin">
-									<a className="text-blue-400 focus:outline-none focus:underline hover:underline">
-										Sign in.
-									</a>
+								<Link
+									className="text-blue-400 focus:outline-none focus:underline hover:underline"
+									href="/signin"
+								>
+									Sign in.
 								</Link>
 							</p>
 						</form>

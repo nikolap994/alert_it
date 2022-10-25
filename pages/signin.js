@@ -48,7 +48,7 @@ export default function SignIn({ csrfToken }) {
 									type="email"
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setValue(e.currentTarget.value);
 										const userEmail = JSON.stringify(e.currentTarget.value);
 
@@ -75,7 +75,7 @@ export default function SignIn({ csrfToken }) {
 									type={showPassword ? "text" : "password"}
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setValue(e.currentTarget.value);
 										const passwordInput = JSON.stringify(e.currentTarget.value);
 
@@ -127,10 +127,11 @@ export default function SignIn({ csrfToken }) {
 							</div>
 							<p className="mt-6 text-sm text-center text-gray-400">
 								Don&#39;t have an account yet?
-								<Link href="/register">
-									<a className="text-blue-400 focus:outline-none focus:underline hover:underline">
-										Sign up.
-									</a>
+								<Link
+									className="text-blue-400 focus:outline-none focus:underline hover:underline"
+									href="/register"
+								>
+									Sign up.
 								</Link>
 							</p>
 						</form>

@@ -10,7 +10,7 @@ function SignInCTA() {
 				src={loginBg}
 				alt="Log in image"
 				layout="fill"
-				objectFit="cover"
+				objectfit="cover"
 				priority={true}
 				quality={100}
 			/>

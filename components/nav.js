@@ -23,13 +23,13 @@ function Navigation() {
 						{session ? (
 							<button onClick={() => signOut()}>Log out</button>
 						) : (
-							<a
+							<button
 								onClick={() => {
 									router.push("/api/auth/signin");
 								}}
 							>
 								Sign in
-							</a>
+							</button>
 						)}
 					</Link>
 				</li>
