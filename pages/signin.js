@@ -17,17 +17,17 @@ export default function SignIn({ csrfToken }) {
 	const [funEyeClass, setFununEyeClass] = useState(0);
 
 	return (
-		<section className="bg-white dark:bg-gray-900">
+		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
 				<SignInCTA />
 				<div className="flex items-center w-full max-w-md px-6 mx-auto w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
-							<h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">
+							<h2 className="text-4xl font-bold text-center text-white">
 								Log In
 							</h2>
 
-							<p className="mt-3 text-gray-500 dark:text-gray-300">
+							<p className="mt-3 text-gray-500 text-gray-300">
 								Log in to access your account
 							</p>
 						</div>
@@ -38,11 +38,11 @@ export default function SignIn({ csrfToken }) {
 							className="flex flex-col mt-8"
 						>
 							<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-							<label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+							<label className="block mb-2 text-sm text-gray-600 text-gray-200">
 								Email
 								<input
 									placeholder="Enter your email"
-									className="emailInput dark:bg-gray-200 block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="emailInput bg-gray-200 block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md placeholder-gray-600 bg-gray-900 border-gray-700 focus:border-blue-400 focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="email"
 									name="email"
 									title="Must be a registered email address."
@@ -66,11 +66,11 @@ export default function SignIn({ csrfToken }) {
 									}}
 								/>
 							</label>
-							<label className="relative flex flex-col block mt-8 mb-4 text-sm text-gray-600 dark:text-gray-200">
+							<label className="relative flex flex-col block mt-8 mb-4 text-sm text-gray-600 text-gray-200">
 								Password
 								<input
 									placeholder="Enter your password"
-									className="block w-full dark:bg-gray-200 px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full bg-gray-200 px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md placeholder-gray-600 bg-gray-900 border-gray-700 focus:border-blue-400 focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="current-password"
 									name="password"
 									type={showPassword ? "text" : "password"}
@@ -117,7 +117,7 @@ export default function SignIn({ csrfToken }) {
 									href="/"
 									onClick={() => {
 										setFununEyeClass(
-											"transition-transform duration-1000	 translate-y-[100vh]"
+											"transition-transform duration-1000 translate-x-[31vh] translate-y-[30vh]"
 										);
 									}}
 								>
