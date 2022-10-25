@@ -6,7 +6,7 @@ function SignInCTA() {
 	return (
 		<div className="w-1/2 hidden lg:block relative bg-slate-400 bg-cover lg:block">
 			<Image
-				className="mix-blend-multiply"
+				className="mix-blend-multiply absolute"
 				src={loginBg}
 				alt="Log in image"
 				layout="fill"
