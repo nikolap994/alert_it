@@ -15,9 +15,11 @@ export async function getServerSideProps(context) {
 	const session = await getSession({ req });
 
 	if (session) {
-		return {
-			redirect: { destination: "/dashboard" },
-		};
+		setTimeout(() => {
+			return {
+				redirect: { destination: "/dashboard" },
+			};
+		}, 3000);
 	}
 
 	return {

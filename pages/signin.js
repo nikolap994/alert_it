@@ -14,12 +14,13 @@ export default function SignIn({ csrfToken }) {
 	const [buttonClass, setButtonClass] = useState(0);
 	const [showPassword, setShowPassword] = useState(0);
 	const [isEyeOpen, toggleEye] = useState(0);
+	const [funEyeClass, setFununEyeClass] = useState(0);
 
 	return (
-        <section className="bg-white dark:bg-gray-900">
+		<section className="bg-white dark:bg-gray-900">
 			<div className="flex justify-center h-screen">
 				<SignInCTA />
-				<div className="flex items-center w-full max-w-md px-6 mx-auto xl:w-2/6">
+				<div className="flex items-center w-full max-w-md px-6 mx-auto w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">
@@ -48,7 +49,7 @@ export default function SignIn({ csrfToken }) {
 									type="email"
 									required
 									minLength="4"
-									onChange={e => {
+									onChange={(e) => {
 										setValue(e.currentTarget.value);
 										const userEmail = JSON.stringify(e.currentTarget.value);
 
@@ -75,15 +76,8 @@ export default function SignIn({ csrfToken }) {
 									type={showPassword ? "text" : "password"}
 									required
 									minLength="4"
-									onChange={e => {
-										setValue(e.currentTarget.value);
-										const passwordInput = JSON.stringify(e.currentTarget.value);
-
-										passwordInput.length - 2 >= 4
-											? setButtonClass("bg-indigo-400 text-white")
-											: "";
-
-										passwordInput.length <= 2 ? setButtonClass("bg-white") : "";
+									onChange={(e) => {
+										setButtonClass("bg-white");
 									}}
 								/>
 								<button
@@ -108,7 +102,7 @@ export default function SignIn({ csrfToken }) {
 								Forgot password?
 							</a>
 							<div className="flex relative">
-								<div className="absolute left-[59%] top-1/4">
+								<div className={`absolute left-[59%] top-1/4 ${funEyeClass}`}>
 									<Image
 										className="h-auto w-auto"
 										src={funEyeIcon}
@@ -121,6 +115,11 @@ export default function SignIn({ csrfToken }) {
 									className={`mt-8 py-2 px-8 mx-auto border-none rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
 									type="submit"
 									href="/"
+									onClick={() => {
+										setFununEyeClass(
+											"transition-transform duration-1000	 translate-y-[100vh]"
+										);
+									}}
 								>
 									Sign in
 								</button>
@@ -139,7 +138,7 @@ export default function SignIn({ csrfToken }) {
 				</div>
 			</div>
 		</section>
-    );
+	);
 }
 
 export async function getServerSideProps(context) {
