@@ -49,7 +49,7 @@ export default function SignIn({ csrfToken }) {
 									type="email"
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setValue(e.currentTarget.value);
 										const userEmail = JSON.stringify(e.currentTarget.value);
 
@@ -76,7 +76,7 @@ export default function SignIn({ csrfToken }) {
 									type={showPassword ? "text" : "password"}
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setButtonClass("bg-white");
 									}}
 								/>
@@ -117,7 +117,7 @@ export default function SignIn({ csrfToken }) {
 									href="/"
 									onClick={() => {
 										setFununEyeClass(
-											"transition-transform duration-1000 translate-x-[31vh] translate-y-[30vh]"
+											"transition-transform duration-1000	 translate-y-[100vh]"
 										);
 									}}
 								>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Navigation from "./nav";
 
-import logoImg from "../public/images/gold.png";
+import logoImg from "../public/images/logo.png";
 
 function Header() {
 	return (
