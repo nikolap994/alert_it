@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 - Toggle password visibility functionallity
 - 404 page
 - 505 page
+- Button component
 
 ### Changed
 - Add Sign In Form component
