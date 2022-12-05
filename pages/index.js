@@ -1,11 +1,13 @@
 import { getSession } from "next-auth/react";
 
+import HomepageHero from "../components/HomepageHero";
+
 export default function HomePage() {
 	return (
-		<main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-			<h1 className="text-6xl font-bold">
-				Welcome to <span className="text-blue-600">Uptime Monitor</span>
-			</h1>
+		<main className="bg-indigo-700">
+			<HomepageHero />
+
+			<section className="h-24 w-full	bg-indigo-400 py-12"></section>
 		</main>
 	);
 }
