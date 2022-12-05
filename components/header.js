@@ -18,7 +18,6 @@ function Header() {
 						height={75}
 					/>
 				</Link>
-
 				<Navigation />
 			</div>
 		</header>
