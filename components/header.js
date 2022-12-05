@@ -7,7 +7,7 @@ import logoImg from "../public/images/logo.png";
 
 function Header() {
 	return (
-		<header className="fixed z-50 w-full bg-slate-800">
+		<header className="w-full bg-slate-800">
 			<div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
 				<Link className="flex" href="/">
 					<Image
@@ -18,7 +18,6 @@ function Header() {
 						height={75}
 					/>
 				</Link>
-
 				<Navigation />
 			</div>
 		</header>

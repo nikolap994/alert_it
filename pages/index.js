@@ -13,13 +13,10 @@ export default function HomePage() {
 export async function getServerSideProps(context) {
 	const { req } = context;
 	const session = await getSession({ req });
-
 	if (session) {
-		setTimeout(() => {
-			return {
-				redirect: { destination: "/dashboard" },
-			};
-		}, 3000);
+		return {
+			redirect: { destination: "/dashboard" },
+		};
 	}
 
 	return {
