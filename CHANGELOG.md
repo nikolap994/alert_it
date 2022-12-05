@@ -23,10 +23,11 @@ All notable changes to this project will be documented in this file.
 - Jobs API endpoints
 - Custom Sign In page
 - Sign In button animation
-- Toggle password visibility functionallity
+- Toggle password visibility functionality
 - 404 page
 - 505 page
 - Button component
+- Homepage Hero component
 
 ### Changed
 - Add Sign In Form component
