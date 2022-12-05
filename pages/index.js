@@ -1,13 +1,13 @@
 import { getSession } from "next-auth/react";
 
 import HomepageHero from "../components/HomepageHero";
+import AboutAlertit from "../components/AboutAlertit";
 
 export default function HomePage() {
 	return (
 		<main className="bg-indigo-700">
 			<HomepageHero />
-
-			<section className="h-24 w-full	bg-indigo-400 py-12"></section>
+			<AboutAlertit />
 		</main>
 	);
 }

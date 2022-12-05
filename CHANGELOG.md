@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - 505 page
 - Button component
 - Homepage Hero component
+- About Alertit component with dummy text
 
 ### Changed
 - Add Sign In Form component
