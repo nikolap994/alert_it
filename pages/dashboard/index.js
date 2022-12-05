@@ -1,4 +1,5 @@
 import { getSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function Dashboard(props) {
 	return (
@@ -22,6 +23,7 @@ export default function Dashboard(props) {
 							<p>heartbeat: {monitor.heartbeat}</p>
 							<p>monitorType: {monitor.monitorType}</p>
 							<p>retries: {monitor.retries}</p>
+							<Link href="/dashboard/monitor/edit">Edit</Link>
 							<br />
 						</div>
 					))}
