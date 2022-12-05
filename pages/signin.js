@@ -49,7 +49,7 @@ export default function SignIn({ csrfToken }) {
 									type="email"
 									required
 									minLength="4"
-									onChange={e => {
+									onChange={(e) => {
 										setValue(e.currentTarget.value);
 										const userEmail = JSON.stringify(e.currentTarget.value);
 
@@ -76,7 +76,7 @@ export default function SignIn({ csrfToken }) {
 									type={showPassword ? "text" : "password"}
 									required
 									minLength="4"
-									onChange={e => {
+									onChange={(e) => {
 										setButtonClass("bg-white");
 									}}
 								/>
@@ -130,7 +130,7 @@ export default function SignIn({ csrfToken }) {
 									className="text-blue-400 focus:outline-none focus:underline hover:underline"
 									href="/register"
 								>
-									Sign up.
+									<span className="ml-2">Sign up.</span>
 								</Link>
 							</p>
 						</form>
