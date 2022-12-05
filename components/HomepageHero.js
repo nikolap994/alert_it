@@ -10,7 +10,10 @@ function HomepageHero() {
 				<div className="absolute bottom-0 inset-x-0 h-full bg-gradient-to-r from-purple-600 to-blue-600"></div>
 				<div className="absolute -bottom-[6px] -left-[30px] h-3/5 w-[82%] bg-gradient-to-r from-purple-600 to-blue-600 transform -rotate-6"></div>
 				<div className="absolute top-[120px] md:-top-60 left-1/2 transform translate-y-full translate-x-0 lg:translate-x-[-20%] lg:translate-y-[66%] ">
-					<Image src={twoPhones} />
+					<Image
+						src={twoPhones}
+						alt="Presentation phones showing Alertit dashboard"
+					/>
 				</div>
 
 				<div className="relative px-8 container pt-12 md:pt-20 mx-auto">
