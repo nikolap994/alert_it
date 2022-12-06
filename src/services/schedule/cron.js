@@ -75,34 +75,6 @@ class Cron {
 					};
 				}
 
-				if ("web-scalper" === command) {
-					options = {
-						method: "POST",
-						url: `${SITE_URI}/api/web-scalper`,
-						headers: {
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({
-							url: `${siteUrl}`,
-							commands: [
-								{
-									type: "click",
-									element: ".gLFyf.gsfi",
-								},
-								{
-									type: "type",
-									element: ".gLFyf.gsfi",
-									value: "Test type...",
-								},
-								{
-									type: "waitForSelector",
-									element: ".gLFyf.gsfi",
-								},
-							],
-						}),
-					};
-				}
-
 				if ("ping" === command) {
 					options = {
 						method: "GET",
