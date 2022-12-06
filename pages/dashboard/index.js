@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Dashboard(props) {
 	return (
@@ -23,6 +24,7 @@ export default function Dashboard(props) {
 							<p>heartbeat: {monitor.heartbeat}</p>
 							<p>monitorType: {monitor.monitorType}</p>
 							<p>retries: {monitor.retries}</p>
+							<Image width={300}  height={300} src={monitor.image} alt="monitor" />
 							<Link href="/dashboard/monitor/edit">Edit</Link>
 							<br />
 						</div>

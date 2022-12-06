@@ -1,5 +1,6 @@
 import database from "../../src/helper/database";
 import Monitor from "../../src/models/monitor";
+import WebScalper from "../../src/services/web-scalper";
 
 export default async function handler(req, res) {
 	const { method } = req;
@@ -22,7 +23,15 @@ export default async function handler(req, res) {
 			break;
 		case "POST":
 			try {
-				const monitor = await Monitor.create(req.body);
+				const scalper = new WebScalper();
+				const body = await scalper
+					.getVisual(req.body.url, [])
+					.then(response => {
+						req.body.image = response;
+						return req.body;
+					});
+
+				const monitor = await Monitor.create(body);
 				res.status(201).json({ success: true, data: monitor });
 			} catch (error) {
 				res.status(400).json({ success: false });

@@ -7,6 +7,7 @@ const MonitorSchema = new mongoose.Schema(
 		heartbeat: Number,
 		retries: Number,
 		acceptedStatusCodes: String,
+		image: String,
 		monitorType: String,
 		owner: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	},
