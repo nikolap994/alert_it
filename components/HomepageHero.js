@@ -31,7 +31,7 @@ function HomepageHero() {
 						<p className="mb-12 lg:mb-24 text-lg text-white opacity-90">
 							The ultimate Uptime Monitor
 						</p>
-						<Button text="Get Started" linkTo="#" />
+						<Button text="Get Started" linkTo="signin" />
 					</div>
 				</div>
 			</section>
