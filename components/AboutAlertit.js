@@ -17,7 +17,10 @@ function AboutAlertit() {
 				<div>
 					<div className="flex flex-wrap -mx-10">
 						<div className="relative w-full lg:w-1/2 px-10 mb-10 lg:mb-20">
-							<div className="px-16 pt-16 pb-24 bg-gray-600 rounded-lg">
+							<div
+								id="alertit-intro"
+								className="px-16 pt-16 pb-24 bg-gray-600 rounded-lg"
+							>
 								<span className="flex mb-10 justify-center items-center w-20 h-20 bg-blue-500 rounded-lg">
 									<svg
 										className="w-8 h-8"
