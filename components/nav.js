@@ -12,7 +12,7 @@ function Navigation() {
 	const router = useRouter();
 
 	return (
-		<nav className="max-w-7xl w-full mx-auto px-4 md:px-6 py-4 pb-8 flex flex-col lg:flex-row items-start h-screen">
+		<nav className="max-w-7xl w-full mx-auto px-4 md:px-6 py-4 pb-8 flex flex-col lg:flex-row items-start hh-screen">
 			<Link className="flex" href="/">
 				<Image
 					className="h-full"
