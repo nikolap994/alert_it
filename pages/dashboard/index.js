@@ -18,13 +18,23 @@ export default function Dashboard(props) {
 				{props.monitors.length > 0 &&
 					props.monitors.map(monitor => (
 						<div key={monitor.id}>
-							<p>Monitor ID: {monitor._id}</p>
-							<p>Name: {monitor.name}</p>
-							<p>URL: {monitor.url}</p>
-							<p>heartbeat: {monitor.heartbeat}</p>
-							<p>monitorType: {monitor.monitorType}</p>
-							<p>retries: {monitor.retries}</p>
-							<Image width={300}  height={300} src={monitor.image} alt="monitor" />
+							<p key={monitor.id + "_ID"}>Monitor ID: {monitor._id}</p>
+							<p key={monitor.id + "_Name"}>Name: {monitor.name}</p>
+							<p key={monitor.id + "_URL"}>URL: {monitor.url}</p>
+							<p key={monitor.id + "_heartbeat"}>
+								heartbeat: {monitor.heartbeat}
+							</p>
+							<p key={monitor.id + "_monitorType"}>
+								monitorType: {monitor.monitorType}
+							</p>
+							<p key={monitor.id + "_retries"}>retries: {monitor.retries}</p>
+							<Image
+								key={monitor.id + "_IMAGE"}
+								width={300}
+								height={300}
+								src={"data:image/gif;base64," + monitor.image}
+								alt="monitor"
+							/>
 							<Link href="/dashboard/monitor/edit">Edit</Link>
 							<br />
 						</div>

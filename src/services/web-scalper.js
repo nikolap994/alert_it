@@ -46,11 +46,11 @@ class WebScalper {
 			}
 
 			const path = `./public/web-scalper/${Date.now()}.png`;
-			await page.screenshot({ path: path, fullPage: false });
+			const image = await page.screenshot({ encoding: "base64", fullPage: false });
 
 			await browser.close();
 
-			return process.env.SITE_URI + path.substring(8);
+			return image;
 		} catch (error) {
 			// TODO: Add better error handling.
 			// Possible solution: https://www.npmjs.com/package/winston
