@@ -16,7 +16,7 @@ function Navigation() {
 
 	return (
 		<>
-			<nav className="max-w-7xl w-full mx-auto p-4 flex lg:flex-col justify-between items-center">
+			<nav className="max-w-7xl w-full mx-auto p-4 lg:px-12 flex justify-between items-center">
 				<Link
 					className="self-start"
 					href="/"
@@ -31,27 +31,27 @@ function Navigation() {
 					/>
 				</Link>
 				<Image
-					className=""
+					className="lg:hidden"
 					src={HamburgerIcon}
 					alt="Two white dashes"
 					onClick={() => setIsNavOpen((prev) => !prev)}
 				/>
 				<div
-					className={`flex flex-col justify-start lg:flex-row items-center lg:justify-between lg:flex-wrap pt-0 lg:py-6 lg:pt-6 pt-0 px-4 sm:px-6 lg:px-8 text-white ${
+					className={`flex flex-col justify-start lg:flex-row items-center lg:justify-between lg:flex-wrap pt-0 px-4 text-white ${
 						isNavOpen ? "showMenuNav" : "hideMenuNav"
 					}`}
 				>
 					<HiX
-						className="fill-white h-8 w-8 mt-10 self-end mr-4"
+						className="fill-white h-8 w-8 mt-10 self-end mr-4 lg:hidden"
 						onClick={() => setIsNavOpen(false)}
 					/>
 
 					{session ? (
-						<ul className="flex flex-col self-start lg:flex-row text-lg items-left gap-8 text-white ml-3 mt-8">
-							<li className="border border-white border-md p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black ">
+						<ul className="flex flex-col self-start lg:flex-row text-lg items-left lg:items-center gap-8 text-white ml-3 mt-8 lg:m-0">
+							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link href="/dashboard"> Dashboard </Link>
 							</li>
-							<li className="border border-white border-md p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black ">
+							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link
 									className="flex items-center gap-6"
 									href="/dashboard/user"
@@ -69,7 +69,7 @@ function Navigation() {
 									></Image>
 								</Link>
 							</li>
-							<li className="border border-white border-md p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black ">
+							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<button onClick={() => signOut()}>Log out</button>
 							</li>
 						</ul>
