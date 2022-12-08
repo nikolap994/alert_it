@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.
 - Button component
 - Homepage Hero component
 - About Alertit component with dummy text
+- React icons package
 
 ### Changed
 - Add Sign In Form component
