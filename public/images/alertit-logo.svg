@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="375pt" height="375pt" viewBox="0 0 375 375">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1593.75 L 0 1593.75 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 510 L 0 510 Z " fill="#ffffff"/>
+</g>
+<clipPath id="cp1">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 500 L 0 500 Z " fill="#ffffff"/>
+</g>
+<clipPath id="cp2">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 500 L 0 500 Z " fill="#ffffff"/>
+</g>
+<clipPath id="cp3">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 46.950258 455.7052 L 1515.572 455.7052 L 1515.572 908.8302 L 46.950258 908.8302 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp3)">
+<path transform="matrix(.75002488,0,0,.74959608,11.268062,109.36925)" stroke-width="6" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#1e293b" d="M 0 0 L 469.94334 0 L 469.94334 145.07813 L 0 145.07813 L 0 0 "/>
+</g>
+<clipPath id="cp4">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 134.24794 560.48519 L 937.3729 560.48519 L 937.3729 804.23519 L 134.24794 804.23519 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp4)">
+<path transform="matrix(1.5585512,0,0,1.5552747,32.223058,134.51644)" d="M 0 0 L 123.66799 0 L 123.66799 37.61393 L 0 37.61393 L 0 0 " fill="#1e293b"/>
+</g>
+<clipPath id="cp5">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp5)">
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 53.98637 138.65428)" font-size="48.11" font-family="Garet" font-weight="bold"><tspan y="49" x="13.0625 51.839326 83.20732 116.0186 153.54459">ALERT</tspan></text>
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#1e293b" xml:space="preserve" transform="matrix(.75 0 0 .75 212.20545 138.65428)" font-size="48.11" font-family="Garet" font-weight="bold"><tspan y="49" x="72.203128 89.04138">IT</tspan></text>
+</g>
+</g>
+</svg>
