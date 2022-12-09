@@ -39,7 +39,7 @@ function EditMonitor(props) {
 						id="name"
 						defaultValue={props.name}
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="name"
 					/>
@@ -53,7 +53,7 @@ function EditMonitor(props) {
 						id="url"
 						required
 						defaultValue={props.url}
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="url"
 						name="url"
 					/>
@@ -67,7 +67,7 @@ function EditMonitor(props) {
 						id="heartbeat"
 						required
 						defaultValue={props.heartbeat}
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="heartbeat"
 					/>
@@ -82,7 +82,7 @@ function EditMonitor(props) {
 						id="retries"
 						defaultValue={props.retries}
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="retries"
 					/>
 				</div>
@@ -94,14 +94,47 @@ function EditMonitor(props) {
 					>
 						Accepted Status Codes
 					</label>
-					<input
-						type="text"
+					<select
 						id="acceptedStatusCodes"
-						defaultValue={props.acceptedStatusCodes}
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
-					/>
+					>
+						<option selected>Choose acceptedStatusCodes</option>
+						<option selected={props.acceptedStatusCodes == "any"} value="any">
+							Any
+						</option>
+						<option
+							selected={props.acceptedStatusCodes == "0-199"}
+							value="0-199"
+						>
+							0-199
+						</option>
+						<option
+							selected={props.acceptedStatusCodes == "200-299"}
+							value="200-299"
+						>
+							200-299
+						</option>
+						<option
+							selected={props.acceptedStatusCodes == "300-399"}
+							value="300-399"
+						>
+							300-399
+						</option>
+						<option
+							selected={props.acceptedStatusCodes == "400-499"}
+							value="400-499"
+						>
+							400-499
+						</option>
+						<option
+							selected={props.acceptedStatusCodes == "500-599"}
+							value="500-599"
+						>
+							500-599
+						</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
@@ -111,7 +144,7 @@ function EditMonitor(props) {
 					<select
 						id="monitorType"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
 					>
 						<option selected>Choose a monitor type</option>
@@ -128,7 +161,7 @@ function EditMonitor(props) {
 				</div>
 
 				<button
-					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit"
 				>
 					Save

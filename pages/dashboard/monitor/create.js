@@ -88,13 +88,21 @@ export default function CreateMonitor() {
 					>
 						Accepted Status Codes
 					</label>
-					<input
-						type="text"
+					<select
 						required
 						id="acceptedStatusCodes"
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
-					/>
+					>
+
+					<option selected>Choose acceptedStatusCodes</option>
+						<option value="any">Any</option>
+						<option value="0-199">0-199</option>
+						<option value="200-299">200-299</option>
+						<option value="200-299">300-399</option>
+						<option value="200-299">400-499</option>
+						<option value="200-299">500-599</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
