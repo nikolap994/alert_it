@@ -39,7 +39,7 @@ export default function Dashboard(props) {
 								<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
 								<p className="pt-5">
 								<Link
-									className="text-white bg-blue-700 rounded text-center w-full inline-block"
+									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
 									href={"/dashboard/monitor/edit/" + monitor._id}
 								>
 									Edit
