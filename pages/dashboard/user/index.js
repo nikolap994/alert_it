@@ -32,6 +32,7 @@ function User(props) {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="firstName"
+						required
 						id="firstName"
 						defaultValue={props.firstName}
 					/>
@@ -45,6 +46,7 @@ function User(props) {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						id="lastName"
+						required
 						name="lastName"
 						defaultValue={props.lastName}
 					/>
@@ -58,6 +60,7 @@ function User(props) {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="email"
+						required
 						id="email"
 						defaultValue={props.email}
 					/>

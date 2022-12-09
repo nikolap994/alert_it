@@ -34,6 +34,7 @@ export default function CreateMonitor() {
 						Name
 					</label>
 					<input
+						required
 						id="name"
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
@@ -47,6 +48,7 @@ export default function CreateMonitor() {
 					</label>
 					<input
 						id="url"
+						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="url"
@@ -59,6 +61,7 @@ export default function CreateMonitor() {
 					</label>
 					<input
 						id="heartbeat"
+						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="heartbeat"
@@ -71,6 +74,7 @@ export default function CreateMonitor() {
 					</label>
 					<input
 						type="text"
+						required
 						id="retries"
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="retries"
@@ -86,6 +90,7 @@ export default function CreateMonitor() {
 					</label>
 					<input
 						type="text"
+						required
 						id="acceptedStatusCodes"
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
@@ -99,6 +104,7 @@ export default function CreateMonitor() {
 					<input
 						type="text"
 						id="monitorType"
+						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
 					/>
