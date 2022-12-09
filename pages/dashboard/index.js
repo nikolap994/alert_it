@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Dashboard(props) {
 	return (
-		<div className="max-w-7xl mx-auto px-4 md:px-6 text-white">
+		<div className="max-w-7xl mx-auto px-4 md:px-6 text-white bg-slate-900">
 			<div className="pt-10 lg:flex justify-between items-center max-w">
 				<h1 className="text-5xl my-16">Dashboard Page</h1>
 
