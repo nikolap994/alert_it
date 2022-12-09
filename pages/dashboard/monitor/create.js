@@ -101,13 +101,17 @@ export default function CreateMonitor() {
 					<label className="block mb-2 dark:text-white" htmlFor="monitorType">
 						Monitor Type
 					</label>
-					<input
-						type="text"
+					<select
 						id="monitorType"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
-					/>
+					>
+						<option selected>Choose a monitor type</option>
+						<option value="HTTP(s)">HTTP(s)</option>
+						<option value="ping">Ping</option>
+						<option value="tcp">TCP</option>
+					</select>
 				</div>
 
 				<button
