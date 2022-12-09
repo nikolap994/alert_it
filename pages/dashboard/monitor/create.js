@@ -38,7 +38,6 @@ export default function CreateMonitor(props) {
 		fetch(props.SITE_URI + "/api/monitors", requestOptions)
 			.then(response => response.json())
 			.then(result => {
-				console.log(result.success);
 				if (result.success === true) {
 					Router.push("/");
 				}
