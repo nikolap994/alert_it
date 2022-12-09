@@ -15,6 +15,10 @@ export default async function handler(req, res) {
 				if (userId) {
 					const monitors = await Monitor.find({ ownder: userId });
 					res.status(200).json({ success: true, data: monitors });
+				} else if (req.query.id) {
+					const id = req.query.id;
+					const monitors = await Monitor.find({ _id: id });
+					res.status(200).json({ success: true, data: monitors });
 				} else {
 					res.status(400).json({ success: false });
 				}

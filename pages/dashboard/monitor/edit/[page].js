@@ -1,4 +1,6 @@
-function EditMonitor() {
+import { getSession } from "next-auth/react";
+
+function EditMonitor(props) {
 	const submitForm = e => {
 		e.preventDefault();
 
@@ -35,6 +37,7 @@ function EditMonitor() {
 					</label>
 					<input
 						id="name"
+						defaultValue={props.name}
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
@@ -49,6 +52,7 @@ function EditMonitor() {
 					<input
 						id="url"
 						required
+						defaultValue={props.url}
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="url"
 						name="url"
@@ -62,6 +66,7 @@ function EditMonitor() {
 					<input
 						id="heartbeat"
 						required
+						defaultValue={props.heartbeat}
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						type="text"
 						name="heartbeat"
@@ -75,6 +80,7 @@ function EditMonitor() {
 					<input
 						type="text"
 						id="retries"
+						defaultValue={props.retries}
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="retries"
@@ -91,6 +97,7 @@ function EditMonitor() {
 					<input
 						type="text"
 						id="acceptedStatusCodes"
+						defaultValue={props.acceptedStatusCodes}
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
@@ -104,6 +111,7 @@ function EditMonitor() {
 					<input
 						type="text"
 						id="monitorType"
+						defaultValue={props.monitorType}
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
@@ -122,7 +130,47 @@ function EditMonitor() {
 }
 
 export async function getServerSideProps(context) {
-	const monitorId = context.query.page;
+	const session = await getSession(context);
+
+	if (!session) {
+		return {
+			redirect: { destination: "/" },
+		};
+	} else {
+		const monitorId = context.query.page;
+
+		if (typeof monitorId == "undefined") {
+			return {
+				redirect: { destination: "/" },
+			};
+		}
+
+		var requestOptions = {
+			method: "GET",
+			redirect: "follow",
+		};
+
+		const response = await fetch(
+			process.env.SITE_URI + "/api/monitors?id=" + monitorId,
+			requestOptions
+		)
+			.then(response => response.json())
+			.then(result => {
+				return {
+					props: {
+						name: result.data[0].name,
+						url: result.data[0].url,
+						heartbeat: result.data[0].heartbeat,
+						retries: result.data[0].retries,
+						acceptedStatusCodes: result.data[0].acceptedStatusCodes,
+						monitorType: result.data[0].monitorType,
+					},
+				};
+			})
+			.catch(error => console.log("error", error));
+
+		return response;
+	}
 
 	return {
 		props: {},
