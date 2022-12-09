@@ -65,10 +65,10 @@ export default function CreateMonitor() {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="heartbeat"
 					>
-						<option defaultValue="5">Every 5 minutes</option>
-						<option defaultValue="10">Every 10 minutes</option>
-						<option defaultValue="30">Every 30 minutes</option>
-						<option defaultValue="60">Every hour</option>
+						<option defaultValue="5">5</option>
+						<option defaultValue="10">10</option>
+						<option defaultValue="30">30</option>
+						<option defaultValue="60">60</option>
 					</select>
 				</div>
 
@@ -77,6 +77,7 @@ export default function CreateMonitor() {
 						Retries
 					</label>
 					<input
+						defaultValue={5}
 						type="number"
 						min={1}
 						max={5}
@@ -100,8 +101,7 @@ export default function CreateMonitor() {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
 					>
-
-					<option selected>Choose acceptedStatusCodes</option>
+						<option>Choose acceptedStatusCodes</option>
 						<option defaultValue="any">Any</option>
 						<option defaultValue="0-199">0-199</option>
 						<option defaultValue="200-299">200-299</option>
@@ -121,8 +121,8 @@ export default function CreateMonitor() {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
 					>
-						<option selected>Choose a monitor type</option>
-						<option defaultValue="HTTP(s)">HTTP(s)</option>
+						<option>Choose a monitor type</option>
+						<option defaultValue="https">https</option>
 						<option defaultValue="ping">Ping</option>
 						<option defaultValue="tcp">TCP</option>
 					</select>
