@@ -85,7 +85,7 @@ export async function getServerSideProps(context) {
 			redirect: { destination: "/" },
 		};
 	} else {
-		const email = session.user.email;
+		const email = session.email;
 
 		var requestOptions = {
 			method: "GET",

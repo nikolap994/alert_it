@@ -61,7 +61,7 @@ function Navigation() {
 										alt="profile-pic"
 										src={
 											"https://www.gravatar.com/avatar/" +
-											md5(session.user.email)
+											md5(session.email)
 										}
 										width={50}
 										height={50}
