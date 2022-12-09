@@ -62,7 +62,7 @@ function EditMonitor() {
 
 export async function getServerSideProps(context) {
 	const monitorId = context.query.page;
-	console.log(monitorId);
+
 	return {
 		props: {},
 	};

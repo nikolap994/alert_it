@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Dashboard(props) {
 	return (
-		<main className="max-w-7xl mx-auto px-4 md:px-6 bg-slate-900 text-white">
+		<div className="max-w-7xl mx-auto px-4 md:px-6 bg-slate-900 text-white">
 			<div className="pt-10 flex justify-between items-center max-w-xl">
 				<h1 className="text-5xl my-16">Dashboard Page</h1>
 
@@ -22,7 +22,6 @@ export default function Dashboard(props) {
 					props.monitors.map((monitor) => (
 						<div key={monitor._id} className="flex mb-12">
 							<div className="w-1/2 flex flex-col gap-4">
-								<p key={monitor._id + "_ID"}>Monitor ID: {monitor._id}</p>
 								<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
 								<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
 								<p key={monitor._id + "_heartbeat"}>
@@ -50,7 +49,7 @@ export default function Dashboard(props) {
 						</div>
 					))}
 			</div>
-		</main>
+		</div>
 	);
 }
 
