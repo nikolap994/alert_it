@@ -59,13 +59,17 @@ export default function CreateMonitor() {
 					<label className="block mb-2 dark:text-white" htmlFor="heartbeat">
 						Heartbeat
 					</label>
-					<input
+					<select
 						id="heartbeat"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="text"
 						name="heartbeat"
-					/>
+					>
+						<option defaultValue="5">Every 5 minutes</option>
+						<option defaultValue="10">Every 10 minutes</option>
+						<option defaultValue="30">Every 30 minutes</option>
+						<option defaultValue="60">Every hour</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
@@ -98,12 +102,12 @@ export default function CreateMonitor() {
 					>
 
 					<option selected>Choose acceptedStatusCodes</option>
-						<option value="any">Any</option>
-						<option value="0-199">0-199</option>
-						<option value="200-299">200-299</option>
-						<option value="200-299">300-399</option>
-						<option value="200-299">400-499</option>
-						<option value="200-299">500-599</option>
+						<option defaultValue="any">Any</option>
+						<option defaultValue="0-199">0-199</option>
+						<option defaultValue="200-299">200-299</option>
+						<option defaultValue="200-299">300-399</option>
+						<option defaultValue="200-299">400-499</option>
+						<option defaultValue="200-299">500-599</option>
 					</select>
 				</div>
 
@@ -118,9 +122,9 @@ export default function CreateMonitor() {
 						name="monitorType"
 					>
 						<option selected>Choose a monitor type</option>
-						<option value="HTTP(s)">HTTP(s)</option>
-						<option value="ping">Ping</option>
-						<option value="tcp">TCP</option>
+						<option defaultValue="HTTP(s)">HTTP(s)</option>
+						<option defaultValue="ping">Ping</option>
+						<option defaultValue="tcp">TCP</option>
 					</select>
 				</div>
 

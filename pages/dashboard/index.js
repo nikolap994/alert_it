@@ -15,10 +15,13 @@ export default function Dashboard(props) {
 					Create new Monitor
 				</Link>
 			</div>
-			<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+			<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 				{props.monitors.length > 0 &&
-					props.monitors.map((monitor) => (
-						<div key={monitor._id} className="max-w-sm rounded overflow-hidden shadow-lg shadow-blue-500/50">
+					props.monitors.map(monitor => (
+						<div
+							key={monitor._id}
+							className="max-w-sm rounded overflow-hidden shadow-lg shadow-blue-500/50"
+						>
 							<Image
 								className="w-full p-2 rounded border-2 border-blue-500"
 								key={monitor._id + "_IMAGE"}
@@ -38,12 +41,12 @@ export default function Dashboard(props) {
 								</p>
 								<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
 								<p className="pt-5">
-								<Link
-									className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
-									href={"/dashboard/monitor/edit/" + monitor._id}
-								>
-									Edit
-								</Link>
+									<Link
+										className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"
+										href={"/dashboard/monitor/edit/" + monitor._id}
+									>
+										Edit
+									</Link>
 								</p>
 							</div>
 						</div>
@@ -72,8 +75,8 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + email,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				const user = result.data[0];
 				const firstName = user.firstName;
 				const lastName = user.lastName;
@@ -88,17 +91,17 @@ export async function getServerSideProps(context) {
 					},
 				};
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		const monitors = await fetch(
 			process.env.SITE_URI + "/api/monitors?userId=" + response.props.id,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		response.props.monitors = monitors;
 		return response;

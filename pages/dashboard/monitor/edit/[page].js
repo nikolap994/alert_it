@@ -63,14 +63,19 @@ function EditMonitor(props) {
 					<label className="block mb-2 dark:text-white" htmlFor="heartbeat">
 						Heartbeat
 					</label>
-					<input
+					<select
 						id="heartbeat"
 						required
 						defaultValue={props.heartbeat}
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="text"
 						name="heartbeat"
-					/>
+					>
+						<option>Choose heartbeat</option>
+						<option defaultValue="5">5</option>
+						<option defaultValue="10">10</option>
+						<option defaultValue="30">30</option>
+						<option defaultValue="60">60</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
@@ -97,45 +102,19 @@ function EditMonitor(props) {
 						Accepted Status Codes
 					</label>
 					<select
+						defaultValue={props.acceptedStatusCodes}
 						id="acceptedStatusCodes"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="acceptedStatusCodes"
 					>
-						<option selected>Choose acceptedStatusCodes</option>
-						<option selected={props.acceptedStatusCodes == "any"} value="any">
-							Any
-						</option>
-						<option
-							selected={props.acceptedStatusCodes == "0-199"}
-							value="0-199"
-						>
-							0-199
-						</option>
-						<option
-							selected={props.acceptedStatusCodes == "200-299"}
-							value="200-299"
-						>
-							200-299
-						</option>
-						<option
-							selected={props.acceptedStatusCodes == "300-399"}
-							value="300-399"
-						>
-							300-399
-						</option>
-						<option
-							selected={props.acceptedStatusCodes == "400-499"}
-							value="400-499"
-						>
-							400-499
-						</option>
-						<option
-							selected={props.acceptedStatusCodes == "500-599"}
-							value="500-599"
-						>
-							500-599
-						</option>
+						<option>Choose acceptedStatusCodes</option>
+						<option defaultValue="any">Any</option>
+						<option defaultValue="0-199">0-199</option>
+						<option defaultValue="200-299">200-299</option>
+						<option defaultValue="300-399">300-399</option>
+						<option defaultValue="400-499">400-499</option>
+						<option defaultValue="500-599">500-599</option>
 					</select>
 				</div>
 
@@ -146,19 +125,14 @@ function EditMonitor(props) {
 					<select
 						id="monitorType"
 						required
+						defaultValue={props.monitorType}
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="monitorType"
 					>
-						<option selected>Choose a monitor type</option>
-						<option selected={props.monitorType == "https"} value="HTTP(s)">
-							HTTP(s)
-						</option>
-						<option selected={props.monitorType == "ping"} value="ping">
-							Ping
-						</option>
-						<option selected={props.monitorType == "tcp"} value="tcp">
-							TCP
-						</option>
+						<option>Choose a monitor type</option>
+						<option defaultValue="https">https</option>
+						<option defaultValue="ping">ping</option>
+						<option defaultValue="tcp">tcp</option>
 					</select>
 				</div>
 
