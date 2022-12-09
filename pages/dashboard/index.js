@@ -4,45 +4,49 @@ import Image from "next/image";
 
 export default function Dashboard(props) {
 	return (
-		<main className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
-			<h1>Dashboard Page</h1>
+		<main className="max-w-7xl mx-auto px-4 md:px-6 bg-slate-900 text-white">
+			<div className="pt-10 flex justify-between items-center max-w-xl">
+				<h1 className="text-5xl my-16">Dashboard Page</h1>
 
-			<Link
-				className="text-white bg-blue-700 rounded"
-				href="/dashboard/monitor/create"
-			>
-				Create new Monitor
-			</Link>
+				<Link
+					className="text-white bg-blue-700 rounded h-16 p-6 text-center"
+					href="/dashboard/monitor/create"
+				>
+					Create new Monitor
+				</Link>
+			</div>
 			<div>
-				<br />
-				Monitors:
+				<h2 className="text-3xl mb-10">Monitors:</h2>
+
 				{props.monitors.length > 0 &&
-					props.monitors.map(monitor => (
-						<div key={monitor._id}>
-							<p key={monitor._id + "_ID"}>Monitor ID: {monitor._id}</p>
-							<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
-							<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
-							<p key={monitor._id + "_heartbeat"}>
-								heartbeat: {monitor.heartbeat}
-							</p>
-							<p key={monitor._id + "_monitorType"}>
-								monitorType: {monitor.monitorType}
-							</p>
-							<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
+					props.monitors.map((monitor) => (
+						<div key={monitor._id} className="flex mb-12">
+							<div className="w-1/2 flex flex-col gap-4">
+								<p key={monitor._id + "_ID"}>Monitor ID: {monitor._id}</p>
+								<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
+								<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
+								<p key={monitor._id + "_heartbeat"}>
+									heartbeat: {monitor.heartbeat}
+								</p>
+								<p key={monitor._id + "_monitorType"}>
+									monitorType: {monitor.monitorType}
+								</p>
+								<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
+								<Link
+									className="text-white bg-blue-700 rounded w-24 text-center p-2"
+									href={"/dashboard/monitor/edit/" + monitor._id}
+								>
+									Edit
+								</Link>
+							</div>
 							<Image
+								className="w-1/2"
 								key={monitor._id + "_IMAGE"}
 								width={300}
 								height={300}
 								src={"data:image/gif;base64," + monitor.image}
 								alt="monitor"
 							/>
-							<Link
-								className="text-white bg-blue-700 rounded"
-								href={"/dashboard/monitor/edit/" + monitor._id}
-							>
-								Edit
-							</Link>
-							<br />
 						</div>
 					))}
 			</div>
@@ -69,8 +73,8 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + email,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				const user = result.data[0];
 				const firstName = user.firstName;
 				const lastName = user.lastName;
@@ -85,17 +89,17 @@ export async function getServerSideProps(context) {
 					},
 				};
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		const monitors = await fetch(
 			process.env.SITE_URI + "/api/monitors?userId=" + response.props.id,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data;
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		response.props.monitors = monitors;
 		return response;
