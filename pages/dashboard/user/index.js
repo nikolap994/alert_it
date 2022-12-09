@@ -1,18 +1,43 @@
-import { getSession } from "next-auth/react";
+import { signOut, useSession, getSession } from "next-auth/react";
 
 function User(props) {
+	const { data: session } = useSession();
+
 	const submitForm = e => {
 		e.preventDefault();
 
 		const firstName = e.target.firstName.value;
 		const lastName = e.target.lastName.value;
 		const email = e.target.email.value;
+		const id = session._doc._id;
 
-		console.log({
-			firstName,
-			lastName,
-			email,
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			id,
+			update: {
+				firstName,
+				lastName,
+				email,
+			},
 		});
+
+		var requestOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow",
+		};
+
+		fetch(props.SITE_URI + "/api/users", requestOptions)
+			.then(response => response.json())
+			.then(result => {
+				if (result.success === true) {
+					signOut();
+				}
+			})
+			.catch(error => console.log("error", error));
 	};
 
 	return (
@@ -85,34 +110,15 @@ export async function getServerSideProps(context) {
 			redirect: { destination: "/" },
 		};
 	} else {
-		const email = session.email;
-
-		var requestOptions = {
-			method: "GET",
-			redirect: "follow",
+		const response = {
+			props: {
+				email: session._doc.email,
+				firstName: session._doc.firstName,
+				lastName: session._doc.lastName,
+				id: session._doc._id,
+				SITE_URI: process.env.SITE_URI,
+			},
 		};
-
-		const response = await fetch(
-			process.env.SITE_URI + "/api/users?email=" + email,
-			requestOptions
-		)
-			.then(response => response.json())
-			.then(result => {
-				const user = result.data[0];
-				const firstName = user.firstName;
-				const lastName = user.lastName;
-				const id = user._id.toString();
-
-				return {
-					props: {
-						email,
-						firstName,
-						lastName,
-						id,
-					},
-				};
-			})
-			.catch(error => console.log("error", error));
 
 		return response;
 	}

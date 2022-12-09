@@ -31,10 +31,12 @@ export default async function handler(req, res) {
 				const browser = await puppeteer.launch();
 				const page = await browser.newPage();
 				await page.goto(req.body.url, { waitUntil: "networkidle2" });
-				const body = await page.screenshot({ encoding: "base64", fullPage: false }).then(response => {
-					req.body.image = response;
-					return req.body;
-				});
+				const body = await page
+					.screenshot({ encoding: "base64", fullPage: false })
+					.then(response => {
+						req.body.image = response;
+						return req.body;
+					});
 
 				const monitor = await Monitor.create(body);
 				res.status(201).json({ success: true, data: monitor });
@@ -54,6 +56,7 @@ export default async function handler(req, res) {
 			} catch (error) {
 				res.status(400).json({ success: false });
 			}
+			break;
 		case "DELETE":
 			try {
 				const monitorId = req.body.id;

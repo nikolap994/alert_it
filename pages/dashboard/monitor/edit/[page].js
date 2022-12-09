@@ -15,20 +15,23 @@ function EditMonitor(props) {
 		const owner = session._doc._id;
 
 		const raw = JSON.stringify({
-			name,
-			url,
-			heartbeat,
-			retries,
-			acceptedStatusCodes,
-			monitorType,
-			owner,
+			id: props.monitorId,
+			update: {
+				name,
+				url,
+				heartbeat,
+				retries,
+				acceptedStatusCodes,
+				monitorType,
+				owner,
+			},
 		});
 		const myHeaders = new Headers();
 
 		myHeaders.append("Content-Type", "application/json");
 
 		const requestOptions = {
-			method: "POST",
+			method: "PUT",
 			headers: myHeaders,
 			body: raw,
 			redirect: "follow",
@@ -43,7 +46,6 @@ function EditMonitor(props) {
 			})
 			.catch(error => console.log("error", error));
 	};
-
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
@@ -200,6 +202,7 @@ export async function getServerSideProps(context) {
 			.then(result => {
 				return {
 					props: {
+						monitorId: monitorId,
 						name: result.data[0].name,
 						url: result.data[0].url,
 						heartbeat: result.data[0].heartbeat,

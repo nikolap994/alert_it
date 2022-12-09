@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../src/helper/mongodb";
-import dbConnect from "../../../src/helper/dbConnect";
+import database from "../../../src/helper/database";
 import User from "../../../src/models/user";
 import { compare } from "bcrypt";
 
@@ -22,7 +22,7 @@ export default NextAuth({
 				},
 			},
 			async authorize(credentials) {
-				await dbConnect();
+				await database();
 				const user = await User.findOne({
 					email:
 						credentials === null || credentials === void 0

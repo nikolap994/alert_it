@@ -9,7 +9,7 @@ const MonitorSchema = new mongoose.Schema(
 		acceptedStatusCodes: String,
 		image: String,
 		monitorType: String,
-		owner: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+		owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 	},
 	{ timestamps: true }
 );

@@ -64,38 +64,22 @@ export async function getServerSideProps(context) {
 			redirect: { destination: "/" },
 		};
 	} else {
-		console.log(session)
-		const email = session.email;
+		const response = {
+			props: {
+				email: session._doc.email,
+				firstName: session._doc.firstName,
+				lastName: session._doc.lastName,
+				id: session._doc._id,
+			},
+		};
 
 		var requestOptions = {
 			method: "GET",
 			redirect: "follow",
 		};
 
-		const response = await fetch(
-			process.env.SITE_URI + "/api/users?email=" + email,
-			requestOptions
-		)
-			.then(response => response.json())
-			.then(result => {
-				const user = result.data[0];
-				const firstName = user.firstName;
-				const lastName = user.lastName;
-				const id = user._id.toString();
-
-				return {
-					props: {
-						email,
-						firstName,
-						lastName,
-						id,
-					},
-				};
-			})
-			.catch(error => console.log("error", error));
-
 		const monitors = await fetch(
-			process.env.SITE_URI + "/api/monitors?userId=" + response.props.id,
+			process.env.SITE_URI + "/api/monitors?userId=" + session._doc._id,
 			requestOptions
 		)
 			.then(response => response.json())
