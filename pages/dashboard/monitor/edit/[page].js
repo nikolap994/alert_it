@@ -78,7 +78,7 @@ function EditMonitor(props) {
 						Retries
 					</label>
 					<input
-						type="text"
+						type="number"
 						id="retries"
 						defaultValue={props.retries}
 						required
