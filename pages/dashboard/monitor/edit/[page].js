@@ -1,6 +1,8 @@
-import { getSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
+import Router from "next/router";
 
 function EditMonitor(props) {
+	const { data: session } = useSession();
 	const submitForm = e => {
 		e.preventDefault();
 
@@ -10,16 +12,38 @@ function EditMonitor(props) {
 		const retries = e.target.retries.value;
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
+		const owner = session._doc._id;
 
-		console.log({
+		const raw = JSON.stringify({
 			name,
 			url,
 			heartbeat,
 			retries,
 			acceptedStatusCodes,
 			monitorType,
+			owner,
 		});
+		const myHeaders = new Headers();
+
+		myHeaders.append("Content-Type", "application/json");
+
+		const requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow",
+		};
+
+		fetch(props.SITE_URI + "/api/monitors", requestOptions)
+			.then(response => response.json())
+			.then(result => {
+				if (result.success === true) {
+					Router.push("/");
+				}
+			})
+			.catch(error => console.log("error", error));
 	};
+
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
@@ -182,6 +206,7 @@ export async function getServerSideProps(context) {
 						retries: result.data[0].retries,
 						acceptedStatusCodes: result.data[0].acceptedStatusCodes,
 						monitorType: result.data[0].monitorType,
+						SITE_URI: process.env.SITE_URI,
 					},
 				};
 			})
