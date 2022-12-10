@@ -12,6 +12,15 @@ function User(props) {
 		const lastName = e.target.lastName.value;
 		const email = e.target.email.value;
 		const id = session._doc._id;
+		const SMTP_HOST = e.target.SMTP_HOST.value;
+		const SMTP_PORT = e.target.SMTP_PORT.value;
+		const SMTP_EMAIL = e.target.SMTP_EMAIL.value;
+		const SMTP_PASSWORD = e.target.SMTP_PASSWORD.value;
+		const ENABLE_SLACK = e.target.ENABLE_SLACK.value;
+		const SLACK_WEBHOOK_URL = e.target.SLACK_WEBHOOK_URL.value;
+		const ENABLE_WEBHOOK = e.target.ENABLE_WEBHOOK.value;
+		const CUSTOM_WEBHOOK_URL = e.target.CUSTOM_WEBHOOK_URL.value;
+		const ENABLE_SMTP = e.target.ENABLE_SMTP.value;
 
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
@@ -22,6 +31,15 @@ function User(props) {
 				firstName,
 				lastName,
 				email,
+				SMTP_HOST,
+				SMTP_PORT,
+				SMTP_EMAIL,
+				SMTP_PASSWORD,
+				ENABLE_SLACK,
+				SLACK_WEBHOOK_URL,
+				ENABLE_WEBHOOK,
+				CUSTOM_WEBHOOK_URL,
+				ENABLE_SMTP,
 			},
 		});
 
@@ -97,6 +115,146 @@ function User(props) {
 					/>
 				</div>
 
+				<hr />
+				<br />
+				<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="ENABLE_SMTP">
+						ENABLE_SMTP
+					</label>
+					<select
+						id="ENABLE_SMTP"
+						defaultValue={props.ENABLE_SMTP}
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						name="ENABLE_SMTP"
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
+				</div>
+
+				<div className="mb-6">
+					<label htmlFor="SMTP_HOST" className="block mb-2 dark:text-white">
+						SMTP_HOST
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="text"
+						name="SMTP_HOST"
+						id="SMTP_HOST"
+						defaultValue={props.SMTP_HOST}
+					/>
+				</div>
+
+				<div className="mb-6">
+					<label htmlFor="SMTP_PORT" className="block mb-2 dark:text-white">
+						SMTP_PORT
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="text"
+						name="SMTP_PORT"
+						id="SMTP_PORT"
+						defaultValue={props.SMTP_PORT}
+					/>
+				</div>
+
+				<div className="mb-6">
+					<label htmlFor="SMTP_EMAIL" className="block mb-2 dark:text-white">
+						SMTP_EMAIL
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="email"
+						name="SMTP_EMAIL"
+						id="SMTP_EMAIL"
+						defaultValue={props.SMTP_EMAIL}
+					/>
+				</div>
+
+				<div className="mb-6">
+					<label htmlFor="SMTP_PASSWORD" className="block mb-2 dark:text-white">
+						SMTP_PASSWORD
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="text"
+						name="SMTP_PASSWORD"
+						id="SMTP_PASSWORD"
+						defaultValue={props.SMTP_PASSWORD}
+					/>
+				</div>
+
+				<hr />
+				<br />
+
+				<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="ENABLE_SLACK">
+						ENABLE_SLACK
+					</label>
+					<select
+						id="ENABLE_SLACK"
+						defaultValue={props.ENABLE_SLACK}
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						name="ENABLE_SLACK"
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
+				</div>
+
+				<div className="mb-6">
+					<label
+						htmlFor="SLACK_WEBHOOK_URL"
+						className="block mb-2 dark:text-white"
+					>
+						SLACK_WEBHOOK_URL
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="text"
+						name="SLACK_WEBHOOK_URL"
+						id="SLACK_WEBHOOK_URL"
+						defaultValue={props.SLACK_WEBHOOK_URL}
+					/>
+				</div>
+
+				<hr />
+				<br />
+
+				<div className="mb-6">
+					<label
+						className="block mb-2 dark:text-white"
+						htmlFor="ENABLE_WEBHOOK"
+					>
+						ENABLE_WEBHOOK
+					</label>
+					<select
+						id="ENABLE_WEBHOOK"
+						defaultValue={props.ENABLE_WEBHOOK}
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						name="ENABLE_WEBHOOK"
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
+				</div>
+
+				<div className="mb-6">
+					<label
+						htmlFor="CUSTOM_WEBHOOK_URL"
+						className="block mb-2 dark:text-white"
+					>
+						CUSTOM_WEBHOOK_URL
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="text"
+						name="CUSTOM_WEBHOOK_URL"
+						id="CUSTOM_WEBHOOK_URL"
+						defaultValue={props.CUSTOM_WEBHOOK_URL}
+					/>
+				</div>
+
 				<button
 					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit"
@@ -129,6 +287,25 @@ export async function getServerSideProps(context) {
 				lastName: session._doc.lastName,
 				id: session._doc._id,
 				SITE_URI: process.env.SITE_URI,
+				ENABLE_SMTP: session._doc.ENABLE_SMTP ? session._doc.ENABLE_SMTP : "",
+				SMTP_HOST: session._doc.SMTP_HOST ? session._doc.SMTP_HOST : "",
+				SMTP_PORT: session._doc.SMTP_PORT ? session._doc.SMTP_PORT : "",
+				SMTP_EMAIL: session._doc.SMTP_EMAIL ? session._doc.SMTP_EMAIL : "",
+				SMTP_PASSWORD: session._doc.SMTP_PASSWORD
+					? session._doc.SMTP_PASSWORD
+					: "",
+				ENABLE_SLACK: session._doc.ENABLE_SLACK
+					? session._doc.ENABLE_SLACK
+					: "",
+				SLACK_WEBHOOK_URL: session._doc.SLACK_WEBHOOK_URL
+					? session._doc.SLACK_WEBHOOK_URL
+					: "",
+				ENABLE_WEBHOOK: session._doc.ENABLE_WEBHOOK
+					? session._doc.ENABLE_WEBHOOK
+					: "",
+				CUSTOM_WEBHOOK_URL: session._doc.CUSTOM_WEBHOOK_URL
+					? session._doc.CUSTOM_WEBHOOK_URL
+					: "",
 			},
 		};
 

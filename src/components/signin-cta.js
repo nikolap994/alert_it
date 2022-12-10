@@ -9,7 +9,6 @@ function SignInCTA() {
 				className="mix-blend-multiply absolute"
 				src={loginBg}
 				alt="Log in image"
-				layout="fill"
 				priority={true}
 				quality={100}
 			/>

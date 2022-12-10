@@ -50,7 +50,6 @@ export default function Register() {
 						className="mix-blend-multiply"
 						src={loginBg}
 						alt="Log in image"
-						layout="fill"
 						objectfit="cover"
 						priority={true}
 						quality={100}
