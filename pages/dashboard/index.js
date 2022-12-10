@@ -20,16 +20,14 @@ export default function Dashboard(props) {
 					props.monitors.map(monitor => (
 						<div
 							key={monitor._id}
-							className={`max-w-sm rounded overflow-hidden shadow-lg ${
+							className={`max-w-sm rounded overflow-hidden shadow-2xl ${
 								monitor.upCheckStatus
-									? "shadow-green-500/50"
-									: "shadow-red-500/50"
+									? "shadow-green-500"
+									: "shadow-red-500"
 							} ${monitor.enabled ? "" : "grayscale"}`}
 						>
 							<Image
-								className={`w-full p-2 rounded border-2 ${
-									monitor.upCheckStatus ? "border-green-500" : "border-red-500"
-								}`}
+								className="w-full p-2 rounded"
 								key={monitor._id + "_IMAGE"}
 								width={300}
 								height={300}
