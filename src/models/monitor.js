@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const MonitorSchema = new mongoose.Schema(
 	{
+		enabled: Number,
 		name: String,
 		url: String,
 		heartbeat: Number,
@@ -9,6 +10,7 @@ const MonitorSchema = new mongoose.Schema(
 		acceptedStatusCodes: String,
 		image: String,
 		monitorType: String,
+		port: Number,
 		owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 	},
 	{ timestamps: true }

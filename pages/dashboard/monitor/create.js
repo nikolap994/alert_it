@@ -14,8 +14,12 @@ export default function CreateMonitor(props) {
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
 		const owner = session._doc._id;
+		const enabled = e.target.enabled.value;
+		const port = e.target.port.value;
 
 		const raw = JSON.stringify({
+			port,
+			enabled,
 			name,
 			url,
 			heartbeat,
@@ -50,6 +54,19 @@ export default function CreateMonitor(props) {
 			<div className="block mb-2 dark:text-white">Create Monitor</div>
 
 			<form className="w-full max-w-lg" method="POST" onSubmit={submitForm}>
+			<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="enabled">
+						Enabled
+					</label>
+					<input
+						id="enabled"
+						required
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="number"
+						name="enabled"
+					/>
+				</div>
+
 				<div className="mb-6">
 					<label className="block mb-2 dark:text-white" htmlFor="name">
 						Name
@@ -86,6 +103,7 @@ export default function CreateMonitor(props) {
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						name="heartbeat"
 					>
+						<option defaultValue="1">1</option>
 						<option defaultValue="5">5</option>
 						<option defaultValue="10">10</option>
 						<option defaultValue="30">30</option>
@@ -147,6 +165,19 @@ export default function CreateMonitor(props) {
 						<option defaultValue="ping">Ping</option>
 						<option defaultValue="tcp">TCP</option>
 					</select>
+				</div>
+
+				<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="port">
+						Port
+					</label>
+					<input
+						id="port"
+						required
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="number"
+						name="port"
+					/>
 				</div>
 
 				<button

@@ -31,6 +31,7 @@ export default function Dashboard(props) {
 								alt="monitor"
 							/>
 							<div className="px-6 py-4">
+								<p key={monitor._id + "_Enabled"}>Enabled: {monitor.enabled}</p>
 								<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
 								<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
 								<p key={monitor._id + "_heartbeat"}>
@@ -40,6 +41,7 @@ export default function Dashboard(props) {
 									monitorType: {monitor.monitorType}
 								</p>
 								<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
+								<p key={monitor._id + "_port"}>Port: {monitor.port}</p>
 								<p className="pt-5">
 									<Link
 										className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"

@@ -26,8 +26,8 @@ function Navigation() {
 						className="h-full object-none"
 						src={alertitLogo}
 						alt="Alertit logo"
-						width={100}
-						height={75}
+						width={200}
+						height={175}
 					/>
 				</Link>
 				<Image
@@ -63,9 +63,9 @@ function Navigation() {
 											"https://www.gravatar.com/avatar/" +
 											md5(session.email)
 										}
-										width={50}
-										height={50}
-										className="w-8 h-8 rounded-full"
+										width={100}
+										height={100}
+										className="w-10 h-10 rounded-full"
 									></Image>
 								</Link>
 							</li>

@@ -13,10 +13,14 @@ function EditMonitor(props) {
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
 		const owner = session._doc._id;
+		const enabled = e.target.enabled.value;
+		const port = e.target.port.value;
 
 		const raw = JSON.stringify({
 			id: props.monitorId,
 			update: {
+				enabled,
+				port,
 				name,
 				url,
 				heartbeat,
@@ -58,6 +62,20 @@ function EditMonitor(props) {
 				onSubmit={submitForm}
 			>
 				<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="enabled">
+						Enabled
+					</label>
+					<input
+						id="enabled"
+						defaultValue={props.enabled}
+						required
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="number"
+						name="enabled"
+					/>
+				</div>
+
+				<div className="mb-6">
 					<label className="block mb-2 dark:text-white" htmlFor="name">
 						Name
 					</label>
@@ -97,6 +115,7 @@ function EditMonitor(props) {
 						name="heartbeat"
 					>
 						<option>Choose heartbeat</option>
+						<option defaultValue="1">1</option>
 						<option defaultValue="5">5</option>
 						<option defaultValue="10">10</option>
 						<option defaultValue="30">30</option>
@@ -162,6 +181,20 @@ function EditMonitor(props) {
 					</select>
 				</div>
 
+				<div>
+					<label className="block mb-2 dark:text-white" htmlFor="port">
+						Port
+					</label>
+					<input
+						id="port"
+						defaultValue={props.port}
+						required
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="number"
+						name="port"
+					/>
+				</div>
+
 				<button
 					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit"
@@ -210,6 +243,8 @@ export async function getServerSideProps(context) {
 						acceptedStatusCodes: result.data[0].acceptedStatusCodes,
 						monitorType: result.data[0].monitorType,
 						SITE_URI: process.env.SITE_URI,
+						enabled: result.data[0].enabled,
+						port: result.data[0].port,
 					},
 				};
 			})
