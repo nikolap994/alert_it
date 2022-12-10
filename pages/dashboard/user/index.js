@@ -1,5 +1,6 @@
 import { signOut, useSession, getSession } from "next-auth/react";
 import Link from "next/link";
+import Head from "next/head";
 
 function User(props) {
 	const { data: session } = useSession();
@@ -43,6 +44,10 @@ function User(props) {
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
+			<Head>
+				<title>Profile</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="block mb-2 dark:text-white">User</div>
 			<form
 				className="w-full max-w-lg"

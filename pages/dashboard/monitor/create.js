@@ -1,5 +1,6 @@
 import { useSession, getSession } from "next-auth/react";
 import Router from "next/router";
+import Head from "next/head";
 
 export default function CreateMonitor(props) {
 	const { data: session } = useSession();
@@ -49,6 +50,10 @@ export default function CreateMonitor(props) {
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
+			<Head>
+				<title>Create new Monitor</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="block mb-2 dark:text-white">Create Monitor</div>
 
 			<form className="w-full max-w-lg" method="POST" onSubmit={submitForm}>

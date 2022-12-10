@@ -1,10 +1,16 @@
 import { getSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function Dashboard(props) {
 	return (
 		<div className="max-w-7xl mx-auto px-4 md:px-6 text-white bg-slate-900">
+			<Head>
+				<title>Dashboard</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+
 			<div className="pt-10 lg:flex justify-between items-center max-w">
 				<h1 className="text-5xl my-16">Dashboard</h1>
 
@@ -21,9 +27,7 @@ export default function Dashboard(props) {
 						<div
 							key={monitor._id}
 							className={`max-w-sm rounded overflow-hidden shadow-2xl ${
-								monitor.upCheckStatus
-									? "shadow-green-500"
-									: "shadow-red-500"
+								monitor.upCheckStatus ? "shadow-green-500" : "shadow-red-500"
 							} ${monitor.enabled ? "" : "grayscale"}`}
 						>
 							<Image

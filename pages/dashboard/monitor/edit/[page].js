@@ -1,6 +1,7 @@
 import { useSession, getSession } from "next-auth/react";
 import Link from "next/link";
 import Router from "next/router";
+import Head from "next/head";
 
 function EditMonitor(props) {
 	const { data: session } = useSession();
@@ -52,6 +53,10 @@ function EditMonitor(props) {
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
+			<Head>
+				<title>Edit Monitor</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<div className="block mb-2 dark:text-white">Edit Monitor</div>
 
 			<form
