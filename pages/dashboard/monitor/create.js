@@ -52,17 +52,19 @@ export default function CreateMonitor(props) {
 			<div className="block mb-2 dark:text-white">Create Monitor</div>
 
 			<form className="w-full max-w-lg" method="POST" onSubmit={submitForm}>
-			<div className="mb-6">
+				<div className="mb-6">
 					<label className="block mb-2 dark:text-white" htmlFor="enabled">
 						Enabled
 					</label>
-					<input
+					<select
 						id="enabled"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="number"
 						name="enabled"
-					/>
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
@@ -86,7 +88,7 @@ export default function CreateMonitor(props) {
 						id="url"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="text"
+						type="url"
 						name="url"
 					/>
 				</div>
@@ -144,7 +146,7 @@ export default function CreateMonitor(props) {
 					>
 						<option>Choose a monitor type</option>
 						<option defaultValue="https">https</option>
-						<option defaultValue="tcp">TCP</option>
+						<option defaultValue="tcp">tcp</option>
 					</select>
 				</div>
 

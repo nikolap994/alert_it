@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const MonitorSchema = new mongoose.Schema(
 	{
-		enabled: Number,
+		enabled: Boolean,
 		name: String,
 		url: String,
 		heartbeat: Number,

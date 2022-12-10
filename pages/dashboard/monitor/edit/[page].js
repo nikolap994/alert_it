@@ -13,7 +13,7 @@ function EditMonitor(props) {
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
 		const owner = session._doc._id;
-		const enabled = e.target.enabled.value;
+		const enabled = e.target.enabled.value == "true" ? true : false;
 		const port = e.target.port.value;
 
 		const raw = JSON.stringify({
@@ -64,14 +64,16 @@ function EditMonitor(props) {
 					<label className="block mb-2 dark:text-white" htmlFor="enabled">
 						Enabled
 					</label>
-					<input
+					<select
 						id="enabled"
-						defaultValue={props.enabled}
 						required
+						defaultValue={props.enabled}
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="number"
 						name="enabled"
-					/>
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
 				</div>
 
 				<div className="mb-6">
@@ -97,7 +99,7 @@ function EditMonitor(props) {
 						required
 						defaultValue={props.url}
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="text"
+						type="url"
 						name="url"
 					/>
 				</div>
@@ -159,7 +161,7 @@ function EditMonitor(props) {
 					>
 						<option>Choose a monitor type</option>
 						<option defaultValue="https">https</option>
-						<option defaultValue="tcp">TCP</option>
+						<option defaultValue="tcp">tcp</option>
 					</select>
 				</div>
 

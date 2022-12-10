@@ -20,10 +20,16 @@ export default function Dashboard(props) {
 					props.monitors.map(monitor => (
 						<div
 							key={monitor._id}
-							className={`max-w-sm rounded overflow-hidden shadow-lg ${monitor.upCheckStatus ? "shadow-blue-500/50" : "shadow-red-500/50"}`}
+							className={`max-w-sm rounded overflow-hidden shadow-lg ${
+								monitor.upCheckStatus
+									? "shadow-green-500/50"
+									: "shadow-red-500/50"
+							} ${monitor.enabled ? "" : "grayscale"}`}
 						>
 							<Image
-								className={`w-full p-2 rounded border-2 ${monitor.upCheckStatus ? "border-blue-500" : "border-red-500"}`}
+								className={`w-full p-2 rounded border-2 ${
+									monitor.upCheckStatus ? "border-green-500" : "border-red-500"
+								}`}
 								key={monitor._id + "_IMAGE"}
 								width={300}
 								height={300}
@@ -31,10 +37,16 @@ export default function Dashboard(props) {
 								alt="monitor"
 							/>
 							<div className="px-6 py-4">
-								<p key={monitor._id + "_Enabled"}>Enabled: {monitor.enabled}</p>
-								<p key={monitor._id + "_lastCheck"}>lastCheck: {monitor.lastCheck}</p>
+								<p key={monitor._id + "_Enabled"}>
+									Enabled: {monitor.enabled ? "ON" : "OFF"}
+								</p>
+								<p key={monitor._id + "_lastCheck"}>
+									lastCheck: {monitor.lastCheck}
+								</p>
 								<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
-								<p key={monitor._id + "_acceptedStatusCodes"}>acceptedStatusCodes: {monitor.acceptedStatusCodes}</p>
+								<p key={monitor._id + "_acceptedStatusCodes"}>
+									acceptedStatusCodes: {monitor.acceptedStatusCodes}
+								</p>
 								<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
 								<p key={monitor._id + "_heartbeat"}>
 									heartbeat: {monitor.heartbeat}
