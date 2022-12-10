@@ -121,6 +121,15 @@ class Cron {
 				//Retry if no response
 				//Update image if there is response
 				//Add timestamp when response is done
+
+				// TCP returns true / false
+				// http://localhost:3000/api/monitor/tcp?url=google.com&port=80
+
+				// HTTP returns status
+				// http://localhost:3000/api/monitor/https?url=https://google.com
+
+				// PING returns stdout
+				// http://localhost:3000/api/monitor/ping?url=google.com
 				console.log(response.body);
 			});
 
