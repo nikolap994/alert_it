@@ -1,4 +1,5 @@
 import { signOut, useSession, getSession } from "next-auth/react";
+import Link from "next/link";
 
 function User(props) {
 	const { data: session } = useSession();
@@ -98,6 +99,12 @@ function User(props) {
 					Save
 				</button>
 			</form>
+			<Link
+				className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+				href="#"
+			>
+				Delete Account
+			</Link>
 		</div>
 	);
 }

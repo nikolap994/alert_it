@@ -20,10 +20,10 @@ export default function Dashboard(props) {
 					props.monitors.map(monitor => (
 						<div
 							key={monitor._id}
-							className="max-w-sm rounded overflow-hidden shadow-lg shadow-blue-500/50"
+							className={`max-w-sm rounded overflow-hidden shadow-lg ${monitor.upCheckStatus ? "shadow-blue-500/50" : "shadow-red-500/50"}`}
 						>
 							<Image
-								className="w-full p-2 rounded border-2 border-blue-500"
+								className={`w-full p-2 rounded border-2 ${monitor.upCheckStatus ? "border-blue-500" : "border-red-500"}`}
 								key={monitor._id + "_IMAGE"}
 								width={300}
 								height={300}
@@ -32,7 +32,9 @@ export default function Dashboard(props) {
 							/>
 							<div className="px-6 py-4">
 								<p key={monitor._id + "_Enabled"}>Enabled: {monitor.enabled}</p>
+								<p key={monitor._id + "_lastCheck"}>lastCheck: {monitor.lastCheck}</p>
 								<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
+								<p key={monitor._id + "_acceptedStatusCodes"}>acceptedStatusCodes: {monitor.acceptedStatusCodes}</p>
 								<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
 								<p key={monitor._id + "_heartbeat"}>
 									heartbeat: {monitor.heartbeat}
@@ -40,8 +42,8 @@ export default function Dashboard(props) {
 								<p key={monitor._id + "_monitorType"}>
 									monitorType: {monitor.monitorType}
 								</p>
-								<p key={monitor._id + "_retries"}>retries: {monitor.retries}</p>
 								<p key={monitor._id + "_port"}>Port: {monitor.port}</p>
+								<p key={monitor._id + "_message"}>Message: {monitor.message}</p>
 								<p className="pt-5">
 									<Link
 										className="text-white bg-blue-700 rounded text-center w-full inline-block pt-2 pb-2"

@@ -10,7 +10,6 @@ export default function CreateMonitor(props) {
 		const name = e.target.name.value;
 		const url = e.target.url.value;
 		const heartbeat = e.target.heartbeat.value;
-		const retries = e.target.retries.value;
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
 		const owner = session._doc._id;
@@ -23,7 +22,6 @@ export default function CreateMonitor(props) {
 			name,
 			url,
 			heartbeat,
-			retries,
 			acceptedStatusCodes,
 			monitorType,
 			owner,
@@ -88,7 +86,7 @@ export default function CreateMonitor(props) {
 						id="url"
 						required
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="url"
+						type="text"
 						name="url"
 					/>
 				</div>
@@ -109,22 +107,6 @@ export default function CreateMonitor(props) {
 						<option defaultValue="30">30</option>
 						<option defaultValue="60">60</option>
 					</select>
-				</div>
-
-				<div className="mb-6">
-					<label className="block mb-2 dark:text-white" htmlFor="retries">
-						Retries
-					</label>
-					<input
-						defaultValue={5}
-						type="number"
-						min={1}
-						max={5}
-						required
-						id="retries"
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						name="retries"
-					/>
 				</div>
 
 				<div className="mb-6">
@@ -162,7 +144,6 @@ export default function CreateMonitor(props) {
 					>
 						<option>Choose a monitor type</option>
 						<option defaultValue="https">https</option>
-						<option defaultValue="ping">Ping</option>
 						<option defaultValue="tcp">TCP</option>
 					</select>
 				</div>

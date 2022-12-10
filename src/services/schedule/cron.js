@@ -82,27 +82,22 @@ class Cron {
 	 * Execute all cronjobs in single function.
 	 * @param {String} jobs - List of jobs from the database.
 	 */
-	executeJobs(jobs) {
+	async executeJobs(jobs) {
 		const SITE_URI = process.env.SITE_URI;
+
 		for (const job of jobs) {
 			const siteUrl = job.url;
 			const sitePort = job.port;
-			const acceptedStatusCodes  = job.acceptedStatusCodes;
-			const retries = job.retries;
+			const acceptedStatusCodes = job.acceptedStatusCodes;
 			const monitorType = job.monitorType;
+			const id = job._id;
+
 			let options = {};
+
 			if ("https" === monitorType) {
 				options = {
 					method: "GET",
 					url: `${SITE_URI}/api/monitor/https?url=${siteUrl}`,
-					headers: {},
-				};
-			}
-
-			if ("ping" === monitorType) {
-				options = {
-					method: "GET",
-					url: `${SITE_URI}/api/monitor/ping?url=${siteUrl}`,
 					headers: {},
 				};
 			}
@@ -117,22 +112,44 @@ class Cron {
 
 			request(options, function (error, response) {
 				if (error) throw new Error(error);
-				//Check response status
-				//Retry if no response
-				//Update image if there is response
-				//Add timestamp when response is done
 
-				// TCP returns true / false
-				// http://localhost:3000/api/monitor/tcp?url=google.com&port=80
+				if ("https" === monitorType) {
+					const codes = acceptedStatusCodes.split("-");
 
-				// HTTP returns status
-				// http://localhost:3000/api/monitor/https?url=https://google.com
+					if (
+						JSON.parse(response.body).status >= codes[0] &&
+						JSON.parse(response.body).status <= codes[1]
+					) {
+						Monitor.findByIdAndUpdate(id, {
+							upCheckStatus: true,
+							message:
+								"Response status code: " + JSON.parse(response.body).status,
+						}).then(() => {});
+					} else {
+						Monitor.findByIdAndUpdate(id, {
+							upCheckStatus: false,
+							message:
+								"Response status code: " + JSON.parse(response.body).status,
+						}).then(() => {});
+					}
+				}
 
-				// PING returns stdout
-				// http://localhost:3000/api/monitor/ping?url=google.com
-				console.log(response.body);
+				if ("tcp" === monitorType) {
+					if (JSON.parse(response.body).reachable) {
+						Monitor.findByIdAndUpdate(id, {
+							upCheckStatus: true,
+							message: "Monitor is reachable",
+						}).then(() => {});
+					} else {
+						Monitor.findByIdAndUpdate(id, {
+							upCheckStatus: false,
+							message: "Monitor is not reachable",
+						}).then(() => {});
+					}
+				}
 			});
 
+			await Monitor.findByIdAndUpdate(id, { lastCheck: new Date() });
 		}
 	}
 }

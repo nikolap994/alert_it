@@ -1,4 +1,5 @@
 import { useSession, getSession } from "next-auth/react";
+import Link from "next/link";
 import Router from "next/router";
 
 function EditMonitor(props) {
@@ -9,7 +10,6 @@ function EditMonitor(props) {
 		const name = e.target.name.value;
 		const url = e.target.url.value;
 		const heartbeat = e.target.heartbeat.value;
-		const retries = e.target.retries.value;
 		const acceptedStatusCodes = e.target.acceptedStatusCodes.value;
 		const monitorType = e.target.monitorType.value;
 		const owner = session._doc._id;
@@ -24,7 +24,6 @@ function EditMonitor(props) {
 				name,
 				url,
 				heartbeat,
-				retries,
 				acceptedStatusCodes,
 				monitorType,
 				owner,
@@ -98,7 +97,7 @@ function EditMonitor(props) {
 						required
 						defaultValue={props.url}
 						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="url"
+						type="text"
 						name="url"
 					/>
 				</div>
@@ -121,22 +120,6 @@ function EditMonitor(props) {
 						<option defaultValue="30">30</option>
 						<option defaultValue="60">60</option>
 					</select>
-				</div>
-
-				<div className="mb-6">
-					<label className="block mb-2 dark:text-white" htmlFor="retries">
-						Retries
-					</label>
-					<input
-						type="number"
-						id="retries"
-						min={1}
-						max={5}
-						defaultValue={props.retries}
-						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						name="retries"
-					/>
 				</div>
 
 				<div className="mb-6">
@@ -176,8 +159,7 @@ function EditMonitor(props) {
 					>
 						<option>Choose a monitor type</option>
 						<option defaultValue="https">https</option>
-						<option defaultValue="ping">ping</option>
-						<option defaultValue="tcp">tcp</option>
+						<option defaultValue="tcp">TCP</option>
 					</select>
 				</div>
 
@@ -202,6 +184,13 @@ function EditMonitor(props) {
 					Save
 				</button>
 			</form>
+
+			<Link
+				className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+				href="#"
+			>
+				Delete Monitor
+			</Link>
 		</div>
 	);
 }
@@ -239,7 +228,6 @@ export async function getServerSideProps(context) {
 						name: result.data[0].name,
 						url: result.data[0].url,
 						heartbeat: result.data[0].heartbeat,
-						retries: result.data[0].retries,
 						acceptedStatusCodes: result.data[0].acceptedStatusCodes,
 						monitorType: result.data[0].monitorType,
 						SITE_URI: process.env.SITE_URI,
