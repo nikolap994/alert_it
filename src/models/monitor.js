@@ -11,6 +11,7 @@ const MonitorSchema = new mongoose.Schema(
 		image: String,
 		monitorType: String,
 		port: Number,
+		lastCheck: Date,
 		owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 	},
 	{ timestamps: true }
