@@ -117,6 +117,10 @@ class Cron {
 
 			request(options, function (error, response) {
 				if (error) throw new Error(error);
+				//Check response status
+				//Retry if no response
+				//Update image if there is response
+				//Add timestamp when response is done
 				console.log(response.body);
 			});
 
