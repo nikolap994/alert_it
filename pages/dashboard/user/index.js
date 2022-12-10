@@ -1,9 +1,11 @@
 import { signOut, useSession, getSession } from "next-auth/react";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 function User(props) {
 	const { data: session } = useSession();
+	const router = useRouter();
 
 	const submitForm = e => {
 		e.preventDefault();
@@ -54,7 +56,7 @@ function User(props) {
 			.then(response => response.json())
 			.then(result => {
 				if (result.success === true) {
-					signOut();
+					router.reload(window.location.pathname);
 				}
 			})
 			.catch(error => console.log("error", error));
@@ -280,36 +282,23 @@ export async function getServerSideProps(context) {
 			redirect: { destination: "/" },
 		};
 	} else {
-		const response = {
-			props: {
-				email: session._doc.email,
-				firstName: session._doc.firstName,
-				lastName: session._doc.lastName,
-				id: session._doc._id,
-				SITE_URI: process.env.SITE_URI,
-				ENABLE_SMTP: session._doc.ENABLE_SMTP ? session._doc.ENABLE_SMTP : "",
-				SMTP_HOST: session._doc.SMTP_HOST ? session._doc.SMTP_HOST : "",
-				SMTP_PORT: session._doc.SMTP_PORT ? session._doc.SMTP_PORT : "",
-				SMTP_EMAIL: session._doc.SMTP_EMAIL ? session._doc.SMTP_EMAIL : "",
-				SMTP_PASSWORD: session._doc.SMTP_PASSWORD
-					? session._doc.SMTP_PASSWORD
-					: "",
-				ENABLE_SLACK: session._doc.ENABLE_SLACK
-					? session._doc.ENABLE_SLACK
-					: "",
-				SLACK_WEBHOOK_URL: session._doc.SLACK_WEBHOOK_URL
-					? session._doc.SLACK_WEBHOOK_URL
-					: "",
-				ENABLE_WEBHOOK: session._doc.ENABLE_WEBHOOK
-					? session._doc.ENABLE_WEBHOOK
-					: "",
-				CUSTOM_WEBHOOK_URL: session._doc.CUSTOM_WEBHOOK_URL
-					? session._doc.CUSTOM_WEBHOOK_URL
-					: "",
-			},
+		var requestOptions = {
+			method: "GET",
+			redirect: "follow",
 		};
 
-		return response;
+		const response = await fetch(
+			process.env.SITE_URI + "/api/users?email=" + session._doc.email,
+			requestOptions
+		)
+			.then(response => response.json())
+			.then(result => {
+				return result.data[0];
+			})
+			.catch(error => console.log("error", error));
+
+		response.SITE_URI = process.env.SITE_URI;
+		return { props: response };
 	}
 }
 
