@@ -43,7 +43,7 @@ function User(props) {
 
 	return (
 		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
-			<div className="block mb-2 dark:text-white">User Page</div>
+			<div className="block mb-2 dark:text-white">User</div>
 			<form
 				className="w-full max-w-lg"
 				method="POST"
