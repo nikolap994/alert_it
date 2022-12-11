@@ -1,6 +1,7 @@
 const nodeMailer = require("nodemailer");
 const slackNotify = require("slack-notify");
 const User = require("../../models/user");
+const request = require("request");
 
 class Communication {
 	/**
@@ -61,53 +62,81 @@ class Communication {
 
 	/**
 	 *
+	 * @param {String} customWebhookUrl - custom webhook url
+	 */
+	sendCustomWebhook(customWebhookUrl) {
+		console.log(customWebhookUrl);
+
+		const options = {
+			method: "GET",
+			url: customWebhookUrl,
+			headers: {},
+		};
+
+		request(options, function (error, response) {
+			if (error) throw new Error(error);
+			console.log(response);
+		});
+	}
+
+	/**
+	 *
 	 * @param {String} job - Monitor object
 	 */
 	async sendNotification(job) {
-		const user = await User.findById(job.owner);
+		try {
+			const user = await User.findById(job.owner);
 
-		const monitorName = job.name;
-		const monitorUrl = job.url;
-		const monitorType = job.monitorType;
+			const monitorName = job.name;
+			const monitorUrl = job.url;
+			const monitorType = job.monitorType;
 
-		const ownerEmail = user.email;
+			const ownerEmail = user.email;
 
-		const ownerEnableSlack = user.ENABLE_SLACK;
-		if (ownerEnableSlack) {
-			const ownerSlackWebhookUrl = user.SLACK_WEBHOOK_URL;
-			const message = `Monitor - ${monitorName} is Down, check ${monitorUrl} !`;
-			sendSlack(ownerSlackWebhookUrl, message);
-		}
+			const ownerEnableSlack = user.ENABLE_SLACK;
+			if (ownerEnableSlack) {
+				const ownerSlackWebhookUrl = user.SLACK_WEBHOOK_URL;
+				const message = `Monitor - ${monitorName} is Down, check ${monitorUrl} !`;
+				this.sendSlack(ownerSlackWebhookUrl, message);
+			}
 
-		const ownerEnableSMTP = user.ENABLE_SMTP;
-		if (ownerEnableSMTP) {
-			const ownerSmtpEmail = user.SMTP_EMAIL;
-			const ownerSmtpHost = user.SMTP_HOST;
-			const ownerSmtpPassword = user.SMTP_PASSWORD;
-			const ownerSmtpPort = user.SMTP_PORT;
+			const ownerEnableSMTP = user.ENABLE_SMTP;
+			if (ownerEnableSMTP) {
+				const ownerSmtpEmail = user.SMTP_EMAIL;
+				const ownerSmtpHost = user.SMTP_HOST;
+				const ownerSmtpPassword = user.SMTP_PASSWORD;
+				const ownerSmtpPort = user.SMTP_PORT;
 
-			const subject = `Monitor - ${monitorName} is Down`;
-			const html = `
+				const subject = `Monitor - ${monitorName} is Down`;
+				const html = `
 				<h1>${monitorName} is Down</h1>
 				<p>Monitor type: ${monitorType}</p>
 
 				<a href="${monitorUrl}">Visit monitor to check</a>
 			`;
 
-			sendMail(
-				{
-					SMTP_EMAIL: ownerSmtpEmail,
-					SMTP_HOST: ownerSmtpHost,
-					SMTP_PASSWORD: ownerSmtpPassword,
-					SMTP_PORT: ownerSmtpPort,
-				},
-				ownerSmtpEmail,
-				ownerEmail,
-				subject,
-				html
-			);
+				this.sendMail(
+					{
+						SMTP_EMAIL: ownerSmtpEmail,
+						SMTP_HOST: ownerSmtpHost,
+						SMTP_PASSWORD: ownerSmtpPassword,
+						SMTP_PORT: ownerSmtpPort,
+					},
+					ownerSmtpEmail,
+					ownerEmail,
+					subject,
+					html
+				);
+			}
+
+			const ownerEnableCustomWebhook = user.ENABLE_WEBHOOK;
+			if (ownerEnableCustomWebhook) {
+				const ownerCustomWebhookUrl = user.CUSTOM_WEBHOOK_URL;
+				this.sendCustomWebhook(ownerCustomWebhookUrl);
+			}
+		} catch (e) {
+			console.log(e);
 		}
 	}
 }
-
 module.exports = Communication;

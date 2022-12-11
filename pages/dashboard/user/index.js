@@ -20,6 +20,8 @@ function User(props) {
 		const SMTP_PASSWORD = e.target.SMTP_PASSWORD.value;
 		const ENABLE_SLACK = e.target.ENABLE_SLACK.value;
 		const SLACK_WEBHOOK_URL = e.target.SLACK_WEBHOOK_URL.value;
+		const ENABLE_WEBHOOK = e.target.ENABLE_WEBHOOK.value;
+		const CUSTOM_WEBHOOK_URL = e.target.CUSTOM_WEBHOOK_URL.value;
 		const ENABLE_SMTP = e.target.ENABLE_SMTP.value;
 
 		var myHeaders = new Headers();
@@ -37,6 +39,8 @@ function User(props) {
 				SMTP_PASSWORD,
 				ENABLE_SLACK,
 				SLACK_WEBHOOK_URL,
+				ENABLE_WEBHOOK,
+				CUSTOM_WEBHOOK_URL,
 				ENABLE_SMTP,
 			},
 		});
@@ -209,10 +213,47 @@ function User(props) {
 					</label>
 					<input
 						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						type="text"
+						type="url"
 						name="SLACK_WEBHOOK_URL"
 						id="SLACK_WEBHOOK_URL"
 						defaultValue={props.SLACK_WEBHOOK_URL}
+					/>
+				</div>
+
+				<hr />
+				<br />
+
+				<div className="mb-6">
+					<label
+						className="block mb-2 dark:text-white"
+						htmlFor="ENABLE_WEBHOOK"
+					>
+						ENABLE_WEBHOOK
+					</label>
+					<select
+						id="ENABLE_WEBHOOK"
+						defaultValue={props.ENABLE_WEBHOOK}
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						name="ENABLE_WEBHOOK"
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
+				</div>
+
+				<div className="mb-6">
+					<label
+						htmlFor="CUSTOM_WEBHOOK_URL"
+						className="block mb-2 dark:text-white"
+					>
+						CUSTOM_WEBHOOK_URL
+					</label>
+					<input
+						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						type="url"
+						name="CUSTOM_WEBHOOK_URL"
+						id="CUSTOM_WEBHOOK_URL"
+						defaultValue={props.CUSTOM_WEBHOOK_URL}
 					/>
 				</div>
 
