@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const database = require("../../helper/database-backend");
 const Monitor = require("../../models/monitor");
 const request = require("request");
-
+const Communication = require("../communication/communication");
 /**
  * Cron scheduler class.
  * This class will handle all dynamic background
@@ -130,6 +130,7 @@ class Cron {
 									"Response status code: " + JSON.parse(response.body).status,
 							}).then(() => {});
 						} else {
+							new Communication().sendNotification(job);
 							Monitor.findByIdAndUpdate(id, {
 								upCheckStatus: false,
 								message:
@@ -145,6 +146,7 @@ class Cron {
 								message: "Monitor is reachable",
 							}).then(() => {});
 						} else {
+							new Communication().sendNotification(job);
 							Monitor.findByIdAndUpdate(id, {
 								upCheckStatus: false,
 								message: "Monitor is not reachable",

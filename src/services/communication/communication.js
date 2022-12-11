@@ -1,6 +1,6 @@
 const nodeMailer = require("nodemailer");
 const slackNotify = require("slack-notify");
-var Mattermost = require("node-mattermost");
+const User = require("../../models/user");
 
 class Communication {
 	/**
@@ -10,14 +10,14 @@ class Communication {
 	 * @param {String} subject - Email subject.
 	 * @param {String} html - Email body html.
 	 */
-	sendMail(from, to, subject, html) {
+	sendMail(SMTP_CONF, from, to, subject, html) {
 		let transporter = nodeMailer.createTransport({
-			host: process.env.SMTP_HOST,
-			port: process.env.SMTP_PORT,
+			host: SMTP_CONF.SMTP_HOST,
+			port: SMTP_CONF.SMTP_PORT,
 			secure: false,
 			auth: {
-				user: process.env.SMTP_EMAIL,
-				pass: process.env.SMTP_PASSWORD,
+				user: SMTP_CONF.SMTP_EMAIL,
+				pass: SMTP_CONF.SMTP_PASSWORD,
 			},
 		});
 
@@ -31,8 +31,6 @@ class Communication {
 		try {
 			transporter.sendMail(mailOptions, (error, info) => {
 				if (error) {
-					// TODO: Add better error handling.
-					// Possible solution: https://www.npmjs.com/package/winston
 					return console.log(error);
 				}
 
@@ -59,6 +57,56 @@ class Communication {
 			.catch(err => {
 				console.error(err);
 			});
+	}
+
+	/**
+	 *
+	 * @param {String} job - Monitor object
+	 */
+	async sendNotification(job) {
+		const user = await User.findById(job.owner);
+
+		const monitorName = job.name;
+		const monitorUrl = job.url;
+		const monitorType = job.monitorType;
+
+		const ownerEmail = user.email;
+
+		const ownerEnableSlack = user.ENABLE_SLACK;
+		if (ownerEnableSlack) {
+			const ownerSlackWebhookUrl = user.SLACK_WEBHOOK_URL;
+			const message = `Monitor - ${monitorName} is Down, check ${monitorUrl} !`;
+			sendSlack(ownerSlackWebhookUrl, message);
+		}
+
+		const ownerEnableSMTP = user.ENABLE_SMTP;
+		if (ownerEnableSMTP) {
+			const ownerSmtpEmail = user.SMTP_EMAIL;
+			const ownerSmtpHost = user.SMTP_HOST;
+			const ownerSmtpPassword = user.SMTP_PASSWORD;
+			const ownerSmtpPort = user.SMTP_PORT;
+
+			const subject = `Monitor - ${monitorName} is Down`;
+			const html = `
+				<h1>${monitorName} is Down</h1>
+				<p>Monitor type: ${monitorType}</p>
+
+				<a href="${monitorUrl}">Visit monitor to check</a>
+			`;
+
+			sendMail(
+				{
+					SMTP_EMAIL: ownerSmtpEmail,
+					SMTP_HOST: ownerSmtpHost,
+					SMTP_PASSWORD: ownerSmtpPassword,
+					SMTP_PORT: ownerSmtpPort,
+				},
+				ownerSmtpEmail,
+				ownerEmail,
+				subject,
+				html
+			);
+		}
 	}
 }
 

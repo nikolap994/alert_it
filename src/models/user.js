@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema(
 			required: [true, "can't be blank"],
 			match: [/\S+@\S+\.\S+/, "is invalid"],
 			index: { unique: true },
-			unique: true
+			unique: true,
 		},
 		firstName: String,
 		lastName: String,
@@ -23,9 +23,6 @@ const UserSchema = new mongoose.Schema(
 		SMTP_PASSWORD: String,
 		ENABLE_SLACK: Boolean,
 		SLACK_WEBHOOK_URL: String,
-		ENABLE_WEBHOOK: Boolean,
-		CUSTOM_WEBHOOK_URL: String,
-
 	},
 	{ timestamps: true }
 );
