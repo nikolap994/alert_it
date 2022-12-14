@@ -28,10 +28,20 @@ function HomepageHero() {
 							</h2>
 							<h3 className="text-center md:text-left font-bold">Alertit</h3>
 						</div>
-						<p className="mb-12 lg:mb-24 text-lg text-white opacity-90">
+						<p className="mb-12 lg:mb-16 text-lg text-white opacity-90">
 							The ultimate Uptime Monitor
 						</p>
-						<Button text="Get Started" linkTo="signin" />
+						<div className="absolute -bottom-1/2 left-[5%] lg:relative lg:left-0 group max-w-max">
+							<button
+								href="signin"
+								className=" font-semibold text-sm lg:text-lg text-gray-900 uppercase tracking-px overflow-hidden rounded-md"
+							>
+								<div className="relative p-4 px-11 bg-gradient-to-r from-blue-200 to-green-200 overflow-hidden rounded-md">
+									<div className="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-white transition ease-in-out duration-500"></div>
+									<p className="relative z-10">Get Started</p>
+								</div>
+							</button>
+						</div>
 					</div>
 				</div>
 			</section>
