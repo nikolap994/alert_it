@@ -7,7 +7,7 @@ function GetStarted() {
 				</h2>
 				<div>
 					<div className="flex flex-col gap-16 max-w-lg text-justify">
-						<div className="flex flex-wrap -m-4">
+						<div className="flex flex-wrap -m-4 hover:bg-gray-600">
 							<div className="w-auto p-4">
 								<div className="p-px max-w-max rounded-full">
 									<div className="flex justify-center items-center font-heading text-xl bg-gray-900 w-12 h-12 text-white rounded-full">
@@ -25,7 +25,7 @@ function GetStarted() {
 							</div>
 						</div>
 						<div>
-							<div className="flex flex-wrap -m-4">
+							<div className="flex flex-wrap -m-4 hover:bg-gray-600">
 								<div className="w-auto p-4">
 									<div className="p-px max-w-max bg-gradient-cyan2 rounded-full">
 										<div className="flex justify-center items-center font-heading text-xl bg-gray-900 w-12 h-12 text-white rounded-full">
@@ -45,7 +45,7 @@ function GetStarted() {
 								</div>
 							</div>
 						</div>
-						<div className="lg:max-w-sm">
+						<div className="p-4 hover:bg-gray-600">
 							<div className="flex flex-wrap -m-4">
 								<div className="w-auto p-4">
 									<div className="p-px max-w-max bg-gradient-cyan2 rounded-full">
