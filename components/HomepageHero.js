@@ -31,7 +31,8 @@ function HomepageHero() {
 							</h2>
 						</div>
 						<p className="mb-12 lg:mb-16 text-lg lg:text-3xl text-white opacity-90">
-							The ultimate Uptime Monitor
+							The ultimate & <span className="underline">free</span>{" "}
+							<span className="block"> Uptime Monitor</span>
 						</p>
 						<div className="absolute -bottom-1/2 left-[5%] md:relative lg:left-0 group max-w-max">
 							<button
