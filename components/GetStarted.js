@@ -61,7 +61,8 @@ function GetStarted() {
 									<p className="text-gray-400 text-base">
 										Well, hopefully your sites won't have{" "}
 										<span className="italic">any</span> downtime; but, in case
-										they do - we've got you covered!
+										they do — we've got you covered! You can opt to get notified
+										via ....
 									</p>
 								</div>
 							</div>
