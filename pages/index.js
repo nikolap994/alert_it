@@ -3,6 +3,7 @@ import { getSession } from "next-auth/react";
 import HomepageHero from "../components/HomepageHero";
 import AboutAlertit from "../components/AboutAlertit";
 import GetStarted from "../components/GetStarted";
+import OpenSource from "../components/OpenSource";
 
 export default function HomePage() {
 	return (
@@ -10,6 +11,7 @@ export default function HomePage() {
 			<HomepageHero />
 			<AboutAlertit />
 			<GetStarted />
+			<OpenSource />
 		</main>
 	);
 }
