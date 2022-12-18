@@ -16,7 +16,7 @@ function Navigation() {
 
 	return (
 		<>
-			<nav className="max-w-7xl w-full mx-auto p-4 lg:px-12 flex justify-between items-center">
+			<nav className="max-w-7xl w-full mx-auto p-6 lg:px-12 flex justify-between items-center">
 				<Link
 					className="self-start"
 					href="/"
@@ -26,7 +26,6 @@ function Navigation() {
 						className="h-full object-none"
 						src={alertitLogo}
 						alt="Alertit logo"
-						width={200}
 						height={175}
 					/>
 				</Link>
@@ -47,30 +46,26 @@ function Navigation() {
 					/>
 
 					{session ? (
-						<ul className="flex flex-col self-start lg:flex-row text-lg items-left lg:items-center gap-8 text-white ml-3 mt-8 lg:m-0">
+						<ul className="flex flex-col self-start lg:flex-row text-lg items-left lg:items-center text-white mt-8 lg:m-0">
 							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link href="/dashboard"> Dashboard </Link>
 							</li>
 							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link
-									className="flex items-center gap-6"
+									className="flex items-center gap-3"
 									href="/dashboard/user"
 								>
 									{"Edit profile"}
 									<Image
 										alt="profile-pic"
 										src={
-											"https://www.gravatar.com/avatar/" +
-											md5(session.email)
+											"https://www.gravatar.com/avatar/" + md5(session.email)
 										}
 										width={100}
 										height={100}
 										className="w-10 h-10 rounded-full"
 									></Image>
 								</Link>
-							</li>
-							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
-								<button onClick={() => signOut()}>Log out</button>
 							</li>
 						</ul>
 					) : (
