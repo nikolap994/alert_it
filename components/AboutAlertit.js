@@ -8,15 +8,21 @@ import {
 
 import starsIcon from "../public/images/stars.svg";
 
+import Features from "./Features";
+
 function AboutAlertit() {
 	return (
-		<section className="relative py-20 2xl:py-40 bg-gray-800 overflow-hidden">
-			<Image src={starsIcon} alt="Silver stars" />
-
-			<div className="relative container px-4 mx-auto">
-				<div>
+		<>
+			<section className="relative py-20 p-8 2xl:py-40 pt-0 bg-gray-800 overflow-hidden">
+				<Image
+					className="animate-spin-slow"
+					src={starsIcon}
+					alt="Silver stars"
+				/>
+				<h1 className="text-6xl text-white text-center pb-16">Features</h1>
+				<div className="relative container px-4 mx-auto">
 					<div className="flex flex-wrap -mx-10">
-						<div className="relative w-full lg:w-1/2 px-10 mb-10 lg:mb-20">
+						<div className="relative w-full lg:w-1/2 px-6 mb-10 lg:mb-20">
 							<div
 								id="alertit-intro"
 								className="px-16 pt-16 pb-24 lg:min-h-[480px] bg-gray-600 rounded-lg"
@@ -33,7 +39,7 @@ function AboutAlertit() {
 								</p>
 							</div>
 						</div>
-						<div className="relative w-full lg:w-1/2 px-10 mb-10 lg:mb-20">
+						<div className="relative w-full lg:w-1/2 px-6 mb-10 lg:mb-20">
 							<div className="px-16 pt-16 pb-24 lg:min-h-[480px] bg-gray-600 rounded-lg">
 								<span className="flex mb-10 justify-center items-center w-20 h-20 bg-green-500 rounded-lg">
 									<VscVmActive className="w-8 h-8" />
@@ -48,7 +54,7 @@ function AboutAlertit() {
 								</p>
 							</div>
 						</div>
-						<div className="w-full lg:w-1/2 px-10 mb-10 lg:mb-20">
+						<div className="w-full lg:w-1/2 px-6 mb-10 lg:mb-20">
 							<div className="px-16 pt-16 pb-24 lg:min-h-[480px] bg-gray-600 rounded-lg">
 								<span className="flex mb-10 justify-center items-center w-20 h-20 bg-violet-500 rounded-lg">
 									<VscReplaceAll className="w-8 h-8" />
@@ -62,7 +68,7 @@ function AboutAlertit() {
 								</p>
 							</div>
 						</div>
-						<div className="w-full lg:w-1/2 px-10">
+						<div className="w-full lg:w-1/2 px-6">
 							<div className="px-16 pt-16 pb-24 lg:min-h-[480px] bg-gray-600 rounded-lg">
 								<span className="flex mb-10 justify-center items-center w-20 h-20 bg-pink-500 rounded-lg">
 									<VscSymbolEvent className="w-8 h-8" />
@@ -78,13 +84,14 @@ function AboutAlertit() {
 						</div>
 					</div>
 				</div>
-			</div>
-			<Image
-				className="absolute right-[10%] bottom-[3%]"
-				src={starsIcon}
-				alt="Silver stars"
-			/>
-		</section>
+				<Image
+					className="absolute right-[10%] bottom-[3%] animate-spin-slow"
+					src={starsIcon}
+					alt="Silver stars"
+				/>
+			</section>
+			<Features />
+		</>
 	);
 }
 
