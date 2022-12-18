@@ -12,22 +12,22 @@ export default function Dashboard(props) {
 			</Head>
 
 			<section className="max-w-7xl mx-auto px-4 md:px-6 text-white bg-slate-900">
-				<div className="pt-10 flex max-w-md justify-between items-center mb-12 lg:mb-0">
-					<h1 className="text-5xl my-16">Dashboard</h1>
+				<div className="pt-10 flex flex-col md:flex-row max-w-lg justify-between md:items-center mb-8 lg:mb-12 lg:mb-0">
+					<h1 className="text-5xl my-8 md:my-16">Dashboard</h1>
 
 					<Link
-						className="text-white bg-blue-700 rounded h-16 p-6 text-center mb-5"
+						className="text-white bg-blue-700 rounded h-16 px-8 py-6 text-center mb-5"
 						href="/dashboard/monitor/create"
 					>
 						Create new Monitor
 					</Link>
 				</div>
-				<div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-16">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-16">
 					{props.monitors.length > 0 &&
 						props.monitors.map((monitor) => (
 							<div
 								key={monitor._id}
-								className={`max-w-sm rounded overflow-hidden shadow-2xl mx-auto mb-7 ${
+								className={`max-w-sm rounded overflow-hidden shadow-2xl mx-auto mb-12 lg:mb-7 ${
 									monitor.upCheckStatus ? "shadow-green-500" : "shadow-red-500"
 								} ${monitor.enabled ? "" : "grayscale"}`}
 							>
