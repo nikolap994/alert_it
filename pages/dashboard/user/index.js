@@ -7,7 +7,7 @@ function User(props) {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 
 		const firstName = e.target.firstName.value;
@@ -53,24 +53,30 @@ function User(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/users", requestOptions)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				if (result.success === true) {
 					router.reload(window.location.pathname);
 				}
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 	};
 
 	return (
-		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
+		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6 text-white flex flex-col">
 			<Head>
 				<title>Profile</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<div className="block mb-2 dark:text-white">User</div>
+			<button
+				className="p-3 bg-white text-black rounded-lg w-36 self-end"
+				onClick={() => signOut()}
+			>
+				Log out
+			</button>
+			<h3 className="block mb-2 text-white text-2xl">User Information</h3>
 			<form
-				className="w-full max-w-lg"
+				className="lg:ml-12 w-full px-12 md:px-0 md:w-[60vw] flex flex-col mx-auto"
 				method="POST"
 				action=""
 				onSubmit={submitForm}
@@ -258,18 +264,18 @@ function User(props) {
 				</div>
 
 				<button
-					className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg  w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					className="mt-6 w-36 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit"
 				>
 					Save
 				</button>
+				<button
+					className="block w-36 mt-10 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+					href="#"
+				>
+					Delete Account
+				</button>
 			</form>
-			<Link
-				className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-				href="#"
-			>
-				Delete Account
-			</Link>
 		</div>
 	);
 }
@@ -291,11 +297,11 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + session._doc.email,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data[0];
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		response.SITE_URI = process.env.SITE_URI;
 		return { props: response };
