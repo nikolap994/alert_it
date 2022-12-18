@@ -5,7 +5,7 @@ import Head from "next/head";
 export default function CreateMonitor(props) {
 	const { data: session } = useSession();
 
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 
 		const name = e.target.name.value;
@@ -39,39 +39,26 @@ export default function CreateMonitor(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/monitors", requestOptions)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				if (result.success === true) {
 					Router.push("/");
 				}
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 	};
 
 	return (
-		<div className="mt-10 max-w-7xl mx-auto px-4 md:px-6">
+		<div className="py-16 max-w-7xl ml-12 px-4 md:px-6 text-white max-w-[60vw]">
 			<Head>
 				<title>Create new Monitor</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<div className="block mb-2 dark:text-white">Create Monitor</div>
+			<div className="block mb-2 dark:text-white text-4xl mb-12">
+				Create Monitor
+			</div>
 
 			<form className="w-full max-w-lg" method="POST" onSubmit={submitForm}>
-				<div className="mb-6">
-					<label className="block mb-2 dark:text-white" htmlFor="enabled">
-						Enabled
-					</label>
-					<select
-						id="enabled"
-						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						name="enabled"
-					>
-						<option defaultValue="true">true</option>
-						<option defaultValue="false">false</option>
-					</select>
-				</div>
-
 				<div className="mb-6">
 					<label className="block mb-2 dark:text-white" htmlFor="name">
 						Name
@@ -166,6 +153,21 @@ export default function CreateMonitor(props) {
 						type="number"
 						name="port"
 					/>
+				</div>
+
+				<div className="mb-6">
+					<label className="block mb-2 dark:text-white" htmlFor="enabled">
+						Enabled
+					</label>
+					<select
+						id="enabled"
+						required
+						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						name="enabled"
+					>
+						<option defaultValue="true">true</option>
+						<option defaultValue="false">false</option>
+					</select>
 				</div>
 
 				<button
