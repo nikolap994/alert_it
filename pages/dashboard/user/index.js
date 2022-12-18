@@ -68,15 +68,20 @@ function User(props) {
 				<title>Profile</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<button
-				className="p-3 bg-white text-black rounded-lg w-36 self-end"
-				onClick={() => signOut()}
-			>
-				Log out
-			</button>
-			<h3 className="block mb-2 text-white text-2xl">User Information</h3>
+
+			<div className="mb-10 flex items-center justify-between border-b border-white pb-8">
+				{" "}
+				<h3 className="block text-white text-2xl">User Information</h3>
+				<button
+					className="py-2 bg-white text-black self-end rounded-lg w-36 hover:bg-black hover:text-white"
+					onClick={() => signOut()}
+				>
+					Log out
+				</button>
+			</div>
+
 			<form
-				className="lg:ml-12 w-full px-12 md:px-0 md:w-[60vw] flex flex-col mx-auto"
+				className="lg:ml-0 w-full px-8 lg:px-12 md:px-0 md:w-[60vw] flex flex-col mx-auto"
 				method="POST"
 				action=""
 				onSubmit={submitForm}
@@ -269,12 +274,13 @@ function User(props) {
 				>
 					Save
 				</button>
-				<button
-					className="block w-36 mt-10 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+
+				<div
+					className="hover:cursor-pointer my-10 text-white border-t border-b border-white py-4 "
 					href="#"
 				>
-					Delete Account
-				</button>
+					<p className="text-red-600">Delete Account</p>
+				</div>
 			</form>
 		</div>
 	);
