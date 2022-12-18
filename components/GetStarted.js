@@ -4,7 +4,7 @@ function GetStarted() {
 	return (
 		<section className="bg-black">
 			<div className="max-w-7xl mx-auto p-8 lg:px-12 py-16 lg:py-36 flex flex-col items-center">
-				<h2 className="mb-16 font-heading font-bold text-6xl text-white">
+				<h2 className="mb-10 lg:mb-16 font-heading font-bold text-6xl text-white">
 					Three steps to get started
 				</h2>
 
@@ -36,7 +36,7 @@ function GetStarted() {
 								2
 							</div>
 							<h3 className="pl-4 font-heading font-medium text-xl text-white">
-								Add the sites you want to monitor
+								Add sites to monitor
 							</h3>
 						</div>
 						<div className="p-4">
