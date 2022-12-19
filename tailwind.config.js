@@ -18,6 +18,7 @@ module.exports = {
 				"fade-in": "fade-in linear 0.25s forwards",
 				"fade-out": "fade-out linear 1s forwards",
 				"slide-down": "slide-down ease-out 1s",
+				'spin-slow': 'spin 3s linear infinite',
 			},
 			keyframes: {
 				"fade-in": {

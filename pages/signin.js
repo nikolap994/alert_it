@@ -20,7 +20,7 @@ export default function SignIn({ csrfToken }) {
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
 				<SignInCTA />
-				<div className="flex items-center w-full max-w-md px-6 mx-auto w-1/2">
+				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-white">
