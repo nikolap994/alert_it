@@ -1,6 +1,6 @@
 <p align="center">
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://github.com/Evil-Bees/Alertit/">
     <img src="https://raw.githubusercontent.com/Evil-Bees/Alertit/main/public/alertit-logo.png" alt="Alertit logo" width="300" />
@@ -85,6 +85,7 @@ Thanks goes to these wonderful people
   <tbody>
     <tr>
       <td align="center"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25112021?v=4?s=100" width="100px;" alt="Nikola Pavlović Ph.D. "/><br /><sub><b>Nikola Pavlović Ph.D. </b></sub></a><br /><a href="#infra-nikolap994" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Evil-Bees/Alertit/commits?author=nikolap994" title="Code">💻</a></td>
+      <td align="center"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25206355?v=4?s=100" width="100px;" alt="Marija Ćehić"/><br /><sub><b>Marija Ćehić</b></sub></a><br /><a href="#infra-cehicm" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#design-cehicm" title="Design">🎨</a></td>
     </tr>
   </tbody>
 </table>
