@@ -6,6 +6,7 @@ import Link from "next/link";
 import loginBg from "../public/images/login-bg.jpg";
 import eyeIcon from "../public/images/icons/eye-open.png";
 import eyeHideIcon from "../public/images/icons/eye-close.png";
+import Router from "next/router";
 
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
@@ -36,10 +37,25 @@ export default function Register() {
 			redirect: "follow",
 		};
 
-		fetch(`/api/users`, requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log("error", error));
+		if (firstName && lastName && email && password && repeatPassword) {
+			if (password === repeatPassword) {
+				fetch(`/api/users`, requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						if (result.success === true) {
+							Router.push("/signin?success=true");
+						} else {
+							const errors = JSON.parse(result);
+							console.log(errors);
+						}
+					})
+					.catch(error => console.log("error", error));
+			} else {
+				console.log("Passwords are not the same.");
+			}
+		} else {
+			console.log("Missing data");
+		}
 	};
 
 	return (

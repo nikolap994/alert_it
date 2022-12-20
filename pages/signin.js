@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getCsrfToken, getSession } from "next-auth/react";
 import SignInCTA from "../src/components/signin-cta";
-
+import { useRouter } from "next/router";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
@@ -15,11 +15,20 @@ export default function SignIn({ csrfToken }) {
 	const [showPassword, setShowPassword] = useState(0);
 	const [isEyeOpen, toggleEye] = useState(0);
 	const [funEyeClass, setFununEyeClass] = useState(0);
+	const router = useRouter();
 
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
 				<SignInCTA />
+
+				<div
+					className={`text-4xl font-bold text-center text-white  ${
+						router.query.success ? "visible" : "invisible"
+					}`}
+				>
+					Account created, please login!
+				</div>
 				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
@@ -49,7 +58,7 @@ export default function SignIn({ csrfToken }) {
 									type="email"
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setValue(e.currentTarget.value);
 										const userEmail = JSON.stringify(e.currentTarget.value);
 
@@ -76,7 +85,7 @@ export default function SignIn({ csrfToken }) {
 									type={showPassword ? "text" : "password"}
 									required
 									minLength="4"
-									onChange={(e) => {
+									onChange={e => {
 										setButtonClass("bg-white");
 									}}
 								/>

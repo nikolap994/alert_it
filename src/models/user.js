@@ -3,19 +3,28 @@ const mongoose = require("mongoose"),
 	bcrypt = require("bcrypt"),
 	SALT_WORK_FACTOR = 10;
 
+const validator = require("validator");
 const UserSchema = new mongoose.Schema(
 	{
 		email: {
 			type: String,
 			lowercase: true,
-			required: [true, "can't be blank"],
+			require: [true, "Enter an email address."],
 			match: [/\S+@\S+\.\S+/, "is invalid"],
 			index: { unique: true },
-			unique: true
+			lowercase: true,
+			unique: [true, "That email address is taken."],
+			validate: [validator.isEmail, "Enter a valid email address."],
 		},
-		firstName: String,
-		lastName: String,
-		password: { type: String, required: true },
+		firstName: {
+			type: String,
+			require: [true, "Enter an first name."],
+		},
+		lastName: {
+			type: String,
+			require: [true, "Enter an last name."],
+		},
+		password: { type: String, require: [true, "Enter an password."] },
 		ENABLE_SMTP: Boolean,
 		SMTP_HOST: String,
 		SMTP_PORT: String,

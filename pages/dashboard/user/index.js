@@ -7,7 +7,7 @@ function User(props) {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	const submitForm = (e) => {
+	const submitForm = e => {
 		e.preventDefault();
 
 		const firstName = e.target.firstName.value;
@@ -53,13 +53,13 @@ function User(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/users", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				if (result.success === true) {
 					router.reload(window.location.pathname);
 				}
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 	};
 
 	return (
@@ -303,11 +303,11 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + session._doc.email,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data[0];
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		response.SITE_URI = process.env.SITE_URI;
 		return { props: response };
