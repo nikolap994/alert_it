@@ -1,4 +1,7 @@
 <p align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://github.com/Evil-Bees/Alertit/">
     <img src="https://raw.githubusercontent.com/Evil-Bees/Alertit/main/public/alertit-logo.png" alt="Alertit logo" width="300" />
   </a>
@@ -75,6 +78,21 @@ https://documenter.getpostman.com/view/3551458/2s83zcT7GT
 ## Contributors ✨
 
 Thanks goes to these wonderful people
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25112021?v=4?s=100" width="100px;" alt="Nikola Pavlović Ph.D. "/><br /><sub><b>Nikola Pavlović Ph.D. </b></sub></a><br /><a href="#infra-nikolap994" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Evil-Bees/Alertit/commits?author=nikolap994" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
