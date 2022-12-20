@@ -55,7 +55,7 @@ Thanks for showing interest to contribute to AlertIt 💖, you rock!
 When it comes to open source, there are different ways you can contribute, all of which are valuable. Here's a few guidelines that should help you as you prepare your contribution.
 
 - Fork the project
-- Take on of active issues
+- Take one of active issues
 - Make pull request
 
 If you have any questions, feel free to contact us on Github discussions or issues page.
