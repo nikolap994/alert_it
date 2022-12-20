@@ -15,6 +15,16 @@
         "infra",
         "code"
       ]
+    },
+    {
+      "login": "cehicm",
+      "name": "Marija Ćehić",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25206355?v=4",
+      "profile": "https://evilbees.com/",
+      "contributions": [
+        "infra",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
