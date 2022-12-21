@@ -16,10 +16,10 @@ export default function Dashboard(props) {
 					<h1 className="text-5xl my-8 md:my-16">Dashboard</h1>
 
 					<Link
-						className="text-white bg-blue-700 rounded h-16 px-8 py-6 text-center mb-5"
+						className="text-white bg-blue-700 rounded px-8 py-4 text-center mb-5 md:mb-0"
 						href="/dashboard/monitor/create"
 					>
-						Create new Monitor
+						Add Monitor
 					</Link>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-16">
