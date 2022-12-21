@@ -18,12 +18,31 @@
 
 ## Features
 
-- Know right away if your website is offline! Reliable monitoring saves your money, reputation and clients — by alerting you before any major problems arise.
+- Know if your website is offline right away! Reliable monitoring saves your money, reputation and clients — by alerting you before any major problems arise.
 
 - Utilize one of the instruments that administrators use most frequently to verify the availability of network devices.
 
 - Be informed!
 Even the strongest among us have downtime. However, it's crucial to be aware of it before clients are impacted!
+
+## Contributing
+Feel like contributing? That's awesome!
+
+Thanks for showing interest to contribute to AlertIt 💖, you rock!
+
+When it comes to open source, there are different ways you can contribute, all of which are valuable. Here are a few guidelines that should help you as you prepare to make your contribution.
+
+- Fork the project
+- Take one of active issues
+- Make a pull request
+
+If you have any questions, feel free to contact us on Github discussions or issues page.
+We are always active on discord server.
+
+### API documentation
+All necessary API documentation is available here.
+
+https://documenter.getpostman.com/view/3551458/2s83zcT7GT
 
 ## Usage
 
@@ -46,25 +65,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Contributing
-Feel like contributing? That's awesome!
-
-Thanks for showing interest to contribute to AlertIt 💖, you rock!
-
-When it comes to open source, there are different ways you can contribute, all of which are valuable. Here's a few guidelines that should help you as you prepare your contribution.
-
-- Fork the project
-- Take one of active issues
-- Make pull request
-
-If you have any questions, feel free to contact us on Github discussions or issues page.
-We are always active on discord server.
-
-### API documentation
-If you need API documentation it's available here.
-
-https://documenter.getpostman.com/view/3551458/2s83zcT7GT
 
 ## Contributors ✨
 
