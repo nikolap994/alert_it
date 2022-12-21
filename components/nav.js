@@ -16,7 +16,7 @@ function Navigation() {
 
 	return (
 		<>
-			<nav className="max-w-7xl w-full mx-auto p-6 md:px-12 flex justify-between items-center">
+			<nav className="max-w-7xl w-full mx-auto px-6 md:px-12 flex justify-between items-center">
 				<Link
 					className="self-start"
 					href="/"
