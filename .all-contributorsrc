@@ -25,6 +25,15 @@
         "infra",
         "design"
       ]
+    },
+    {
+      "login": "maddy020",
+      "name": "Madhav Setia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/103564105?v=4",
+      "profile": "https://github.com/maddy020",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
