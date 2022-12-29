@@ -134,8 +134,6 @@ export default function SignIn({ csrfToken }) {
 								>
 									Sign in
 								</button>
-								<button
-								<button className="mt-8 py-2 px-8 mx-auto border-none rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white" onClick={() => signIn("google")}>Sign in with Google</button>
 							</div>
 							<p className="mt-6 text-sm text-center text-gray-400">
 								Don&#39;t have an account yet?
