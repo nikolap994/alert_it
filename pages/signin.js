@@ -9,6 +9,8 @@ import eyeIcon from "../public/images/icons/eye-open.png";
 import eyeHideIcon from "../public/images/icons/eye-close.png";
 import funEyeIcon from "../public/images/icons/fun-eye.png";
 
+import {signIn, signOut } from "next-auth/react";
+
 export default function SignIn({ csrfToken }) {
 	const [value, setValue] = useState("");
 	const [buttonClass, setButtonClass] = useState(0);
@@ -166,3 +168,4 @@ export async function getServerSideProps(context) {
 		},
 	};
 }
+
