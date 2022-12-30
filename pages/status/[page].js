@@ -1,5 +1,4 @@
 import React from 'react'
-import { async } from '../../user/index';
 import Image from 'next/image';
 
 function StatusPage(props) {
