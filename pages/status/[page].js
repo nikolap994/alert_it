@@ -40,19 +40,27 @@ export async function getServerSideProps(context) {
         try{ 
           const response = await fetch( process.env.SITE_URI + "/api/monitors?id=" + monitorId, requestOptions);
           const monitors = await response.json();
-           return {
-              props: {
-              name: monitors.data[0].name,
-              url: monitors.data[0].url,
-              heartbeat: monitors.data[0].heartbeat,
-              acceptedStatusCodes: monitors.data[0].acceptedStatusCodes,
-              monitorType: monitors.data[0].monitorType,
-              port: monitors.data[0].port,
-              image: monitors.data[0].image, 
-              lastCheck : monitors.data[0].lastCheck,
-              upCheckStatus : monitors.data[0].upCheckStatus
-              },
+          console.log(monitors);
+          if(!monitors.data[0])
+          { 
+            return{ 
+              redirect: {destination : "/404"}
             }
+          }else{
+            return {
+                props: {
+                  name: monitors.data[0].name,
+                  url: monitors.data[0].url,
+                  heartbeat: monitors.data[0].heartbeat,
+                  acceptedStatusCodes: monitors.data[0].acceptedStatusCodes,
+                  monitorType: monitors.data[0].monitorType,
+                  port: monitors.data[0].port,
+                  image: monitors.data[0].image, 
+                  lastCheck : monitors.data[0].lastCheck,
+                  upCheckStatus : monitors.data[0].upCheckStatus
+                },
+              }
+          }
         }catch(err)
         { 
           console.log(err);
