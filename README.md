@@ -7,6 +7,11 @@
 <h1 align="center">Monitoring all of your important online activity 🖥️</h1>
 <br>
 
+<p align="center">
+  <img alt="Github Stars" src="https://badgen.net/github/stars/Evil-Bees/Alertit" />
+</p>
+
+<br />
 ## Features
 
 - Know if your website is offline right away! Reliable monitoring saves your money, reputation and clients — by alerting you before any major problems arise.
