@@ -7,15 +7,6 @@
 <h1 align="center">Monitoring all of your important online activity 🖥️</h1>
 <br>
 
-<p align="center">
-  <img alt="Github Stars" src="https://badgen.net/github/stars/Evil-Bees/Alertit" />
-  <a href="https://discord.com/invite/rvxGNrFhNz">
-    <img alt="Discord" src="https://img.shields.io/discord/1033387274005663834.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" />
-  </a>
-</p>
-
-<br />
-
 ## Features
 
 - Know if your website is offline right away! Reliable monitoring saves your money, reputation and clients — by alerting you before any major problems arise.
