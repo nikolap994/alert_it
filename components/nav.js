@@ -73,6 +73,7 @@ function Navigation() {
 							<li>
 								<Link href="/register">
 									<button
+										className="text-xl bg-gray-500 text-white px-8 py-4 rounded-xl"
 										onClick={() => {
 											router.push("/api/auth/signin");
 										}}
