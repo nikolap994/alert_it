@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }) {
   }
 	return (
 		<SessionProvider>
-			<Layout>
+			<Alert alert={alert}/>
+			<Layout >
 				<Header />
-				<Alert alert={alert}/>
 				<Component {...pageProps} />
 			</Layout>
 		</SessionProvider>

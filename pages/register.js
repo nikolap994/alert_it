@@ -14,11 +14,11 @@ export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
 	const router = useRouter()
 
-	const handleClick =()=>{
+	const handleClick = () => {
 		toggleEye(!isEyeOpen)
 		const type = document.getElementById("password").getAttribute('type') === 'password' ? 'text' : 'password';
 		document.getElementById("password").setAttribute('type', type);
-		
+
 	}
 
 	const onSubmit = (event) => {
@@ -60,7 +60,7 @@ export default function Register() {
 						}
 					})
 					.catch((error) => console.log("error", error));
-					router.push("/signin");
+				router.push("/signin");
 			} else {
 				console.log("Passwords are not the same.");
 			}
@@ -72,8 +72,8 @@ export default function Register() {
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA t1="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
-									one place!" t2="Let's get started."/>
+				<SignInCTA sample_text="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
+									one place!"/>
 
 				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">

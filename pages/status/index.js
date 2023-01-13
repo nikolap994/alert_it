@@ -15,7 +15,7 @@ function SearchMonitor() {
     if (isValidMongoId(searchId)) {
       router.push(`/status/${searchId}`);
     } else {
-      //{<Alert alert="Please enter valid ID"/>}
+     
       alert("Please enter valid ID");
     }
 
