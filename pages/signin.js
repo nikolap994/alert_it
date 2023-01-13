@@ -19,6 +19,14 @@ export default function SignIn({ csrfToken }) {
 	const [funEyeClass, setFununEyeClass] = useState(0);
 	const router = useRouter();
 
+	const handleClick =()=>{
+		toggleEye(!isEyeOpen)
+		const type = document.getElementById("password").getAttribute('type') === 'password' ? 'text' : 'password';
+		document.getElementById("password").setAttribute('type', type);
+		
+	}
+
+
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
@@ -26,6 +34,7 @@ export default function SignIn({ csrfToken }) {
 						performed through HTTP/S or TCP protocol, and allows you to check
 						for a specific service — and be the first to get notified if service
 						is down. Sounds useful?" t2="Let's get started." />
+
 
 				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">
