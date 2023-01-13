@@ -9,7 +9,7 @@ import eyeIcon from "../public/images/icons/eye-open.png";
 import eyeHideIcon from "../public/images/icons/eye-close.png";
 import funEyeIcon from "../public/images/icons/fun-eye.png";
 
-import {signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 export default function SignIn({ csrfToken }) {
 	const [value, setValue] = useState("");
@@ -22,15 +22,11 @@ export default function SignIn({ csrfToken }) {
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA />
+				<SignInCTA t1="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is
+						performed through HTTP/S or TCP protocol, and allows you to check
+						for a specific service — and be the first to get notified if service
+						is down. Sounds useful?" t2="Let's get started." />
 
-				<div
-					className={`text-4xl font-bold text-center text-white  ${
-						router.query.success ? "visible" : "invisible"
-					}`}
-				>
-					Account created, please login!
-				</div>
 				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
@@ -66,8 +62,8 @@ export default function SignIn({ csrfToken }) {
 
 										userEmail.length - 2 >= 4
 											? setButtonClass(
-													"bg-gradient-to-r from-indigo-600 via-indigo-100 to-white"
-											  )
+												"bg-gradient-to-r from-indigo-600 via-indigo-100 to-white"
+											)
 											: "";
 
 										userEmail.length <= 2 ? setButtonClass("bg-white") : "";
