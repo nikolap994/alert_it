@@ -54,6 +54,7 @@ Depending on how large the project is, you may want to outsource the questioning
 
 - When declaring and naming variables, try to use the most up-to-date conventions and practices. Use your best judgement, just make sure that what you're doing will be understandable to future contributors. A few things to keep in mind:
  - Use Pascal Case when naming React or NextJS components, for example `AppContainer`, `LoginComponent`, etc.
+ - Use Cammel Case when naming variables and props, for example `buttonText` or `loginInfo`.
  - Use `let` and `const` instead of `var`.
  - Don't use general names (or letters) like `x1`, or `button`. These aren't descriptive, and future contributors may find them confusing. Instead, allow them to explain the purpose of the component or function, such as `signUpTitle`, `ctaButton`, etc.
 
