@@ -36,7 +36,7 @@ If you like the project, but don't have time to contribute, that's fine. There a
 > - Star the project
 > - Tweet about it
 > - Refer to this project in your project's README
-> - Share on your socials ([Facebook](https://www.facebook.com/profile.php?id=100088394168553), [Instagram](https://www.instagram.com/evilbeesdev/), [TikTok](https://www.tiktok.com/@evilbeesdev), [YouTube](https://www.youtube.com/@evilbees))
+> - Share on your socials ([Facebook](https://www.facebook.com/profile.php?id=100088394168553), [Instagram](https://www.instagram.com/evilbeesdev/), [TikTok](https://www.tiktok.com/@evilbeesdev), [YouTube](https://www.youtube.com/@evilbees)), [LinkedIn](https://www.linkedin.com/company/evil-bees/) 
 > - Mention the project at local meetups and tell your friends/colleagues
 
 ## Style Guide
