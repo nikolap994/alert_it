@@ -21,16 +21,28 @@ Feel like contributing? That's awesome!
 
 Thanks for showing interest to contribute to AlertIt 💖, you rock!
 
-When it comes to open source, there are different ways you can contribute, all of which are valuable. Here are a few guidelines that should help you as you prepare to make your contribution.
-
+There are different ways you can contribute, all of which are valuable:
 - Fork the project
-- Take one of active issues
+- Take on one of active issues
 - Make a pull request
 
+[Here are a few guidelines](CONTRIBUTING.md) that should help you as you prepare to make your contribution.
+
 If you have any questions, feel free to contact us on Github discussions or issues page.
+
 We are always active on discord server.
 
-### API documentation
+If you like the project, but don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
+> - Star the project
+> - Tweet about it
+> - Refer to this project in your project's README
+> - Share on your socials ([Facebook](https://www.facebook.com/profile.php?id=100088394168553), [Instagram](https://www.instagram.com/evilbeesdev/), [TikTok](https://www.tiktok.com/@evilbeesdev), [YouTube](https://www.youtube.com/@evilbees))
+> - Mention the project at local meetups and tell your friends/colleagues
+
+## Style Guide
+- This project uses [Tailwind](https://tailwindcss.com/) on the front end. Please avoid using inline and scss styles unless absolutely necessary.
+
+## API documentation
 All necessary API documentation is available here.
 
 https://documenter.getpostman.com/view/3551458/2s83zcT7GT
