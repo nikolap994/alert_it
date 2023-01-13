@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getCsrfToken, getSession } from "next-auth/react";
-
+import { useRouter } from 'next/router'
+import SignInCTA from "../src/components/signin-cta";
 import Image from "next/legacy/image";
 import Link from "next/link";
 
@@ -11,6 +12,14 @@ import Router from "next/router";
 
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
+	const router = useRouter()
+
+	const handleClick =()=>{
+		toggleEye(!isEyeOpen)
+		const type = document.getElementById("password").getAttribute('type') === 'password' ? 'text' : 'password';
+		document.getElementById("password").setAttribute('type', type);
+		
+	}
 
 	const onSubmit = (event) => {
 		event.preventDefault();
@@ -51,6 +60,7 @@ export default function Register() {
 						}
 					})
 					.catch((error) => console.log("error", error));
+					router.push("/signin");
 			} else {
 				console.log("Passwords are not the same.");
 			}
@@ -60,38 +70,18 @@ export default function Register() {
 	};
 
 	return (
-		<section className="flex justify-center">
-			<div className="flex flex-col mt-8">
-				<div className="hidden lg:block relative bg-slate-400 bg-cover lg:block lg:w-1/2">
-					<Image
-						className="mix-blend-multiply"
-						src={loginBg}
-						alt="Log in image"
-						objectfit="cover"
-						priority={true}
-						quality={100}
-					/>
-					<div className="absolute top-0 w-1/2 flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
-						<div className="z-10">
-							<h2 className="text-5xl font-bold text-white">Uptime Monitor</h2>
-							<p className="max-w-xl text-lg mt-3 text-gray-300">
-								Ready to take your monitoring to the next level?
-								<span className="xl:block">
-									Sign up to take control of your sites and devices - all from
-									one place!
-								</span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div className="flex items-center w-full max-w-md p-6 md:py-12 lg:py-0 mx-auto lg:w-1/2 xl:w-2/6">
+		<section className="bg-gray-900 absolute w-full">
+			<div className="flex justify-center h-screen overflow-hidden">
+				<SignInCTA t1="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
+									one place!" t2="Let's get started."/>
+
+				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
-							<h1 className="text-4xl font-bold text-center text-white">
+							<h2 className="text-4xl font-bold text-center text-white">
 								Sign Up
-							</h1>
+							</h2>
 						</div>
-
 						<form
 							onSubmit={onSubmit}
 							className="flex flex-col gap-7 mt-8"
@@ -151,7 +141,8 @@ export default function Register() {
 								>
 									Password
 									<input
-										placeholder="Enter your password"
+										id="password"
+										placeholder='Enter your password'
 										autoComplete="current-password"
 										name="password"
 										type="password"
@@ -164,16 +155,10 @@ export default function Register() {
 											alt="Eye icon"
 											width={35}
 											height={35}
-											onClick={() => toggleEye(!isEyeOpen)}
+											onClick={handleClick}
 										/>
 									</button>
 								</label>
-								<a
-									href="/forgotten-password"
-									className="self-end text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline"
-								>
-									Forgot password?
-								</a>
 							</div>
 
 							<div>
@@ -191,9 +176,6 @@ export default function Register() {
 									/>
 								</label>
 							</div>
-
-							<div className="w-full bg-white"> Progress bar </div>
-
 							<button
 								className="py-2 px-8 mx-auto border border-transparent	rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white"
 								type="submit"
@@ -215,5 +197,6 @@ export default function Register() {
 				</div>
 			</div>
 		</section>
+
 	);
 }
