@@ -49,6 +49,7 @@ Depending on how large the project is, you may want to outsource the questioning
 - This project uses [Tailwind](https://tailwindcss.com/) on the front end. Please avoid using inline and scss styles unless absolutely necessary. 
 - For existing components, just add Tailwind classes. If you're creating new ones, you can take advantage of [Tailwind's components](https://tailwindui.com/components). Keep in mind that Tailwind components tend do be quite layered, and use excessive classes, so it's up to you clean up the unnecessary elements and classes.
 - For additional customization, you can [configure the tailwind.config.js file](https://tailwindcss.com/docs/configuration). When extending styles, use naming conventions similar to Tailwind classes, or make the name self-explanatory. For example, `darkest-gray` or `cta-button-gray`.
+- Take note of standardized max-width, padding, etc. Most of the time, each wrapping element will have a collection of classes, to ensure each page and component flows together. They will look something like `max-w-7xl px-6 md:px-12` for example. Try to ensure that the styles on the component or page you're creating matches with the rest.
 
 ## Naming Conventions
 
