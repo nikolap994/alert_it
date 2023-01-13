@@ -6,19 +6,19 @@ function StatusPage(props) {
     <div className="mt-10 max-w-7xl mx-auto px-4 md:px-6 h-screen">
       <div className = "flex flex-row">
         <div>
-          <Image
+          <Image 
             src = {"data:image/gif;base64," + props.image}
             width = {400}
             height = {400}
           />
         </div>
         <div className = "pl-8 text-stone-50 space-y-6">
-          <p>Site Name: {props.name}</p>
-          <p>Site url : {props.url}</p>
-          <p>Last check time: {props.lastCheck}</p>
-          <p>Status: {props.upCheckStatus.toString()}</p>
-          <p>Accepted Status code: {props.acceptedStatusCodes}</p>
-          <p>Port: {props.port}</p>
+          <h1>Site Name: {props.name}</h1>
+          <h1>Site url : {props.url}</h1>
+          <h1>Last check time: {props.lastCheck}</h1>
+          <h1>Status: {props.upCheckStatus.toString()}</h1>
+          <h1>Accepted Status code: {props.acceptedStatusCodes}</h1>
+          <h1>Port: {props.port}</h1> 
         </div>
       </div>
     </div>
@@ -28,22 +28,22 @@ function StatusPage(props) {
 export async function getServerSideProps(context) {
     const monitorId = context.query.page;
     if(typeof monitorId == "undefined")
-    {
-        return {
+    { 
+        return { 
             redirect : {destination: "/404"}
         }
-    }else{
+    }else{ 
       const requestOptions = {
         method: "GET",
         redirect: "follow",
       };
-        try{
+        try{ 
           const response = await fetch( process.env.SITE_URI + "/api/monitors?id=" + monitorId, requestOptions);
           const monitors = await response.json();
           console.log(monitors);
           if(!monitors.data[0])
-          {
-            return{
+          { 
+            return{ 
               redirect: {destination : "/404"}
             }
           }else{
@@ -55,17 +55,17 @@ export async function getServerSideProps(context) {
                   acceptedStatusCodes: monitors.data[0].acceptedStatusCodes,
                   monitorType: monitors.data[0].monitorType,
                   port: monitors.data[0].port,
-                  image: monitors.data[0].image,
+                  image: monitors.data[0].image, 
                   lastCheck : monitors.data[0].lastCheck,
                   upCheckStatus : monitors.data[0].upCheckStatus
                 },
               }
           }
         }catch(err)
-        {
+        { 
           console.log(err);
         }
-    }
+    }    
     return {props: {}}
 }
-export default StatusPage;
+export default StatusPage; 
