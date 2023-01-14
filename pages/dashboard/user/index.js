@@ -1,5 +1,4 @@
 import { signOut, useSession, getSession } from "next-auth/react";
-import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -7,7 +6,7 @@ function User(props) {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 
 		const firstName = e.target.firstName.value;
@@ -53,13 +52,13 @@ function User(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/users", requestOptions)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				if (result.success === true) {
 					router.reload(window.location.pathname);
 				}
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 	};
 
 	return (
@@ -275,11 +274,11 @@ function User(props) {
 					Save
 				</button>
 
-				<div
-					className="hover:cursor-pointer my-10 text-white border-t border-b border-white py-4 "
-					href="#"
-				>
-					<p className="text-red-600">Delete Account</p>
+				<div className="text-red-600 my-10 text-white border-t border-b border-white py-4 ">
+					<h3 className="text-2xl mb-4">Danger zone!</h3>
+					<p className="hover:cursor-pointer  text-red-900 hover:text-red-500">
+						Delete Account
+					</p>
 				</div>
 			</form>
 		</div>
@@ -303,11 +302,11 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + session._doc.email,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data[0];
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		response.SITE_URI = process.env.SITE_URI;
 		return { props: response };
