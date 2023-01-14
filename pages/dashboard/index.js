@@ -44,18 +44,18 @@ export default function Dashboard(props) {
 										Enabled: {monitor.enabled ? "ON" : "OFF"}
 									</p>
 									<p key={monitor._id + "_lastCheck"}>
-										lastCheck: {monitor.lastCheck}
+										Last check: {monitor.lastCheck}
 									</p>
 									<p key={monitor._id + "_Name"}>Name: {monitor.name}</p>
 									<p key={monitor._id + "_acceptedStatusCodes"}>
-										acceptedStatusCodes: {monitor.acceptedStatusCodes}
+										Accepted Status Codes: {monitor.acceptedStatusCodes}
 									</p>
 									<p key={monitor._id + "_URL"}>URL: {monitor.url}</p>
 									<p key={monitor._id + "_heartbeat"}>
 										heartbeat: {monitor.heartbeat}
 									</p>
 									<p key={monitor._id + "_monitorType"}>
-										monitorType: {monitor.monitorType}
+										Monitor type: {monitor.monitorType}
 									</p>
 									<p key={monitor._id + "_port"}>Port: {monitor.port}</p>
 									<p key={monitor._id + "_message"}>
