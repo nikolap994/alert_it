@@ -1,71 +1,97 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 function StatusPage(props) {
-  return (
-    <div className="mt-10 max-w-7xl mx-auto px-4 md:px-6 h-screen">
-      <div className = "flex flex-row">
-        <div>
-          <Image 
-            src = {"data:image/gif;base64," + props.image}
-            width = {400}
-            height = {400}
-          />
-        </div>
-        <div className = "pl-8 text-stone-50 space-y-6">
-          <h1>Site Name: {props.name}</h1>
-          <h1>Site url : {props.url}</h1>
-          <h1>Last check time: {props.lastCheck}</h1>
-          <h1>Status: {props.upCheckStatus.toString()}</h1>
-          <h1>Accepted Status code: {props.acceptedStatusCodes}</h1>
-          <h1>Port: {props.port}</h1> 
-        </div>
-      </div>
-    </div>
-  )
+	const [isStatusTrue] = useState(true);
+
+	return (
+		<div className="mt-20 max-w-7xl mx-auto h-screen">
+			<div className="flex flex-col lg:flex-row lg:gap-16 mx-auto px-4 md:px-12 lg:px-20">
+				<Image
+					className="w-full lg:w-1/2"
+					src={"data:image/gif;base64," + props.image}
+					width={400}
+					height={400}
+				/>
+				<ul className="text-stone-50 text-2xl flex flex-col gap-4 mt-16">
+					<li>
+						Site Name: <span className="text-indigo-200">{props.name}</span>
+					</li>
+					<li>
+						<Link href={props.url}>
+							Site url :{" "}
+							<span className="text-indigo-200 hover:underline">
+								{props.url}
+							</span>{" "}
+						</Link>
+					</li>
+					<li>
+						Last check time:{" "}
+						<span className="text-indigo-200">{props.lastCheck}</span>
+					</li>
+
+					<li>
+						Status:{" "}
+						<span className={isStatusTrue ? "text-green-400" : "text-red-400"}>
+							{props.upCheckStatus.toString()}
+						</span>
+					</li>
+					<li>
+						Accepted Status code:{" "}
+						<span className="text-indigo-200">{props.acceptedStatusCodes}</span>
+					</li>
+					<li>
+						Port: <span className="text-indigo-200">{props.port}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	);
 }
 
 export async function getServerSideProps(context) {
-    const monitorId = context.query.page;
-    if(typeof monitorId == "undefined")
-    { 
-        return { 
-            redirect : {destination: "/404"}
-        }
-    }else{ 
-      const requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-        try{ 
-          const response = await fetch( process.env.SITE_URI + "/api/monitors?id=" + monitorId, requestOptions);
-          const monitors = await response.json();
-          console.log(monitors);
-          if(!monitors.data[0])
-          { 
-            return{ 
-              redirect: {destination : "/404"}
-            }
-          }else{
-            return {
-                props: {
-                  name: monitors.data[0].name,
-                  url: monitors.data[0].url,
-                  heartbeat: monitors.data[0].heartbeat,
-                  acceptedStatusCodes: monitors.data[0].acceptedStatusCodes,
-                  monitorType: monitors.data[0].monitorType,
-                  port: monitors.data[0].port,
-                  image: monitors.data[0].image, 
-                  lastCheck : monitors.data[0].lastCheck,
-                  upCheckStatus : monitors.data[0].upCheckStatus
-                },
-              }
-          }
-        }catch(err)
-        { 
-          console.log(err);
-        }
-    }    
-    return {props: {}}
+	const monitorId = context.query.page;
+	if (typeof monitorId == "undefined") {
+		return {
+			redirect: { destination: "/404" },
+		};
+	} else {
+		const requestOptions = {
+			method: "GET",
+			redirect: "follow",
+		};
+		try {
+			const response = await fetch(
+				process.env.SITE_URI + "/api/monitors?id=" + monitorId,
+				requestOptions
+			);
+			const monitors = await response.json();
+			console.log(monitors);
+			if (!monitors.data[0]) {
+				return {
+					redirect: { destination: "/404" },
+				};
+			} else {
+				return {
+					props: {
+						name: monitors.data[0].name,
+						url: monitors.data[0].url,
+						heartbeat: monitors.data[0].heartbeat,
+						acceptedStatusCodes: monitors.data[0].acceptedStatusCodes,
+						monitorType: monitors.data[0].monitorType,
+						port: monitors.data[0].port,
+						image: monitors.data[0].image,
+						lastCheck: monitors.data[0].lastCheck,
+						upCheckStatus: monitors.data[0].upCheckStatus,
+					},
+				};
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	}
+	return { props: {} };
 }
-export default StatusPage; 
+export default StatusPage;

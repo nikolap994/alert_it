@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 function SearchMonitor() {
 	const router = useRouter();
 
-	const handleSubmit = async event => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const searchId = event.target.searchInput.value;
@@ -21,11 +21,14 @@ function SearchMonitor() {
 	}
 
 	return (
-		<div className="h-screen  py-10">
+		<div className="h-screen py-10 max-w-7xl w-full mx-auto px-6 md:px-12">
 			<form onSubmit={handleSubmit}>
-				<div className="relative md:w-1/3 sm:w-full items-center m-auto">
+				<div className="mx-10 relative sm:w-full md:w-1/2 items-center m-auto lg:mx-auto">
+					<h2 className="text-white text-3xl md:text-4xl mb-12 md: my-12">
+						Search Monitors by ID
+					</h2>
 					<input
-						className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 max-w-[1000px]"
 						placeholder="Monitor ID"
 						type="text"
 						name="searchInput"
