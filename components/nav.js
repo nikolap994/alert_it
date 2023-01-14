@@ -50,6 +50,7 @@ function Navigation() {
 							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link href="/dashboard"> Dashboard </Link>
 							</li>
+
 							<li className="border border-white border-md lg:border-none p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black  focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link href="/status"> Status </Link>
 							</li>
