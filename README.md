@@ -42,6 +42,9 @@ If you like the project, but don't have time to contribute, that's fine. There a
 ## Style Guide
 - This project uses [Tailwind](https://tailwindcss.com/) on the front end. Please avoid using inline and scss styles unless absolutely necessary.
 
+## Formatting
+- We use [Prettier+](https://prettier.io/) to format .js files.
+
 ## API documentation
 All necessary API documentation is available here.
 
