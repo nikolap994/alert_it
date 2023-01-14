@@ -71,36 +71,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Contributors ✨
-
-Thanks goes to these wonderful people
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25112021?v=4?s=100" width="100px;" alt="Nikola Pavlović Ph.D. "/><br /><sub><b>Nikola Pavlović Ph.D. </b></sub></a><br /><a href="#infra-nikolap994" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Evil-Bees/Alertit/commits?author=nikolap994" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25206355?v=4?s=100" width="100px;" alt="Marija Ćehić"/><br /><sub><b>Marija Ćehić</b></sub></a><br /><a href="#infra-cehicm" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#design-cehicm" title="Design">🎨</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/maddy020"><img src="https://avatars.githubusercontent.com/u/103564105?v=4?s=100" width="100px;" alt="Madhav Setia"/><br /><sub><b>Madhav Setia</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=maddy020" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/BairamovAllaz"><img src="https://avatars.githubusercontent.com/u/67458149?v=4?s=100" width="100px;" alt="Bairamov Allaz"/><br /><sub><b>Bairamov Allaz</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=BairamovAllaz" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/canberkkoc1"><img src="https://avatars.githubusercontent.com/u/48130211?v=4?s=100" width="100px;" alt="Canberk Koç"/><br /><sub><b>Canberk Koç</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=canberkkoc1" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ammarali0608"><img src="https://avatars.githubusercontent.com/u/89630572?v=4?s=100" width="100px;" alt="ammarali0608"/><br /><sub><b>ammarali0608</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=ammarali0608" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
