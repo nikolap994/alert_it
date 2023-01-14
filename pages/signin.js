@@ -30,10 +30,10 @@ export default function SignIn({ csrfToken }) {
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA sample_text="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is
+				<SignInCTA highlightText="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is
 						performed through HTTP/S or TCP protocol, and allows you to check
 						for a specific service — and be the first to get notified if service
-						is down. Sounds useful?" />
+						is down. Sounds useful?" highlightBtn="Let's get started."/>
 
 				<div
 					className={`text-4xl font-bold text-center text-white  ${

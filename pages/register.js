@@ -72,8 +72,8 @@ export default function Register() {
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA sample_text="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
-									one place!"/>
+				<SignInCTA highlightText="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
+									one place!" highlightBtn="Let's get started."/>
 
 				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
 					<div className="flex-1">

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { useRouter } from 'next/router'
-import Alert from '../../components/Alert';
 
 function SearchMonitor(props) {
 
