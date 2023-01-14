@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
 			<Alert alert={alert}/>
 			<Layout >
 				<Header />
-				<Component {...pageProps} />
+				<Component showAlert={showAlert} {...pageProps} />
 			</Layout>
 		</SessionProvider>
 	);

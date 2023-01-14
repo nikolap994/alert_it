@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useRouter } from 'next/router'
 import Alert from '../../components/Alert';
 
-function SearchMonitor() {
+function SearchMonitor(props) {
 
   const router = useRouter();
 
@@ -15,8 +15,8 @@ function SearchMonitor() {
     if (isValidMongoId(searchId)) {
       router.push(`/status/${searchId}`);
     } else {
-     
-      alert("Please enter valid ID");
+      props.showAlert("Please enter valid ID", "danger")
+      
     }
 
   }
