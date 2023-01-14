@@ -83,6 +83,7 @@ Thanks goes to these wonderful people
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/maddy020"><img src="https://avatars.githubusercontent.com/u/103564105?v=4?s=100" width="100px;" alt="Madhav Setia"/><br /><sub><b>Madhav Setia</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=maddy020" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/BairamovAllaz"><img src="https://avatars.githubusercontent.com/u/67458149?v=4?s=100" width="100px;" alt="Bairamov Allaz"/><br /><sub><b>Bairamov Allaz</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=BairamovAllaz" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/canberkkoc1"><img src="https://avatars.githubusercontent.com/u/48130211?v=4?s=100" width="100px;" alt="Canberk Koç"/><br /><sub><b>Canberk Koç</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=canberkkoc1" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ammarali0608"><img src="https://avatars.githubusercontent.com/u/89630572?v=4?s=100" width="100px;" alt="ammarali0608"/><br /><sub><b>ammarali0608</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=ammarali0608" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
