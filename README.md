@@ -70,6 +70,7 @@ Thanks goes to these wonderful people
       <td align="center"><a href="https://evilbees.com/"><img src="https://avatars.githubusercontent.com/u/25206355?v=4?s=100" width="100px;" alt="Marija Ćehić"/><br /><sub><b>Marija Ćehić</b></sub></a><br /><a href="#infra-cehicm" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#design-cehicm" title="Design">🎨</a></td>
       <td align="center"><a href="https://github.com/maddy020"><img src="https://avatars.githubusercontent.com/u/103564105?v=4?s=100" width="100px;" alt="Madhav Setia"/><br /><sub><b>Madhav Setia</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=maddy020" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/BairamovAllaz"><img src="https://avatars.githubusercontent.com/u/67458149?v=4?s=100" width="100px;" alt="Bairamov Allaz"/><br /><sub><b>Bairamov Allaz</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=BairamovAllaz" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/macck7"><img src="https://avatars.githubusercontent.com/u/49000628?s=400&u=88fb08d9546d72d92ddc0eaa4da1822497dfd65e&v=4" width="100px;" alt="Mohit Kumar Gupta"/><br /><sub><b>Mohit Kumar</b></sub></a><br /><a href="https://github.com/Evil-Bees/Alertit/commits?author=macck7" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
