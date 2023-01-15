@@ -14,7 +14,7 @@ function SearchMonitor(props) {
     if (isValidMongoId(searchId)) {
       router.push(`/status/${searchId}`);
     } else {
-      props.showAlert("Please enter valid ID", "danger")
+      props.showAlert("Please enter valid ID")
       
     }
 
