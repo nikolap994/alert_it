@@ -9,7 +9,7 @@ import eyeIcon from "../public/images/icons/eye-open.png";
 import eyeHideIcon from "../public/images/icons/eye-close.png";
 import funEyeIcon from "../public/images/icons/fun-eye.png";
 
-import {signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 export default function SignIn({ csrfToken }) {
 	const [value, setValue] = useState("");
@@ -24,14 +24,7 @@ export default function SignIn({ csrfToken }) {
 			<div className="flex justify-center h-screen overflow-hidden">
 				<SignInCTA />
 
-				<div
-					className={`text-4xl font-bold text-center text-white  ${
-						router.query.success ? "visible" : "invisible"
-					}`}
-				>
-					Account created, please login!
-				</div>
-				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
+				<div className="flex items-center md:max-w-md px-6 mx-auto sm:w-1/2">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-white">
@@ -168,4 +161,3 @@ export async function getServerSideProps(context) {
 		},
 	};
 }
-

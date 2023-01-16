@@ -12,7 +12,7 @@ import Router from "next/router";
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
 
-	const onSubmit = (event) => {
+	const onSubmit = event => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -41,8 +41,8 @@ export default function Register() {
 		if (firstName && lastName && email && password && repeatPassword) {
 			if (password === repeatPassword) {
 				fetch(`/api/users`, requestOptions)
-					.then((response) => response.json())
-					.then((result) => {
+					.then(response => response.json())
+					.then(result => {
 						if (result.success === true) {
 							Router.push("/signin?success=true");
 						} else {
@@ -50,7 +50,7 @@ export default function Register() {
 							console.log(errors);
 						}
 					})
-					.catch((error) => console.log("error", error));
+					.catch(error => console.log("error", error));
 			} else {
 				console.log("Passwords are not the same.");
 			}
@@ -61,7 +61,7 @@ export default function Register() {
 
 	return (
 		<section className="flex justify-center">
-			<div className="flex flex-col mt-8">
+			<div className="flex flex-row mt-8">
 				<div className="hidden lg:block relative bg-slate-400 bg-cover lg:block lg:w-1/2">
 					<Image
 						className="mix-blend-multiply"
@@ -84,9 +84,9 @@ export default function Register() {
 						</div>
 					</div>
 				</div>
-				<div className="flex items-center w-full max-w-md p-6 md:py-12 lg:py-0 mx-auto lg:w-1/2 xl:w-2/6">
-					<div className="flex-1">
-						<div className="text-center">
+				<div className="flex items-start w-full max-w-md p-6 md:py-12 lg:py-0 mx-auto lg:w-1/2 xl:w-2/6">
+					<div className="flex-1 pt-20">
+						<div className="text-center ">
 							<h1 className="text-4xl font-bold text-center text-white">
 								Sign Up
 							</h1>
