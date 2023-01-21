@@ -11,7 +11,7 @@
 
 - Know if your website is offline right away! Reliable monitoring saves your money, reputation and clients — by alerting you before any major problems arise.
 
-- Utilize one of the instruments that administrators use most frequently to verify the availability of network devices.
+- Utilize a number of tools used most frequently by administrators to verify the availability of network devices.
 
 - Be informed!
 Even the strongest among us have downtime. However, it's crucial to be aware of it before clients are impacted!
