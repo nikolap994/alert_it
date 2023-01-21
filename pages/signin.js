@@ -119,12 +119,7 @@ export default function SignIn({ csrfToken }) {
 									/>
 								</button>
 							</label>
-							<a
-								href="/forgotten-password"
-								className="text-sm self-end text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline"
-							>
-								Forgot password?
-							</a>
+
 							<div className="flex relative">
 								<div className={`absolute left-[59%] top-1/4 ${funEyeClass}`}>
 									<Image
