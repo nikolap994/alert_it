@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getCsrfToken, getSession } from "next-auth/react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import SignInCTA from "../src/components/signin-cta";
 import Image from "next/legacy/image";
 import Link from "next/link";
@@ -12,14 +12,16 @@ import Router from "next/router";
 
 export default function Register() {
 	const [isEyeOpen, toggleEye] = useState(0);
-	const router = useRouter()
+	const router = useRouter();
 
 	const handleClick = () => {
-		toggleEye(!isEyeOpen)
-		const type = document.getElementById("password").getAttribute('type') === 'password' ? 'text' : 'password';
-		document.getElementById("password").setAttribute('type', type);
-
-	}
+		toggleEye(!isEyeOpen);
+		const type =
+			document.getElementById("password").getAttribute("type") === "password"
+				? "text"
+				: "password";
+		document.getElementById("password").setAttribute("type", type);
+	};
 
 	const onSubmit = (event) => {
 		event.preventDefault();
@@ -72,10 +74,12 @@ export default function Register() {
 	return (
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA highlightText="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from
-									one place!" highlightBtn="Let's get started."/>
+				<SignInCTA
+					highlightText="Ready to take your monitoring to the next level? Sign up to take control of your sites and devices - all from one place!"
+					highlightBtn="Let's get started."
+				/>
 
-				<div className="flex items-center md:max-w-md px-6 mx-auto md:w-1/2">
+				<div className="flex items-center px-6 mx-auto w-full md:w-3/4">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-white">
@@ -84,14 +88,14 @@ export default function Register() {
 						</div>
 						<form
 							onSubmit={onSubmit}
-							className="flex flex-col gap-7 mt-8"
+							className="flex flex-col gap-9 mt-8"
 							method="post"
 							action="/api/auth/callback/credentials"
 						>
 							<div>
 								<label
 									htmlFor="firstname"
-									className="flex flex-col block text-gray-600 text-gray-200"
+									className="text-lg flex flex-col block text-gray-600 text-gray-200"
 								>
 									First name
 								</label>
@@ -106,7 +110,7 @@ export default function Register() {
 							<div>
 								<label
 									htmlFor="lastname"
-									className="flex flex-col block text-gray-600 text-gray-200"
+									className="text-lg flex flex-col block text-gray-600 text-gray-200"
 								>
 									Last name
 								</label>
@@ -137,24 +141,24 @@ export default function Register() {
 							<div>
 								<label
 									htmlFor="password"
-									className="relative flex flex-col block text-gray-600 text-gray-200"
+									className="text-lg relative flex flex-col block text-white"
 								>
 									Password
 									<input
 										id="password"
-										placeholder='Enter your password'
+										placeholder="Enter your password"
 										autoComplete="current-password"
 										name="password"
 										type="password"
 										className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									/>
-									<button className="absolute -bottom-2 right-4" type="button">
+									<button className="absolute bottom-0 right-4" type="button">
 										<Image
 											className="h-auto w-auto"
 											src={isEyeOpen ? eyeIcon : eyeHideIcon}
 											alt="Eye icon"
-											width={35}
-											height={35}
+											width={30}
+											height={30}
 											onClick={handleClick}
 										/>
 									</button>
@@ -164,11 +168,11 @@ export default function Register() {
 							<div>
 								<label
 									htmlFor="repeatpassword"
-									className="relative flex flex-col block text-gray-600 text-gray-200"
+									className="relative text-lg flex flex-col block text-white"
 								>
 									Repeat Password
 									<input
-										placeholder="Enter your password"
+										placeholder="Re-enter your password"
 										autoComplete="current-password"
 										name="repeatpassword"
 										type="password"
@@ -197,6 +201,5 @@ export default function Register() {
 				</div>
 			</div>
 		</section>
-
 	);
 }
