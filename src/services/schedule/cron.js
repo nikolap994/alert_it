@@ -115,7 +115,7 @@ class Cron {
 
 			if (options) {
 				request(options, function (error, response) {
-					if (error) throw new Error(error);
+					if (error) return;
 
 					if ("https" === monitorType) {
 						const codes = acceptedStatusCodes.split("-");
