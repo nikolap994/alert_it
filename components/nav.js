@@ -46,7 +46,7 @@ function Navigation() {
 					/>
 
 					{session ? (
-						<ul className="flex flex-col self-start lg:flex-row text-lg items-left lg:items-center text-white mt-8 lg:m-0 mx-auto gap-4">
+						<ul className="flex flex-col text-center self-start lg:flex-row text-lg items-left lg:items-center text-white mt-8 lg:m-0 mx-auto gap-4">
 							<li className="p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black focus-within:bg-white focus-within:text-black lg:w-auto">
 								<Link href="/dashboard"> Dashboard </Link>
 							</li>
@@ -56,7 +56,7 @@ function Navigation() {
 							</li>
 							<li className="p-3 w-[200px] active:bg-white active:text-black focus:bg-white focus:text-black focus-within:bg-white focus-within:text-black  lg:w-auto">
 								<Link
-									className="flex items-center gap-3"
+									className="flex items-center justify-center gap-3"
 									href="/dashboard/user"
 								>
 									{"Edit profile"}
