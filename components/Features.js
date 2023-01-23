@@ -3,7 +3,7 @@ import { AiOutlineFall } from "react-icons/ai";
 
 function Features() {
 	return (
-		<section className="bg-gray-900 border border-blue-700">
+		<section className="bg-gray-900">
 			<div className="flex flex-wrap max-w-6xl mx-auto border border-white">
 				<div className="relative w-full lg:w-1/4 py-10 px-8 text-center border-b lg:border-b-0 lg:border-r border-white">
 					<AiOutlineFall className="absolute fill-white w-12 h-12 left-1/2 lg:left-auto lg:-right-6 -bottom-6 lg:bottom-auto" />
