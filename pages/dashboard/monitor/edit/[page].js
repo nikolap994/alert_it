@@ -105,7 +105,7 @@ function EditMonitor(props) {
 						id="enabled"
 						required
 						defaultValue={props.enabled}
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 "
 						name="enabled"
 					>
 						<option defaultValue="true">true</option>
@@ -121,7 +121,7 @@ function EditMonitor(props) {
 						id="name"
 						defaultValue={props.name}
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="text"
 						name="name"
 					/>
@@ -135,7 +135,7 @@ function EditMonitor(props) {
 						id="url"
 						required
 						defaultValue={props.url}
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="url"
 						name="url"
 					/>
@@ -149,7 +149,7 @@ function EditMonitor(props) {
 						id="heartbeat"
 						required
 						defaultValue={props.heartbeat}
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="heartbeat"
 					>
 						<option>Choose heartbeat</option>
@@ -172,7 +172,7 @@ function EditMonitor(props) {
 						defaultValue={props.acceptedStatusCodes}
 						id="acceptedStatusCodes"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="acceptedStatusCodes"
 					>
 						<option>Choose acceptedStatusCodes</option>
@@ -193,7 +193,7 @@ function EditMonitor(props) {
 						id="monitorType"
 						required
 						defaultValue={props.monitorType}
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="monitorType"
 					>
 						<option>Choose a monitor type</option>
@@ -210,7 +210,7 @@ function EditMonitor(props) {
 						id="port"
 						defaultValue={props.port}
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="number"
 						name="port"
 					/>

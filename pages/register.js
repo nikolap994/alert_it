@@ -20,7 +20,7 @@ export default function Register() {
 		document.getElementById("password").setAttribute("type", type);
 	};
 
-	const onSubmit = (event) => {
+	const onSubmit = event => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -49,8 +49,8 @@ export default function Register() {
 		if (firstName && lastName && email && password && repeatPassword) {
 			if (password === repeatPassword) {
 				fetch(`/api/users`, requestOptions)
-					.then((response) => response.json())
-					.then((result) => {
+					.then(response => response.json())
+					.then(result => {
 						if (result.success === true) {
 							Router.push("/signin?success=true");
 						} else {
@@ -58,7 +58,7 @@ export default function Register() {
 							console.log(errors);
 						}
 					})
-					.catch((error) => console.log("error", error));
+					.catch(error => console.log("error", error));
 				router.push("/signin");
 			} else {
 				console.log("Passwords are not the same.");
@@ -69,8 +69,8 @@ export default function Register() {
 	};
 
 	return (
-		<section>
-			<div className="bg-slate-900 py-16 max-w-[500px] mx-auto">
+		<section className="bg-gray-900 absolute w-full">
+			<div className="bg-slate-900 py-16 max-w-[500px] mx-auto  h-screen overflow-hidden">
 				<div className="px-6 text-black">
 					<h2 className="text-4xl font-bold text-center text-white">Sign Up</h2>
 
@@ -91,7 +91,7 @@ export default function Register() {
 								type="text"
 								name="firstname"
 								placeholder="Enter your first name"
-								className="h-12 text-lg bg-transparent block w-full px-4 py-7 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+								className="text-gray-900 h-12 text-lg bg-transparent block w-full px-4 py-7 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 							></input>
 						</div>
 
@@ -106,7 +106,7 @@ export default function Register() {
 								type="text"
 								name="lastname"
 								placeholder="Enter your last name"
-								className="h-12 text-lg py-7 text-black bg-transparent block w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+								className="text-gray-900 h-12 text-lg py-7 bg-transparent block w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 							></input>
 						</div>
 
@@ -115,7 +115,7 @@ export default function Register() {
 								Email
 								<input
 									placeholder="ex: john@gmail.com"
-									className="text-black text-lg py-7 h-12 bg-transparent block w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="text-gray-900 text-lg py-7 h-12 bg-transparent block w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 									autoComplete="email"
 									name="email"
 									type="email"
@@ -135,7 +135,7 @@ export default function Register() {
 									autoComplete="current-password"
 									name="password"
 									type="password"
-									className="text-black text-lg py-7 h-12 block bg-transparent w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="text-gray-900 text-lg py-7 h-12 block bg-transparent w-full px-4 mt-2 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 								<button className="absolute bottom-0 right-4" type="button">
 									<Image
@@ -161,7 +161,7 @@ export default function Register() {
 									autoComplete="current-password"
 									name="repeatpassword"
 									type="password"
-									className="text-black text-lg h-12 bg-transparent block w-full px-4 py-7 mt-2 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="text-gray-900 text-lg h-12 bg-transparent block w-full px-4 py-7 mt-2 bg-white border border-gray-200 rounded-md focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</label>
 						</div>
