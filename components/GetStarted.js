@@ -14,14 +14,14 @@ function GetStarted() {
 							<div className="flex justify-center items-center font-heading text-xl bg-gray-900 w-12 h-12 text-white rounded-full">
 								1
 							</div>
-							<h3 className="pl-4 font-heading font-medium text-xl text-white">
+							<h3 className="pl-4 font-heading font-medium text-2xl text-white">
 								Create a free Account
 							</h3>
 						</div>
 						<div className="p-4">
-							<p className="text-gray-400 text-base text-justify">
+							<p className="text-gray-400 md:text-lg text-justify">
 								As a community,
-								<Link href="https://evilbees.com/">Evil Bees</Link> believes
+								<Link href="https://evilbees.com/"> Evil Bees</Link> believes
 								that great solution should be available to all. Whether that's
 								so everyone can contribute, and make the solution better, or get
 								to benefit from an amazing piece of software — we will always
@@ -35,12 +35,12 @@ function GetStarted() {
 							<div className="flex justify-center items-center font-heading text-xl bg-gray-900 w-12 h-12 text-white rounded-full">
 								2
 							</div>
-							<h3 className="pl-4 font-heading font-medium text-xl text-white">
+							<h3 className="pl-4 font-heading font-medium text-2xl text-white">
 								Add sites to monitor
 							</h3>
 						</div>
 						<div className="p-4">
-							<p className="text-gray-400 text-base text-justify">
+							<p className="text-gray-400 md:text-lg text-justify">
 								AlertIt provides you with a simple interface, allowing you to
 								add any website, which you can then monitor 24/7. Additionally,
 								you will be able to check for specific response codes and
@@ -54,12 +54,12 @@ function GetStarted() {
 							<div className="flex justify-center items-center font-heading text-xl bg-gray-900 w-12 h-12 text-white rounded-full">
 								3
 							</div>
-							<h3 className="pl-4 font-heading font-medium text-xl text-white">
+							<h3 className="pl-4 font-heading font-medium text-2xl text-white">
 								Start getting alerts
 							</h3>
 						</div>
 						<div className="p-4">
-							<p className="text-gray-400 text-base text-justify">
+							<p className="text-gray-400 md:text-lg text-justify">
 								Well, hopefully your sites won't have{" "}
 								<span className="italic">any</span> downtime; but, in case they
 								do — we've got you covered! You can opt to get notified via
