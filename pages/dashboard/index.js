@@ -27,7 +27,7 @@ export default function Dashboard(props) {
 						props.monitors.map((monitor) => (
 							<div
 								key={monitor._id}
-								className={`max-w-sm rounded overflow-hidden shadow-2xl mx-auto mb-12 lg:mb-7 ${
+								className={`text-lg max-w-sm rounded overflow-hidden shadow-2xl mx-auto mb-12 lg:mb-7 ${
 									monitor.upCheckStatus ? "shadow-green-500" : "shadow-red-500"
 								} ${monitor.enabled ? "" : "grayscale"}`}
 							>

@@ -55,7 +55,7 @@ function EditMonitor(props) {
 	};
 
 	return (
-		<div className="md:w-3/4 xl:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto">
+		<div className="md:w-3/4 xl:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto text-lg">
 			<Head>
 				<title>Edit Monitor</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
