@@ -309,7 +309,7 @@ function User(props) {
 				>
 					Save
 				</button>
-			</form>
+			</div>
 			<div className="text-red-600 my-10 text-white border-t border-b border-white py-8">
 				<h3 className="text-2xl mb-4">Danger zone!</h3>
 				<button
