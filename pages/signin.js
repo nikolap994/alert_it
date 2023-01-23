@@ -30,30 +30,24 @@ export default function SignIn({ csrfToken }) {
 		<section className="bg-gray-900 absolute w-full">
 			<div className="flex justify-center h-screen overflow-hidden">
 				<SignInCTA
-					highlightText="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is
-						performed through HTTP/S or TCP protocol, and allows you to check
-						for a specific service — and be the first to get notified if service
-						is down. Sounds useful?"
+					className="absolute"
+					highlightText="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is performed through HTTP/S or TCP protocol, and allows you to check for a specific service — and be the first to get notified if service is down. Sounds useful?"
 					highlightBtn="Let's get started."
 				/>
 
 				<div
-					className={`text-4xl font-bold text-center text-white  ${
-						router.query.success ? "block" : "hidden"
+					className={`text-4xl font-bold text-center text-white top-[10%] ${
+						router.query.success ? "absolute" : "hidden"
 					}`}
 				>
-					Account created, please login!
+					Account created, please log in
 				</div>
-				<div className="flex items-center px-6 mx-auto w-full md:w-1/2">
+				<div className="flex items-center px-6 mx-auto w-full md:w-1/2 max-w-[500px]">
 					<div className="flex-1">
 						<div className="text-center">
 							<h2 className="text-4xl font-bold text-center text-white">
 								Log In
 							</h2>
-
-							<p className="mt-3 text-gray-500 text-gray-300">
-								Log in to access your account
-							</p>
 						</div>
 
 						<form
@@ -62,7 +56,7 @@ export default function SignIn({ csrfToken }) {
 							className="flex flex-col mt-8"
 						>
 							<input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-							<label className="block mb-2 text-lg text-gray-600 text-gray-200">
+							<label className="block mb-2 text-lg text-white">
 								Email
 								<input
 									placeholder="Enter your email"
@@ -90,7 +84,7 @@ export default function SignIn({ csrfToken }) {
 									}}
 								/>
 							</label>
-							<label className="relative flex flex-col block mt-8 mb-4 text-lg text-gray-600 text-gray-200">
+							<label className="relative flex flex-col block mt-8 mb-4 text-lg text-white">
 								Password
 								<input
 									placeholder="Enter your password"
@@ -131,19 +125,19 @@ export default function SignIn({ csrfToken }) {
 									/>
 								</div>
 								<button
-									className={`mt-8 py-2 px-8 mx-auto border-none rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
+									className={`text-lg mt-8 py-2 px-8 mx-auto border-none rounded-md bg-white fade-out hover:bg-indigo-600 hover:text-white ${buttonClass}`}
 									type="submit"
 									href="/"
 									onClick={() => {
 										setFununEyeClass(
-											"transition-transform duration-1000	 translate-y-[100vh]"
+											"transition-transform duration-1000	translate-y-[100vh]"
 										);
 									}}
 								>
 									Sign in
 								</button>
 							</div>
-							<p className="mt-6 text-sm text-center text-gray-400">
+							<p className="mt-8 text-lg text-center text-gray-400">
 								Don&#39;t have an account yet?
 								<Link
 									className="text-blue-400 focus:outline-none focus:underline hover:underline"
