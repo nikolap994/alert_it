@@ -11,7 +11,11 @@ export default function Dashboard(props) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 
-			<section className="max-w-7xl mx-auto px-4 md:px-6 text-white bg-slate-900">
+			<section
+				className={`max-w-7xl mx-auto px-4 md:px-6 text-white bg-slate-900 ${
+					props.monitors.length == 0 ? "h-screen" : ""
+				} `}
+			>
 				<div className="pt-10 flex flex-col md:flex-row max-w-lg justify-between md:items-center mb-8 lg:mb-12 lg:mb-0">
 					<h1 className="text-5xl my-8 md:my-16">Dashboard</h1>
 
@@ -24,7 +28,7 @@ export default function Dashboard(props) {
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-16">
 					{props.monitors.length > 0 &&
-						props.monitors.map((monitor) => (
+						props.monitors.map(monitor => (
 							<div
 								key={monitor._id}
 								className={`text-lg max-w-sm rounded overflow-hidden shadow-2xl mx-auto mb-12 lg:mb-7 ${
@@ -40,6 +44,7 @@ export default function Dashboard(props) {
 									alt="monitor"
 								/>
 								<div className="px-6 py-4">
+									<p key={monitor._id + "_ID"}>Monitor ID: {monitor._id}</p>
 									<p key={monitor._id + "_Enabled"}>
 										Enabled: {monitor.enabled ? "ON" : "OFF"}
 									</p>
@@ -104,11 +109,11 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/monitors?userId=" + session._doc._id,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return result.data;
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		response.props.monitors = monitors;
 		return response;

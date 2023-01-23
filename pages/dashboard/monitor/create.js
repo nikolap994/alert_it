@@ -5,7 +5,7 @@ import Head from "next/head";
 export default function CreateMonitor(props) {
 	const { data: session } = useSession();
 
-	const submitForm = (e) => {
+	const submitForm = e => {
 		e.preventDefault();
 
 		const name = e.target.name.value;
@@ -39,17 +39,17 @@ export default function CreateMonitor(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/monitors", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				if (result.success === true) {
 					Router.push("/");
 				}
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 	};
 
 	return (
-		<div className="md:w-3/4 lg:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto">
+		<div className="md:w-3/4 lg:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto h-screen overflow-hidden">
 			<Head>
 				<title>Create new Monitor</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -68,7 +68,7 @@ export default function CreateMonitor(props) {
 					<input
 						required
 						id="name"
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="text"
 						name="name"
 					/>
@@ -81,7 +81,7 @@ export default function CreateMonitor(props) {
 					<input
 						id="url"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="url"
 						name="url"
 					/>
@@ -94,7 +94,7 @@ export default function CreateMonitor(props) {
 					<select
 						id="heartbeat"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="heartbeat"
 					>
 						<option className="bg-slate-800 text-white" defaultValue="1">
@@ -125,7 +125,7 @@ export default function CreateMonitor(props) {
 					<select
 						required
 						id="acceptedStatusCodes"
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="acceptedStatusCodes"
 					>
 						<option>Choose accepted status codes</option>
@@ -157,7 +157,7 @@ export default function CreateMonitor(props) {
 					<select
 						id="monitorType"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="monitorType"
 					>
 						<option>Choose a monitor type</option>
@@ -177,7 +177,7 @@ export default function CreateMonitor(props) {
 					<input
 						id="port"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="number"
 						name="port"
 					/>
@@ -190,7 +190,7 @@ export default function CreateMonitor(props) {
 					<select
 						id="enabled"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="enabled"
 					>
 						<option className="bg-emerald-800 text-white" defaultValue="true">
