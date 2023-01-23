@@ -28,20 +28,14 @@ export default function SignIn({ csrfToken }) {
 
 	return (
 		<section className="bg-gray-900 absolute w-full">
+			<div
+				className={`text-4xl font-bold text-center text-white top-[10%] ${
+					router.query.success ? "absolute" : "hidden"
+				}`}
+			>
+				Account created, please log in
+			</div>
 			<div className="flex justify-center h-screen overflow-hidden">
-				<SignInCTA
-					className="absolute"
-					highlightText="AlertIt is an uptime monitoring service by Evil Bees. Monitoring is performed through HTTP/S or TCP protocol, and allows you to check for a specific service — and be the first to get notified if service is down. Sounds useful?"
-					highlightBtn="Let's get started."
-				/>
-
-				<div
-					className={`text-4xl font-bold text-center text-white top-[10%] ${
-						router.query.success ? "absolute" : "hidden"
-					}`}
-				>
-					Account created, please log in
-				</div>
 				<div className="flex items-center px-6 mx-auto w-full md:w-1/2 max-w-[500px]">
 					<div className="flex-1">
 						<div className="text-center">
