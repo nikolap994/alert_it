@@ -54,7 +54,7 @@ export default function CreateMonitor(props) {
 				<title>Create new Monitor</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-			<h1 className="text-4xl mb-12">Create Monitor</h1>
+			<h1 className="mb-2 text-4xl mb-12">Create Monitor</h1>
 
 			<form
 				className="w-full flex flex-col gap-5"
