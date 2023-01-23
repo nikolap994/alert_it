@@ -9,7 +9,7 @@ function OpenSource() {
 						<h2 className="mt-8 mb-6 text-4xl lg:text-5xl font-bold text-white pb-4">
 							Why Open Source?
 						</h2>
-						<p className="lg:max-w-xl mx-auto mb-10 text-lg text-white text-left px-4">
+						<p className="lg:max-w-xl mx-auto mb-10 text-lg text-white text-left px-4 md:text-lg">
 							As developers, we believe in being a part of something greater,
 							and take great pride in our community. That's why Alertit, as
 							other{" "}
@@ -19,7 +19,7 @@ function OpenSource() {
 							projects is completely <span>free</span>!
 						</p>
 
-						<p className="lg:max-w-xl mx-auto mb-10 text-lg text-white text-left px-4">
+						<p className="lg:max-w-xl mx-auto mb-10 text-lg text-white text-left px-4 md:text-lg">
 							{" "}
 							This project is built a community, with community in mind, and
 							will always be updated and upgraded in a timely manner. Want to
