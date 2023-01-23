@@ -20,7 +20,7 @@ export default function Register() {
 		document.getElementById("password").setAttribute("type", type);
 	};
 
-	const onSubmit = event => {
+	const onSubmit = (event) => {
 		event.preventDefault();
 
 		const firstName = event.target.firstname.value;
@@ -49,22 +49,22 @@ export default function Register() {
 		if (firstName && lastName && email && password && repeatPassword) {
 			if (password === repeatPassword) {
 				fetch(`/api/users`, requestOptions)
-					.then(response => response.json())
-					.then(result => {
+					.then((response) => response.json())
+					.then((result) => {
 						if (result.success === true) {
 							Router.push("/signin?success=true");
 						} else {
 							const errors = JSON.parse(result);
-							console.log(errors);
+							alert(errors);
 						}
 					})
-					.catch(error => console.log("error", error));
+					.catch((error) => console.log("error", error));
 				router.push("/signin");
 			} else {
-				console.log("Passwords are not the same.");
+				alert("Passwords are not the same.");
 			}
 		} else {
-			console.log("Missing data");
+			alert("Data not complete.");
 		}
 	};
 
