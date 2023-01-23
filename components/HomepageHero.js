@@ -49,7 +49,7 @@ function HomepageHero() {
 					</div>
 				</div>
 			</section>
-			<div className="h-8 w-full	bg-indigo-400 py-12"></div>
+			<div className="h-8 w-full bg-indigo-400 py-12"></div>
 		</>
 	);
 }
