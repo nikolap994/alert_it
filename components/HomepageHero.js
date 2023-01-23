@@ -19,7 +19,7 @@ function HomepageHero() {
 
 				<div className="relative px-8 container pt-12 md:pt-20 mx-auto">
 					<div className="hidden 2xl:block absolute bottom-0 w-3/5 mb-40 h-2"></div>
-					<div className="w-full lg:w-1/2 2xl:w-2/5 mb-12 mb:mb-0">
+					<div className="w-full lg:w-1/2 2xl:w-2/5 mb-12 md:mb-0">
 						<span className="text-xl lg:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-200 to-orange-600">
 							Never miss a beat!
 						</span>
@@ -49,7 +49,7 @@ function HomepageHero() {
 					</div>
 				</div>
 			</section>
-			<div className="h-24 w-full	bg-indigo-400 py-24"></div>
+			<div className="h-8 w-full	bg-indigo-400 py-12"></div>
 		</>
 	);
 }
