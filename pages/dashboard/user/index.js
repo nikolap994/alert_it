@@ -1,6 +1,7 @@
 import { signOut, useSession, getSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Router from "next/router";
 
 function User(props) {
 	const { data: session } = useSession();
@@ -59,6 +60,36 @@ function User(props) {
 				}
 			})
 			.catch((error) => console.log("error", error));
+	};
+
+	const deleteAccount = (e, remove) => {
+		e.preventDefault();
+
+		if (confirm("Do you want to delete ?") == true) {
+			const raw = JSON.stringify({
+				id: remove,
+			});
+			const myHeaders = new Headers();
+
+			myHeaders.append("Content-Type", "application/json");
+
+			const requestOptions = {
+				method: "DELETE",
+				headers: myHeaders,
+				body: raw,
+				redirect: "follow",
+			};
+
+			fetch(props.SITE_URI + "/api/users", requestOptions)
+				.then((response) => response.json())
+				.then((result) => {
+					if (result.success === true) {
+						signOut();
+						Router.push("/");
+					}
+				})
+				.catch((error) => console.log("error", error));
+		}
 	};
 
 	return (
@@ -278,13 +309,15 @@ function User(props) {
 				>
 					Save
 				</button>
-
-				<div className="text-red-600 my-10 text-white border-t border-b border-white py-8">
-					<h3 className="text-2xl mb-4">Danger zone!</h3>
-					<button className="text-lg hover:cursor-pointer  text-red-900 hover:text-red-500">
-						Delete Account
-					</button>
-				</div>
+			</form>
+			<div className="text-red-600 my-10 text-white border-t border-b border-white py-8">
+				<h3 className="text-2xl mb-4">Danger zone!</h3>
+				<button
+					onClick={(event) => deleteAccount(event, session._doc._id)}
+					className="text-lg hover:cursor-pointer  text-red-900 hover:text-red-500"
+				>
+					Delete Account
+				</button>
 			</div>
 		</div>
 	);

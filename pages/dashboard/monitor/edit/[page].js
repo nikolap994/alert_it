@@ -8,7 +8,7 @@ import { FiChevronDown } from "react-icons/fi";
 function EditMonitor(props) {
 	const [showDelete, setDeleteMonitor] = useState(false);
 	const { data: session } = useSession();
-	const submitForm = (e) => {
+	const submitForm = e => {
 		e.preventDefault();
 
 		const name = e.target.name.value;
@@ -45,14 +45,43 @@ function EditMonitor(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/monitors", requestOptions)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				if (result.success === true) {
 					Router.push("/");
 				}
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 	};
+
+	function deleteMonitorEvent(e, remove) {
+		e.preventDefault();
+
+		if (confirm("Do you want to delete ?") == true) {
+			const raw = JSON.stringify({
+				id: remove,
+			});
+			const myHeaders = new Headers();
+
+			myHeaders.append("Content-Type", "application/json");
+
+			const requestOptions = {
+				method: "DELETE",
+				headers: myHeaders,
+				body: raw,
+				redirect: "follow",
+			};
+
+			fetch(props.SITE_URI + "/api/monitors", requestOptions)
+				.then(response => response.json())
+				.then(result => {
+					if (result.success === true) {
+						Router.push("/");
+					}
+				})
+				.catch(error => console.log("error", error));
+		}
+	}
 
 	return (
 		<div className="md:w-3/4 xl:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto text-lg">
@@ -192,28 +221,29 @@ function EditMonitor(props) {
 				>
 					Save
 				</button>
-				<div className="flex flex-col">
-					<button
-						className="text-lg mt-6 text-left flex items-center gap-3 pb-2 mb-4 border-b border-red-700 text-red-700"
-						onClick={() => setDeleteMonitor((prev) => !prev)}
-						type="button"
-					>
-						Delete Monitor
-						<FiChevronDown
-							className={`h-5 w-5 ${showDelete ? "" : "rotate-180"}`}
-						/>
-					</button>
-
-					<button
-						className={`w-1/2 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 ${
-							showDelete ? "block" : "hidden"
-						}`}
-						type="submit"
-					>
-						Delete
-					</button>
-				</div>
 			</form>
+			<div className="flex flex-col">
+				<button
+					className="text-lg mt-6 text-left flex items-center gap-3 pb-2 mb-4 border-b border-red-700 text-red-700"
+					onClick={() => setDeleteMonitor(prev => !prev)}
+					type="button"
+				>
+					Delete Monitor
+					<FiChevronDown
+						className={`h-5 w-5 ${showDelete ? "" : "rotate-180"}`}
+					/>
+				</button>
+
+				<button
+					className={`w-1/2 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 ${
+						showDelete ? "block" : "hidden"
+					}`}
+					onClick={event => deleteMonitorEvent(event, props.monitorId)}
+					type="submit"
+				>
+					Delete
+				</button>
+			</div>
 		</div>
 	);
 }
@@ -243,8 +273,8 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/monitors?id=" + monitorId,
 			requestOptions
 		)
-			.then((response) => response.json())
-			.then((result) => {
+			.then(response => response.json())
+			.then(result => {
 				return {
 					props: {
 						monitorId: monitorId,
@@ -259,7 +289,7 @@ export async function getServerSideProps(context) {
 					},
 				};
 			})
-			.catch((error) => console.log("error", error));
+			.catch(error => console.log("error", error));
 
 		return response;
 	}
