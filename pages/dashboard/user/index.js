@@ -7,7 +7,7 @@ function User(props) {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	const submitForm = e => {
+	const submitForm = (e) => {
 		e.preventDefault();
 
 		const firstName = e.target.firstName.value;
@@ -53,13 +53,13 @@ function User(props) {
 		};
 
 		fetch(props.SITE_URI + "/api/users", requestOptions)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				if (result.success === true) {
 					router.reload(window.location.pathname);
 				}
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 	};
 
 	const deleteAccount = (e, remove) => {
@@ -81,14 +81,14 @@ function User(props) {
 			};
 
 			fetch(props.SITE_URI + "/api/users", requestOptions)
-				.then(response => response.json())
-				.then(result => {
+				.then((response) => response.json())
+				.then((result) => {
 					if (result.success === true) {
 						signOut();
 						Router.push("/");
 					}
 				})
-				.catch(error => console.log("error", error));
+				.catch((error) => console.log("error", error));
 		}
 	};
 
@@ -162,7 +162,7 @@ function User(props) {
 					</div>
 				</div>
 
-				<div className="pt-12 pb-8 md:py-0 border-b border-white flex flex-col gap-5">
+				<div className="pt-12 pb-8 md:pt-0 md:pb-16 border-b border-white flex flex-col gap-5">
 					<div>
 						<label className="block mb-2 dark:text-white" htmlFor="ENABLE_SMTP">
 							ENABLE SMTP
@@ -313,7 +313,7 @@ function User(props) {
 			<div className="text-red-600 my-10 text-white border-t border-b border-white py-8">
 				<h3 className="text-2xl mb-4">Danger zone!</h3>
 				<button
-					onClick={event => deleteAccount(event, session._doc._id)}
+					onClick={(event) => deleteAccount(event, session._doc._id)}
 					className="text-lg hover:cursor-pointer  text-red-900 hover:text-red-500"
 				>
 					Delete Account
@@ -340,11 +340,11 @@ export async function getServerSideProps(context) {
 			process.env.SITE_URI + "/api/users?email=" + session._doc.email,
 			requestOptions
 		)
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				return result.data[0];
 			})
-			.catch(error => console.log("error", error));
+			.catch((error) => console.log("error", error));
 
 		response.SITE_URI = process.env.SITE_URI;
 		return { props: response };
