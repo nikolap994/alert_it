@@ -5,44 +5,53 @@ import { useState } from "react";
 
 function StatusPage(props) {
 	const [isStatusTrue] = useState(true);
+	const moment = require("moment");
 
 	return (
 		<div className="mt-20 max-w-7xl mx-auto h-screen">
-			<div className="flex flex-col lg:flex-row lg:gap-16 mx-auto px-4 md:px-12 lg:px-20">
+			<div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 mx-auto px-4 md:px-12 lg:px-20">
 				<Image
 					className="w-full lg:w-1/2"
 					src={"data:image/gif;base64," + props.image}
 					width={400}
 					height={400}
 				/>
-				<ul className="text-stone-50 text-2xl flex flex-col gap-4 mt-16">
-					<li className="text-indigo-200">
+				<ul className="text-stone-50 text-2xl flex flex-col gap-4 mt-16 lg:mt-0">
+					<li className="text-violet-400">
 						Site Name: <span className="text-white">{props.name}</span>
 					</li>
-					<li className="text-indigo-200">
+					<hr />
+					<li className="text-violet-400">
 						<Link href={props.url}>
 							Site URL :{" "}
 							<span className="text-white hover:underline">{props.url}</span>{" "}
 						</Link>
 					</li>
-					<li className="text-indigo-200">
+					<hr />
+					<li className="text-violet-400">
 						Last check time:{" "}
-						<span className="text-white">{props.lastCheck}</span>
+						<span className="text-white">
+							{moment(props.lastCheck).format("MMMM Do YYYY, h:mm:ss a")}
+						</span>
 					</li>
+					<hr />
 
-					<li className="text-indigo-200">
+					<li className="text-violet-400">
 						Status:{" "}
 						<span className={isStatusTrue ? "text-green-400" : "text-red-400"}>
 							{props.upCheckStatus.toString()}
 						</span>
 					</li>
-					<li className="text-indigo-200">
+					<hr />
+					<li className="text-violet-400">
 						Accepted Status code:{" "}
 						<span className="text-white">{props.acceptedStatusCodes}</span>
 					</li>
-					<li className="text-indigo-200">
+					<hr />
+					<li className="text-violet-400">
 						Port: <span className="text-white">{props.port}</span>
 					</li>
+					<hr />
 				</ul>
 			</div>
 		</div>
