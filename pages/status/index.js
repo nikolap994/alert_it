@@ -23,7 +23,7 @@ function SearchMonitor(props) {
 	return (
 		<div className="h-screen py-10 max-w-7xl w-full mx-auto px-6 md:px-12">
 			<form onSubmit={handleSubmit}>
-				<div className="mx-10 relative sm:w-full md:w-1/2 items-center m-auto lg:mx-auto">
+				<div className="md:mx-10 relative sm:w-full md:w-1/2 items-center m-auto lg:mx-auto">
 					<h2 className="text-white text-3xl md:text-4xl mb-12 md: my-12">
 						Search Monitors by ID
 					</h2>
