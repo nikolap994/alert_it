@@ -111,7 +111,7 @@ export default function Register() {
 						</div>
 
 						<div>
-							<label htmlFor="email" className="block">
+							<label htmlFor="email" className="flex flex-col block text-xl lg:text-2xl">
 								Email
 								<input
 									placeholder="ex: john@gmail.com"
@@ -155,7 +155,7 @@ export default function Register() {
 								htmlFor="repeatpassword"
 								className="relative flex flex-col block text-xl lg:text-2xl"
 							>
-								Repeat Password
+								Confirm Password
 								<input
 									placeholder="Re-enter your password"
 									autoComplete="current-password"
