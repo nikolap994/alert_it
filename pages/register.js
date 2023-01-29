@@ -70,7 +70,7 @@ export default function Register() {
 
 	return (
 		<section className="bg-gray-900 absolute w-full">
-			<div className="bg-slate-900 py-16 max-w-[500px] mx-auto  h-screen overflow-hidden">
+			<div className="bg-slate-900 py-16 max-w-[500px] mx-auto overflow-hidden">
 				<div className="px-6 text-black">
 					<h2 className="text-4xl font-bold text-center text-white">Sign Up</h2>
 
