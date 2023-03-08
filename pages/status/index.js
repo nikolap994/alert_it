@@ -17,7 +17,7 @@ function SearchMonitor(props) {
 	};
 
 	function isValidMongoId(Id) {
-		return Id.match(/^[0-9a-fA-F]{24}$/);
+		return Id.match(/^[0-9a-fA-F]{24}$/); 
 	}
 
 	return (
