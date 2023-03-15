@@ -49,7 +49,7 @@ export default function CreateMonitor(props) {
 	};
 
 	return (
-		<div className="md:w-3/4 lg:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto overflow-hidden">
+		<div className="md:w-3/4 lg:w-1/2 max-w-[700px] py-16 px-8 md:px-12 text-white mx-auto h-screen overflow-hidden">
 			<Head>
 				<title>Create new Monitor</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -61,15 +61,14 @@ export default function CreateMonitor(props) {
 				method="POST"
 				onSubmit={submitForm}
 			>
-				
 				<div>
 					<label className="block mb-2 dark:text-white" htmlFor="name">
 						Name
 					</label>
 					<input
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						placeholder="Add a name"
+						id="name"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="text"
 						name="name"
 					/>
@@ -82,8 +81,7 @@ export default function CreateMonitor(props) {
 					<input
 						id="url"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						placeholder="Add a url"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="url"
 						name="url"
 					/>
@@ -94,16 +92,15 @@ export default function CreateMonitor(props) {
 						Heartbeat
 					</label>
 					<select
-						
 						id="heartbeat"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="heartbeat"
 					>
-						<option className="bg-slate-800" defaultValue="1">
+						<option className="bg-slate-800 text-white" defaultValue="1">
 							1
 						</option>
-						<option className="bg-slate-800 text-white" defaultValue="5" >
+						<option className="bg-slate-800 text-white" defaultValue="5">
 							5
 						</option>
 						<option className="bg-slate-800 text-white" defaultValue="10">
@@ -120,7 +117,7 @@ export default function CreateMonitor(props) {
 
 				<div>
 					<label
-						className="block mb-2 text-white"
+						className="block mb-2 dark:text-white"
 						htmlFor="acceptedStatusCodes"
 					>
 						Accepted Status Codes
@@ -128,9 +125,10 @@ export default function CreateMonitor(props) {
 					<select
 						required
 						id="acceptedStatusCodes"
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="acceptedStatusCodes"
 					>
+						<option>Choose accepted status codes</option>
 						<option className="bg-slate-800 text-white" defaultValue="any">
 							Any
 						</option>
@@ -159,9 +157,10 @@ export default function CreateMonitor(props) {
 					<select
 						id="monitorType"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="monitorType"
 					>
+						<option>Choose a monitor type</option>
 						<option className="bg-slate-800 text-white" defaultValue="https">
 							https
 						</option>
@@ -178,10 +177,9 @@ export default function CreateMonitor(props) {
 					<input
 						id="port"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						placeholder="Choose port number"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						type="number"
-						name="port"				
+						name="port"
 					/>
 				</div>
 
@@ -192,20 +190,20 @@ export default function CreateMonitor(props) {
 					<select
 						id="enabled"
 						required
-						className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:border-blue-500 transition-colors cursor-pointer block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						className="bg-gray-50 border border-gray-300  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700"
 						name="enabled"
 					>
-						<option className="bg-slate-800 text-white" defaultValue="true">
+						<option className="bg-emerald-800 text-white" defaultValue="true">
 							true
 						</option>
-						<option className="bg-slate-800 text-white" defaultValue="false">
+						<option className="bg-red-800 text-white" defaultValue="false">
 							false
 						</option>
 					</select>
 				</div>
 
 				<button
-					className="w-1/2 mx-auto mt-6 text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					className="w-1/2 mx-auto mt-6 text-white bg-blue-700 hover:ring-2 hover:outline-none hover:ring-blue-300 rounded-lg px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit"
 				>
 					Save
