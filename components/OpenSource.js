@@ -11,7 +11,7 @@ function OpenSource() {
 						</h2>
 						<p className="lg:max-w-xl mx-auto mb-10 text-lg text-white text-left px-4 md:text-lg">
 							As developers, we believe in being a part of something greater,
-							and take great pride in our community. That's why Alertit, as
+							and take great pride in our community. That&apos;s why Alertit, as
 							other{" "}
 							<Link className="text-yellow-400" href="https://evilbees.com/">
 								Evil Bees

@@ -7,8 +7,8 @@ export default function Custom500() {
 					<h1 className="text-3xl pt-12">A Server-side error has occurred.</h1>
 					<p className="pt-8 max-w-[500px] mx-auto">
 						Ironically, <span className="italic">our</span> server is going
-						through some things. Rest assured we're on it, and it will be back
-						up in no time!
+						through some things. Rest assured we&apos;re on it, and it will be
+						back up in no time!
 					</p>
 				</div>
 			</div>

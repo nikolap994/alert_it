@@ -10,9 +10,9 @@ export default function Custom404() {
 				<div>
 					<h2 className="text-3xl pt-12">Oopsie!</h2>
 					<p className="pt-8 max-w-[500px] mx-auto">
-						The page you're trying to reach has been moved or doesn't exist.
-						Restarting from <Link href="/">Home</Link> and you will undoubtedly
-						fix the issue.
+						The page you&apos;re trying to reach has been moved or doesn&apos;t
+						exist. Restarting from <Link href="/">Home</Link> and you will
+						undoubtedly fix the issue.
 					</p>
 				</div>
 			</div>

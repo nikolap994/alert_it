@@ -49,7 +49,7 @@ function AboutAlertit() {
 								</h3>
 								<p className="text-lg lg:text-2xl text-gray-200">
 									Is your email service still available? What about the crucial
-									database server, for instance? Let's verify! Track any
+									database server, for instance? Let&apos;s verify! Track any
 									specified service that is active on any port.
 								</p>
 							</div>

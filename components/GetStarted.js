@@ -22,10 +22,10 @@ function GetStarted() {
 							<p className="text-gray-400 md:text-lg text-justify">
 								As a community,
 								<Link href="https://evilbees.com/"> Evil Bees</Link> believes
-								that great solution should be available to all. Whether that's
-								so everyone can contribute, and make the solution better, or get
-								to benefit from an amazing piece of software — we will always
-								stand by Open Source.
+								that great solution should be available to all. Whether
+								that&apos;s so everyone can contribute, and make the solution
+								better, or get to benefit from an amazing piece of software — we
+								will always stand by Open Source.
 							</p>
 						</div>
 					</div>
@@ -60,9 +60,9 @@ function GetStarted() {
 						</div>
 						<div className="p-4">
 							<p className="text-gray-400 md:text-lg text-justify">
-								Well, hopefully your sites won't have{" "}
+								Well, hopefully your sites won&apos;t have{" "}
 								<span className="italic">any</span> downtime; but, in case they
-								do — we've got you covered! You can opt to get notified via
+								do — we&apos;ve got you covered! You can opt to get notified via
 								either Email, Slack, or Custom Webhooks.
 							</p>
 						</div>
